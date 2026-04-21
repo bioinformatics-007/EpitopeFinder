@@ -1,0 +1,12 @@
+.git
+__pycache__
+*.pyc
+Results_*
+results_*
+tools/ncbi-blast
+model_sav
+vaxelan_env
+frontend/node_modules
+frontend/.next
+*.log
+miniconda*.sh

@@ -99,14 +99,25 @@ def generate_tool_output_path(timestamp, strategy_no, batch_no, uniprot_id, tool
         'toxinpred3': 'toxinpred3_out',
     }
     output_filename = tool_output_names.get(tool_name, f"{tool_name}_out")
-    output_path = (
-        results_dir_base /
-        f"Results_{timestamp}" /
-        f"strategy_{strategy_no}" /
-        f"batch{batch_no}" /
-        f"{uniprot_id}_output" /
-        f"{output_filename}.{extension}"
-    )
+    
+    if timestamp:
+        # Legacy behavior (CLI)
+        output_path = (
+            results_dir_base /
+            f"Results_{timestamp}" /
+            f"strategy_{strategy_no}" /
+            f"batch{batch_no}" /
+            f"{uniprot_id}_output" /
+            f"{output_filename}.{extension}"
+        )
+    else:
+        # Direct behavior (Web or refactored CLI)
+        output_path = (
+            results_dir_base /
+            f"batch{batch_no}" /
+            f"{uniprot_id}_output" /
+            f"{output_filename}.{extension}"
+        )
     return output_path
 
 def print_status(msg, status="info"):
@@ -181,7 +192,7 @@ def fetch_uniprot_sequence(uniprot_id, logger):
     except requests.RequestException as e:
         logger.error(f"Failed to fetch UniProt ID: {uniprot_id}: {e}")
         print_status(f"Error: Failed to fetch UniProt ID: {uniprot_id}", "error")
-        sys.exit(1)
+        raise RuntimeError(f"Failed to fetch UniProt ID: {uniprot_id}: {e}")
 
 def detect_pathogen_type_from_uniprot(uniprot_id):
     logger = logging.getLogger('VaxElan')
@@ -436,11 +447,11 @@ def check_dependencies():
     except ImportError as e:
         logger.error(f"Missing Python dependency: {e}")
         print_status(f"Error: Missing Python dependency: {e}. Install with 'conda install pandas biopython requests'", "error")
-        sys.exit(1)
+        raise RuntimeError(f"Failed to fetch UniProt ID: {uniprot_id}: {e}")
     if not shutil.which("python3"):
         logger.error("Python3 not found in system PATH")
         print_status("Error: Python3 not found in system PATH", "error")
-        sys.exit(1)
+        raise RuntimeError("Python3 not found in system PATH")
     blastp_path = shutil.which("blastp")
     if not blastp_path:
         blastp_path = os.environ.get("BLAST_PATH", ROOT_DIR / "tools" / "ncbi-blast" / "bin" / "blastp")
@@ -452,7 +463,7 @@ def check_dependencies():
             )
             logger.error(error_msg)
             print_status(error_msg, "error")
-            sys.exit(1)
+            raise RuntimeError(error_msg)
     logger.info(f"BLASTP found at {blastp_path}")
     print_status(f"BLASTP found at {blastp_path}", "success")
     clbtope_db = os.environ.get("CLBTOPE_DB", ROOT_DIR / "tools" / "clbtope"/ "clbtope" / "Database")
@@ -463,14 +474,27 @@ def check_dependencies():
         )
         logger.error(error_msg)
         print_status(error_msg, "error")
-        sys.exit(1)
+        raise RuntimeError(error_msg)
     logger.info(f"ClbTope database found at {clbtope_db}")
     print_status(f"ClbTope database found at {clbtope_db}", "success")
     logger.info("All dependencies verified.")
     print_status("All dependencies verified.", "success")
 
-def select_pathogen_type():
+def select_pathogen_type(_choice=None):
     logger = logging.getLogger('VaxElan')
+    types = {"1": "bacteria", "2": "virus", "3": "protozoa", "4": "fungi"}
+    # Programmatic bypass
+    if _choice is not None:
+        # Accept either the key ("1") or the value ("bacteria")
+        if _choice in types.values():
+            logger.info(f"Programmatic pathogen type: {_choice}")
+            return _choice
+        selected_type = types.get(str(_choice))
+        if selected_type:
+            logger.info(f"Programmatic pathogen type: {selected_type}")
+            return selected_type
+        raise ValueError(f"Invalid pathogen type choice: {_choice}")
+    # Interactive CLI
     print("\nSelect pathogen type:")
     print("1. Bacteria")
     print("2. Virus")
@@ -478,7 +502,6 @@ def select_pathogen_type():
     print("4. Fungi")
     while True:
         choice = input("Enter number (1-4): ").strip()
-        types = {"1": "bacteria", "2": "virus", "3": "protozoa", "4": "fungi"}
         selected_type = types.get(choice)
         if selected_type:
             logger.info(f"User selected pathogen type: {selected_type}")
@@ -492,20 +515,19 @@ def validate_pathogen_type(input_value, selected_type, is_uniprot=False):
     logger.info(f"Detected pathogen type: {detected_type}")
     print_status(f"Detected pathogen type: {detected_type}")
     if detected_type == "unknown":
-        logger.error(f"Could not detect pathogen type from input: {input_value}")
-        print_status(f"Error: Could not detect pathogen type. Verify input or ensure FASTA headers contain organism information.", "error")
-        sys.exit(1)
+        logger.warning(f"Could not detect pathogen type from input. Using user-selected type: {selected_type}")
+        print_status(f"Could not detect pathogen type from input. Using user-selected type: {selected_type}", "warning")
+        return selected_type
     if detected_type != selected_type:
         types_to_choice = {"bacteria": "1", "virus": "2", "protozoa": "3", "fungi": "4"}
         correct_choice = types_to_choice.get(detected_type, "unknown")
         logger.error(f"Selected pathogen type ({selected_type}) does not match detected type ({detected_type})")
-        print_status(f"Error: Selected pathogen type ({selected_type}) does not match detected type ({detected_type}). Select {correct_choice} for {detected_type}.", "error")
-        sys.exit(1)
+        raise ValueError(f"Selected pathogen type ({selected_type}) does not match detected type ({detected_type}).")
     logger.info(f"Pathogen type validated successfully: {selected_type}")
     print_status(f"Pathogen type validated: {selected_type}", "success")
     return selected_type
 
-def select_mhci_method():
+def select_mhci_method(_choice=None):
     MHCI_METHODS = {
         "a": ("ann", "Artificial Neural Network (ANN)"),
         "b": ("comblib_sidney2008", "Comblib Sidney 2008"),
@@ -518,6 +540,13 @@ def select_mhci_method():
         "i": ("smm", "Stabilized Matrix Method (SMM)"),
         "j": ("smmpmbec", "SMM with Pseudo Matrix (SMMPMBEC)")
     }
+    # Programmatic bypass
+    if _choice is not None:
+        choice = str(_choice).strip().lower()
+        if choice in MHCI_METHODS:
+            return choice, MHCI_METHODS[choice][1]
+        raise ValueError(f"Invalid MHC-I method choice: {_choice}. Valid: {list(MHCI_METHODS.keys())}")
+    # Interactive CLI
     print("\nSelect MHC-I prediction method:")
     for key, (_, name) in MHCI_METHODS.items():
         print(f"{key}. {name}")
@@ -528,7 +557,7 @@ def select_mhci_method():
             return choice, MHCI_METHODS[choice][1]
         print_status("Invalid choice. Please enter a-j.", "error")
 
-def select_mhcii_method():
+def select_mhcii_method(_choice=None):
     MHCII_METHODS = {
          "1": ("nmel", "NetMHCIIpan_EL"),
          "2": ("nmba", "NetMHCIIpan_BA"),
@@ -542,6 +571,17 @@ def select_mhcii_method():
         "10": ("nmel43", "NetMHCIIpan_EL-4.3"),
         "11": ("nmba43", "NetMHCIIpan_BA-4.3")
     }
+    # Programmatic bypass — accept key ("1") or method code ("nmel")
+    if _choice is not None:
+        choice = str(_choice).strip()
+        if choice in MHCII_METHODS:
+            return MHCII_METHODS[choice][0], MHCII_METHODS[choice][1]
+        # Try matching by method code
+        for k, (code, name) in MHCII_METHODS.items():
+            if code == choice:
+                return code, name
+        raise ValueError(f"Invalid MHC-II method choice: {_choice}. Valid keys: {list(MHCII_METHODS.keys())}")
+    # Interactive CLI
     print("\nSelect MHC-II prediction method:")
     for key, (_, name) in MHCII_METHODS.items():
         print(f"{key}. {name}")
@@ -590,7 +630,7 @@ def move_misplaced_outputs(uniprot_id, batch_no, results_dir_base, timestamp, lo
                 logger.error(f"Failed to move {tool_name} output from {src_path} to {dest_path}: {e}")
                 print_status(f"Error moving {tool_name} output: {e}", "error")
 
-def strategy_1(input_file, results_dir, pathogen_type, logger, batch_files, batch_dirs, uniprot_mapping, failed_tools=None, selected_tools=None):
+def strategy_1(input_file, results_dir, pathogen_type, logger, batch_files, batch_dirs, uniprot_mapping, failed_tools=None, selected_tools=None, _mhci_method=None, _mhcii_method=None):
     if failed_tools is None:
         failed_tools = []
     
@@ -652,8 +692,8 @@ def strategy_1(input_file, results_dir, pathogen_type, logger, batch_files, batc
             logger.warning(f"Unknown tool selected: {tool}")
             print_status(f"Unknown tool selected: {tool}", "warning")
 
-    mhci_key, mhcii_name = select_mhci_method()
-    mhcii_key, mhcii_name = select_mhcii_method()
+    mhci_key, mhcii_name = select_mhci_method(_choice=_mhci_method)
+    mhcii_key, mhcii_name = select_mhcii_method(_choice=_mhcii_method)
 
     for batch_idx, batch_dir in enumerate(batch_dirs, 1):
         batch_no = batch_idx
@@ -676,12 +716,12 @@ def strategy_1(input_file, results_dir, pathogen_type, logger, batch_files, batc
                 if tool_name not in selected_tools:
                     continue
                 output_file = generate_tool_output_path(
-                    timestamp=TIMESTAMP,
+                    timestamp=None,
                     strategy_no=1,
                     batch_no=batch_no,
                     uniprot_id=uniprot_id,
                     tool_name=tool_name,
-                    results_dir_base=ROOT_DIR
+                    results_dir_base=results_dir
                 )
                 output_file.parent.mkdir(parents=True, exist_ok=True)
                 logger.debug(f"Task for {tool_name} (UniProt: {uniprot_id}): output_file={output_file}")
@@ -706,7 +746,7 @@ def strategy_1(input_file, results_dir, pathogen_type, logger, batch_files, batc
                 if tool_name in ['mhc1', 'mhc2']:
                     for uniprot_id, info in uniprot_mapping.items():
                         if info['batch_no'] == batch_no:
-                            move_misplaced_outputs(uniprot_id, batch_no, ROOT_DIR, TIMESTAMP, logger)
+                            move_misplaced_outputs(uniprot_id, batch_no, results_dir, None, logger)
             else:
                 logger.error(f"{tool_name} failed for batch {batch_no}: {error}")
                 print_status(f"{tool_name} failed for batch {batch_no}: {error or 'Unknown error'}", "error")
@@ -1078,7 +1118,7 @@ from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from modules.graph import plot_epitope_analysis
 
-def strategy_5(input_file, pathogen_type, results_dir, logger, batch_files, batch_dirs, uniprot_mapping, uniprot_id_to_extract=None, failed_tools=None):
+def strategy_5(input_file, pathogen_type, results_dir, logger, batch_files, batch_dirs, uniprot_mapping, uniprot_id_to_extract=None, failed_tools=None, _pre_predicted_fastas=None, _mhci_method=None, _mhcii_method=None):
     if failed_tools is None:
         failed_tools = []
     logger.info("Executing Strategy 5: Sequential Epitope Analysis with Pre-Filtering")
@@ -1098,17 +1138,25 @@ def strategy_5(input_file, pathogen_type, results_dir, logger, batch_files, batc
     timestamp_dir = create_timestamped_dir(str(results_dir))
     logger.debug(f"Created directory: {timestamp_dir}")
 
-    have_predicted = input("Do you have pre-predicted epitope FASTA files for B-cell, MHC-I, and MHC-II? (yes/no): ").strip().lower()
-    while have_predicted not in ["yes", "no"]:
-        print_status("Please enter 'yes' or 'no'.", "error")
-        have_predicted = input("Do you have pre-predicted FASTA files for B-cell, MHC-I, and MHC-II? ").strip().lower()
+    # Programmatic bypass for pre-predicted FASTA paths
+    if _pre_predicted_fastas is not None:
+        have_predicted = "yes" if _pre_predicted_fastas else "no"
+        bcell_fasta = _pre_predicted_fastas.get("bcell", "")
+        mhci_fasta = _pre_predicted_fastas.get("mhci", "")
+        mhcii_fasta = _pre_predicted_fastas.get("mhcii", "")
+    else:
+        have_predicted = input("Do you have pre-predicted epitope FASTA files for B-cell, MHC-I, and MHC-II? (yes/no): ").strip().lower()
+        while have_predicted not in ["yes", "no"]:
+            print_status("Please enter 'yes' or 'no'.", "error")
+            have_predicted = input("Do you have pre-predicted FASTA files for B-cell, MHC-I, and MHC-II? ").strip().lower()
 
     epitope_types = ["bcell", "mhci", "mhcii"]
 
     if have_predicted == "yes":
-        bcell_fasta = input("Enter the path to B-cell epitope FASTA file: ").strip()
-        mhci_fasta = input("Enter the path to MHC-I epitope FASTA file: ").strip()
-        mhcii_fasta = input("Enter the path to MHC-II epitope FASTA file: ").strip()
+        if _pre_predicted_fastas is None:
+            bcell_fasta = input("Enter the path to B-cell epitope FASTA file: ").strip()
+            mhci_fasta = input("Enter the path to MHC-I epitope FASTA file: ").strip()
+            mhcii_fasta = input("Enter the path to MHC-II epitope FASTA file: ").strip()
 
         epitope_fastas = []
         for fasta, name in [(bcell_fasta, "bcell"), (mhci_fasta, "mhci"), (mhcii_fasta, "mhcii")]:
@@ -1335,8 +1383,8 @@ def strategy_5(input_file, pathogen_type, results_dir, logger, batch_files, batc
             failed_tools.append(f"Batch_processing_batch{batch_no}")
             continue
 
-        mhci_key, mhci_name = select_mhci_method()
-        mhcii_key, mhcii_name = select_mhcii_method()
+        mhci_key, mhci_name = select_mhci_method(_choice=_mhci_method)
+        mhcii_key, mhcii_name = select_mhcii_method(_choice=_mhcii_method)
 
         batch_dir = timestamp_dir / f"batch{batch_no}"
         batch_dir.mkdir(parents=True, exist_ok=True)
@@ -1536,22 +1584,30 @@ def extract_positions_from_prediction_csv(csv_path):
         print(f"Error parsing prediction CSV {csv_path}: {e}")
         return []
 
-def strategy_6(results_dir, logger):
+def strategy_6(results_dir, logger, _mode=None, _assembly_config=None):
     """Strategy 6: Multi-Epitope Vaccine Assembly & 3D Structural Validation"""
     print_status("\n## Strategy 6: Multi-Epitope Vaccine Assembly & 3D Modeling", "info")
  
     # 1. INPUT MODE SELECTION
-    print("\nHow would you like to provide the vaccine sequence?")
-    print("1. Assemble from epitope CSV files (Strategy 5 outputs)")
-    print("2. Upload/Paste a custom pre-assembled vaccine sequence")
-    mode_choice = input("Enter choice (1 or 2): ").strip()
+    if _mode is not None:
+        mode_choice = "2" if _mode == "custom" else "1"
+    else:
+        print("\nHow would you like to provide the vaccine sequence?")
+        print("1. Assemble from epitope CSV files (Strategy 5 outputs)")
+        print("2. Upload/Paste a custom pre-assembled vaccine sequence")
+        mode_choice = input("Enter choice (1 or 2): ").strip()
  
     final_vaccine_sequence = ""
  
     if mode_choice == "2":
         print("\n[Custom Input Mode]")
         print("Please provide the full vaccine construct sequence for 3D modeling.")
-        path_or_seq = input("Enter path to FASTA/TXT file OR paste the raw sequence: ").strip()
+        if _assembly_config and _assembly_config.custom_fasta_path:
+            path_or_seq = _assembly_config.custom_fasta_path
+        elif _assembly_config and _assembly_config.custom_sequence:
+            path_or_seq = _assembly_config.custom_sequence
+        else:
+            path_or_seq = input("Enter path to FASTA/TXT file OR paste the raw sequence: ").strip()
      
         path_or_seq = path_or_seq.replace("'", "").replace('"', "")
      
@@ -1613,14 +1669,27 @@ def strategy_6(results_dir, logger):
         # ───────────────────────────────────────────────────────────────
         # Ask about SASA AFTER showing 3D results
         # ───────────────────────────────────────────────────────────────
-        do_sasa = input("\nDo you want to perform SASA exposure analysis on the predicted structure? (y/n): ").strip().lower()
+        if _assembly_config is not None:
+            do_sasa = 'y' if _assembly_config.run_sasa else 'n'
+        elif _mode is not None:
+            do_sasa = 'n'
+        else:
+            do_sasa = input("\nDo you want to perform SASA exposure analysis on the predicted structure? (y/n): ").strip().lower()
       
         if do_sasa == 'y':
-            has_csv = input("Do you have a CSV file with epitope positions? (y/n): ").strip().lower()
+            if _assembly_config is not None and getattr(_assembly_config, "sasa_csv_path", None):
+                has_csv = 'y'
+            elif _mode is not None:
+                has_csv = 'n'
+            else:
+                has_csv = input("Do you have a CSV file with epitope positions? (y/n): ").strip().lower()
             epitope_positions = {}
          
             if has_csv == 'y':
-                csv_path = input("Enter path to epitope positions CSV (columns: Type,Start,End): ").strip()
+                if _assembly_config and _assembly_config.sasa_csv_path:
+                    csv_path = _assembly_config.sasa_csv_path
+                else:
+                    csv_path = input("Enter path to epitope positions CSV (columns: Type,Start,End): ").strip()
                 if os.path.exists(csv_path):
                     try:
                         df = pd.read_csv(csv_path)
@@ -1635,7 +1704,10 @@ def strategy_6(results_dir, logger):
                     print_status("CSV not found.", "warning")
             else:
                 print("\nNo position CSV provided → predicting epitopes on the vaccine sequence.")
-                vaccine_fasta_input = input("Path to vaccine FASTA file (Enter to use loaded sequence): ").strip()
+                if _assembly_config is None:
+                    vaccine_fasta_input = input("Path to vaccine FASTA file (Enter to use loaded sequence): ").strip()
+                else:
+                    vaccine_fasta_input = _assembly_config.custom_fasta_path if _assembly_config.custom_fasta_path else ""
             
                 if vaccine_fasta_input and os.path.exists(vaccine_fasta_input):
                     try:
@@ -1770,9 +1842,14 @@ def strategy_6(results_dir, logger):
     else:
         # Mode 1: Assembly logic — NOW WITH FULL ORDER DESCRIPTIONS & ALL 6 ORDERS
         print("\nPlease provide paths to the selected epitope CSV files.")
-        b_path = input("B-cell Epitopes CSV Path: ").strip()
-        c_path = input("CTL (MHC-I) Epitopes CSV Path: ").strip()
-        h_path = input("HTL (MHC-II) Epitopes CSV Path: ").strip()
+        if _assembly_config is not None:
+            b_path = _assembly_config.bcell_csv_path
+            c_path = _assembly_config.ctl_csv_path
+            h_path = _assembly_config.htl_csv_path
+        else:
+            b_path = input("B-cell Epitopes CSV Path: ").strip()
+            c_path = input("CTL (MHC-I) Epitopes CSV Path: ").strip()
+            h_path = input("HTL (MHC-II) Epitopes CSV Path: ").strip()
    
         def load_csv(p):
             if p and os.path.exists(p): return pd.read_csv(p)
@@ -1788,22 +1865,28 @@ def strategy_6(results_dir, logger):
         c_term = "HHHHHH" if input("Add 6x-Histidine purification tag? (y/n): ").lower() == 'y' else ""
    
         try:
-            b_num = int(input("No. of B-cell epitopes: ") or 0)
-            c_num = int(input("No. of CTL epitopes: ") or 0)
-            h_num = int(input("No. of HTL epitopes: ") or 0)
-          
-            # ───────────────────────────────────────────────────────────────
-            # Show user all order options BEFORE they choose
-            # ───────────────────────────────────────────────────────────────
-            print("\nAvailable Assembly Orders (choose 1-6):")
-            print("1: B-cell → MHC-I → MHC-II")
-            print("2: MHC-I → MHC-II → B-cell")
-            print("3: MHC-II → B-cell → MHC-I")
-            print("4: B-cell → MHC-II → MHC-I")
-            print("5: MHC-I → B-cell → MHC-II")
-            print("6: MHC-II → MHC-I → B-cell")
-            print("Default: 1")
-            order_opt = input("Assembly Order (1-6): ").strip() or "1"
+            if _assembly_config is not None:
+                b_num = _assembly_config.bcell_count
+                c_num = _assembly_config.ctl_count
+                h_num = _assembly_config.htl_count
+                order_opt = _assembly_config.assembly_order or "1"
+            else:
+                b_num = int(input("No. of B-cell epitopes: ") or 0)
+                c_num = int(input("No. of CTL epitopes: ") or 0)
+                h_num = int(input("No. of HTL epitopes: ") or 0)
+              
+                # ───────────────────────────────────────────────────────────────
+                # Show user all order options BEFORE they choose
+                # ───────────────────────────────────────────────────────────────
+                print("\nAvailable Assembly Orders (choose 1-6):")
+                print("1: B-cell → MHC-I → MHC-II")
+                print("2: MHC-I → MHC-II → B-cell")
+                print("3: MHC-II → B-cell → MHC-I")
+                print("4: B-cell → MHC-II → MHC-I")
+                print("5: MHC-I → B-cell → MHC-II")
+                print("6: MHC-II → MHC-I → B-cell")
+                print("Default: 1")
+                order_opt = input("Assembly Order (1-6): ").strip() or "1"
      
             print_status("Assembling vaccine candidates...", "info")
             final_df = run_assembly(dfs, [b_num, c_num, h_num], ["KK", "AAY", "GPGPG"], order_opt, n_term, c_term)
@@ -1968,6 +2051,13 @@ def main():
                     print_status("Executing Strategy 5: Predicted Epitope Analysis", "info")
                     failed_tools = strategy_5(input_file, confirmed_pathogen_type, results_dir, logger, batch_files, batch_dirs, uniprot_mapping)
 
+            except ValueError as e:
+                print_status(f"Error: {e}", "error")
+                continue
+            except Exception as e:
+                print_status(f"Unexpected error: {e}", "error")
+                logger.error(f"Unexpected error in main loop: {e}", exc_info=True)
+                continue
             finally:
                 if temp_dir and temp_dir.exists():
                     shutil.rmtree(temp_dir, ignore_errors=True)

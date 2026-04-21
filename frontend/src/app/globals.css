@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Academic Reset ──────────────────────────────────────────── */
+:root {
+  --color-bg: #D5D5CC;
+  --color-header: #3A332D;
+  --color-menu: #635B53;
+  --color-border: #999;
+  --color-text: #000;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Selection ───────────────────────────────────────────────── */
+::selection {
+  background-color: #ECEF01;
+  color: #000;
+}
+
+/* ── Focus visible ───────────────────────────────────────────── */
+*:focus-visible {
+  outline: 1px dotted #3A332D;
+  outline-offset: 1px;
+}
+
+/* ── Protein sequence styling ────────────────────────────────── */
+.sequence-display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  line-height: 1.75;
+  word-break: break-all;
+  color: #000;
+}
+
+/* ── Loading skeleton ────────────────────────────────────────── */
+.skeleton {
+  background: #e5e5e0;
+}
+
+/* ── Data table row hover ────────────────────────────────────── */
+.data-row:hover {
+  background-color: #F4F4EE;
+}
+
+/* ── Kill all shadows globally ───────────────────────────────── */
+* {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}

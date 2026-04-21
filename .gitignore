@@ -1,0 +1,73 @@
+# ==============================================================
+# VaxElan 2.0 — .gitignore
+# ==============================================================
+
+# --- Large bioinformatics tools (download separately) ---------
+tools/
+model_sav/
+
+# --- Result output folders ------------------------------------
+Results_*/
+results_*/
+
+# --- Large binary database files in modules/ ------------------
+# These must be downloaded separately (see README.md)
+modules/*.db
+modules/*.pkl
+modules/swissprot.*
+modules/taxdb.*
+modules/taxonomy4blast.sqlite3
+modules/temp_*.fasta
+modules/temp_sequences.txt
+modules/test_*
+modules/local_output/
+modules/output/
+modules/vax_output/
+modules/human_db/
+
+# --- Python cache ---------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Logs and process files -----------------------------------
+*.log
+*.pid
+dump.rdb
+
+# --- Frontend build artifacts and dependencies ----------------
+frontend/node_modules/
+frontend/.next/
+frontend/tsconfig.tsbuildinfo
+
+# --- Scratch/one-off dev scripts in frontend/ -----------------
+frontend/fix_syntax.py
+frontend/remove_modern_styles.py
+frontend/remove_modern_ui.py
+frontend/remove_pills.py
+frontend/theme_refactor.py
+
+# --- Root-level test and temp files ---------------------------
+test_mhc1.csv
+test_mhc2.csv
+test_netctl.txt
+2
+Untitled document.txt
+*.png
+mhcii_debug/
+
+# --- Upload and job runtime artifacts -------------------------
+uploads/
+jobs/
+
+# --- System and IDE files -------------------------------------
+.DS_Store
+.env
+.docker
+.idea/
+.vscode/
+
+# --- Conda / Python environments inside project ---------------
+vaxelan_env/
+

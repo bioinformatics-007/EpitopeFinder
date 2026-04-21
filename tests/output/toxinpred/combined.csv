@@ -1,0 +1,3 @@
+Subject,ML Score,Sequence,Prediction
+seq1,0.734,MKTLLILALVGA,Toxin
+seq2,0.71,GAVLILMVL,Toxin
