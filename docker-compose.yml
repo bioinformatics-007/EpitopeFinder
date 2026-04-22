@@ -18,9 +18,9 @@ services:
       - "8000:8000"
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
-      - CLBTOPE_DB=/Vaxelan_2_0/tools/clbtope/clbtope/Database
+      - CLBTOPE_DB=/EpitopeFinder_2_0/tools/clbtope/clbtope/Database
     volumes:
-      - ./Results:/Vaxelan_2_0/Results
+      - ./Results:/EpitopeFinder_2_0/Results
     depends_on:
       - redis
 
@@ -29,9 +29,9 @@ services:
     command: celery -A backend.celery_app worker --loglevel=info
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
-      - CLBTOPE_DB=/Vaxelan_2_0/tools/clbtope/clbtope/Database
+      - CLBTOPE_DB=/EpitopeFinder_2_0/tools/clbtope/clbtope/Database
     volumes:
-      - ./Results:/Vaxelan_2_0/Results
+      - ./Results:/EpitopeFinder_2_0/Results
     depends_on:
       - redis
 

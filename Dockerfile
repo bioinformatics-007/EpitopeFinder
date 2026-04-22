@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # --------------------------------------------------
 # Working directory
 # --------------------------------------------------
-WORKDIR /Vaxelan_2_0
+WORKDIR /EpitopeFinder_2_0
 
 # --------------------------------------------------
 # System dependencies
@@ -25,15 +25,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 # --------------------------------------------------
 # Install NCBI BLAST+ (stable HTTPS version)
 # --------------------------------------------------
-RUN mkdir -p /Vaxelan_2_0/tools/ncbi-blast \
+RUN mkdir -p /EpitopeFinder_2_0/tools/ncbi-blast \
     && wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.17.0/ncbi-blast-2.17.0+-x64-linux.tar.gz \
        -O /tmp/blast.tar.gz \
     && tar -xzf /tmp/blast.tar.gz \
-       -C /Vaxelan_2_0/tools/ncbi-blast --strip-components=1 \
+       -C /EpitopeFinder_2_0/tools/ncbi-blast --strip-components=1 \
     && rm /tmp/blast.tar.gz
 
 # Add BLAST to PATH
-ENV PATH="/Vaxelan_2_0/tools/ncbi-blast/bin:$PATH"
+ENV PATH="/EpitopeFinder_2_0/tools/ncbi-blast/bin:$PATH"
 
 # --------------------------------------------------
 # Copy full project (includes tools/clbtope)
@@ -41,9 +41,9 @@ ENV PATH="/Vaxelan_2_0/tools/ncbi-blast/bin:$PATH"
 COPY . .
 
 # --------------------------------------------------
-# Tell VaxElan where ClbTope DB lives
+# Tell EpitopeFinder where ClbTope DB lives
 # --------------------------------------------------
-ENV CLBTOPE_DB=/Vaxelan_2_0/tools/clbtope/clbtope/Database
+ENV CLBTOPE_DB=/EpitopeFinder_2_0/tools/clbtope/clbtope/Database
 
 # --------------------------------------------------
 # Run FastAPI Backend

@@ -7,9 +7,9 @@ import sys
 import psutil
 import csv
 
-# Define root directory dynamically (Vaxelan_2_0 directory)
+# Define root directory dynamically (EpitopeFinder_2_0 directory)
 SCRIPT_DIR = Path(__file__).resolve().parent  # modules/
-ROOT_DIR = SCRIPT_DIR.parent  # Vaxelan_2_0/
+ROOT_DIR = SCRIPT_DIR.parent  # EpitopeFinder_2_0/
 
 # Define path to SignalP model directory
 MODEL_DIR = ROOT_DIR / "tools/signalp-6.0h.fast/signalp6_fast/signalp-6-package/signalp/model_weights"
@@ -165,7 +165,7 @@ def run_signalp(input_fasta, output_dir, model_dir=MODEL_DIR):
         # Locate the signalp6 executable
         signalp_executable = shutil.which("signalp6")
         if not signalp_executable:
-            print_status("Error: 'signalp6' executable not found in PATH. Ensure it is installed in your Conda environment (vaxelan_new).", "error")
+            print_status("Error: 'signalp6' executable not found in PATH. Ensure it is installed in your Conda environment (epitopefinder_new).", "error")
             raise FileNotFoundError("signalp6 executable not found in PATH")
 
         # Validate inputs
@@ -183,7 +183,7 @@ def run_signalp(input_fasta, output_dir, model_dir=MODEL_DIR):
             print_status(
                 f"Model directory not found or missing distilled_model_signalp6.pt. "
                 f"Ensure the model weights are in {MODEL_DIR} or specify the correct path with --model-dir. "
-                f"Check Vaxelan_2_0 documentation or SignalP provider for model weights.",
+                f"Check EpitopeFinder_2_0 documentation or SignalP provider for model weights.",
                 "error"
             )
             raise FileNotFoundError("Model directory not found or missing model file")
@@ -194,7 +194,7 @@ def run_signalp(input_fasta, output_dir, model_dir=MODEL_DIR):
             print_status(
                 f"Required model file not found: {model_file}. "
                 f"Please ensure the SignalP model weights are installed correctly. "
-                f"Refer to Vaxelan_2_0 or SignalP documentation for obtaining distilled_model_signalp6.pt.",
+                f"Refer to EpitopeFinder_2_0 or SignalP documentation for obtaining distilled_model_signalp6.pt.",
                 "error"
             )
             raise FileNotFoundError(f"Model file {model_file} not found")

@@ -11,12 +11,12 @@ import time
 import tempfile
 
 # Set up logging
-logger = logging.getLogger('VaxElan')
+logger = logging.getLogger('EpitopeFinder')
 logging.basicConfig(level=logging.INFO)
 
 # Dynamically resolve root directory
 current_path = Path(__file__).resolve()
-while current_path.name != "Vaxelan_2_0" and current_path != current_path.parent:
+while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
     current_path = current_path.parent
 root_dir = current_path
 

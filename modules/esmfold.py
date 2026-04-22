@@ -12,7 +12,7 @@ ESMFOLD_API = "https://api.esmatlas.com/foldSequence/v1/pdb/"
 VALID_AA = set("ACDEFGHIKLMNPQRSTVWY")
 ERRAT_BIN = os.environ.get("ERRAT_BIN", "")
 HEADERS = {
-    "User-Agent": "VaxElan/1.0"
+    "User-Agent": "EpitopeFinder/1.0"
 }
 
 # ================= MolProbity VDW Radii (Bondi) =================

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-core_pipeline.py — Programmatic API for VaxElan 2.0
+core_pipeline.py — Programmatic API for EpitopeFinder
 
-This module provides a clean, non-interactive interface to the VaxElan
+This module provides a clean, non-interactive interface to the EpitopeFinder
 vaccine design pipeline.  It is consumed by:
   • The FastAPI backend  (backend/tasks.py)
   • Unit / integration tests
@@ -52,7 +52,7 @@ class AssemblyConfig:
 
 @dataclass
 class PipelineRequest:
-    """All parameters needed to run a VaxElan strategy."""
+    """All parameters needed to run a EpitopeFinder strategy."""
     input_value: str                        # FASTA file path or UniProt ID
     strategy: int                           # 1-6
     pathogen_type: str = "bacteria"         # bacteria / virus / protozoa / fungi
@@ -77,7 +77,7 @@ class PipelineResult:
 
 
 # ---------------------------------------------------------------------------
-# Imports from the existing VaxElan codebase
+# Imports from the existing EpitopeFinder codebase
 # ---------------------------------------------------------------------------
 # We add the project root to sys.path so that ``from modules.xxx`` works
 # regardless of the working directory.
@@ -96,7 +96,7 @@ def _resolve_input(input_value: str, logger) -> tuple:
     """Return (input_file: Path, temp_dir: Path | None, is_uniprot: bool)."""
     from final import fetch_uniprot_sequence, validate_fasta_file
 
-    temp_dir = Path(tempfile.mkdtemp(prefix="vaxelan_"))
+    temp_dir = Path(tempfile.mkdtemp(prefix="epitopefinder_"))
 
     # Case 1: raw FASTA content pasted by user (starts with '>')
     if input_value.strip().startswith(">"):
@@ -127,7 +127,7 @@ def _resolve_input(input_value: str, logger) -> tuple:
 
 def execute(request: PipelineRequest) -> PipelineResult:
     """
-    Run a VaxElan strategy **without any interactive prompts**.
+    Run a EpitopeFinder strategy **without any interactive prompts**.
 
     Parameters
     ----------

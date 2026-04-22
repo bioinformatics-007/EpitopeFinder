@@ -4,10 +4,10 @@ import Link from 'next/link';
 export default function LandingPage() {
   return (
     <div className="text-sm text-black leading-normal">
-      <h2 className="text-xl font-bold border-b border-[#ccc] pb-1 mb-4 text-[#3A332D]">Welcome to VaxElan 2.0 Web Server</h2>
+      <h2 className="text-xl font-bold border-b border-[#ccc] pb-1 mb-4 text-[#3A332D]">Welcome to EpitopeFinder Web Server</h2>
       
       <p className="mb-4">
-        <strong>VaxElan</strong> is an <em>in silico</em> method developed to predict and design multi-epitope vaccine constructs from pathogenic protein sequences. This server integrates robust machine learning classifiers, IEDB stabilization metrics, and structural assessment protocols to prioritize optimal vaccine candidates.
+        <strong>EpitopeFinder</strong> is an <em>in silico</em> method developed to predict and design multi-epitope vaccine constructs from pathogenic protein sequences. This server integrates robust machine learning classifiers, IEDB stabilization metrics, and structural assessment protocols to prioritize optimal vaccine candidates.
       </p>
 
       <p className="mb-4">
@@ -24,8 +24,8 @@ export default function LandingPage() {
 
       <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Reference</h3>
       <p className="mb-6 bg-[#F4F4EE] p-3 border border-[#ccc]">
-        If you are using VaxElan 2.0, please cite:<br/><br/>
-        <em>Yukti, et al. "VaxElan 2.0: A next-generation tool for prediction and designing of multi-epitope vaccines." (In Preparation, 2026)</em>
+        If you are using EpitopeFinder, please cite:<br/><br/>
+        <em>Yukti, et al. "EpitopeFinder: A next-generation tool for prediction and designing of multi-epitope vaccines." (In Preparation, 2026)</em>
       </p>
 
       <div className="flex gap-4">

@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Starting Redis..."
-docker start vaxelan_redis || docker run -d --name vaxelan_redis -p 6379:6379 redis:7-alpine
+docker start epitopefinder_redis || docker run -d --name epitopefinder_redis -p 6379:6379 redis:7-alpine
 
-export PATH=/home/amity/miniconda3/envs/vaxelan_web_env/bin:$PATH
+export PATH=/home/amity/miniconda3/envs/epitopefinder_web_env/bin:$PATH
 export CLBTOPE_DB=$(pwd)/tools/clbtope/clbtope/Database
 
 echo "Starting Backend..."

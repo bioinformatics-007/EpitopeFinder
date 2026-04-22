@@ -10,7 +10,7 @@ warnings.filterwarnings("ignore", category=RuntimeWarning, module="scipy._lib.me
 
 # Define root directory
 try:
-    ROOT_DIR = Path(__file__).resolve().parent.parent  # Aims for Vaxelan_2_0/
+    ROOT_DIR = Path(__file__).resolve().parent.parent  # Aims for EpitopeFinder_2_0/
 except NameError:
     ROOT_DIR = Path.cwd()  # Fallback to current working directory
 

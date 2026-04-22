@@ -40,7 +40,7 @@ def temp_fasta_file(tmp_path):
 @pytest.fixture
 def setup_logging():
     """Set up logging for tests."""
-    logger = logging.getLogger('VaxElan')
+    logger = logging.getLogger('EpitopeFinder')
     logger.setLevel(logging.INFO)
     handler = logging.StreamHandler(sys.stdout)
     handler.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))

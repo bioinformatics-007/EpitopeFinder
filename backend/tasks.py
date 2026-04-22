@@ -1,5 +1,5 @@
 """
-VaxElan 2.0 — Celery tasks wrapping core_pipeline.execute().
+EpitopeFinder — Celery tasks wrapping core_pipeline.execute().
 
 Each submitted job becomes a Celery task. Job metadata (status,
 progress, outputs) is persisted as a JSON file in the results
@@ -18,7 +18,7 @@ _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-logger = logging.getLogger("vaxelan.tasks")
+logger = logging.getLogger("epitopefinder.tasks")
 
 # ── Job metadata helpers ─────────────────────────────────────────
 
@@ -44,10 +44,10 @@ def _write_meta(job_id: str, meta: dict):
 
 # ── Celery Task ──────────────────────────────────────────────────
 
-@celery_app.task(bind=True, name="vaxelan.run_pipeline")
+@celery_app.task(bind=True, name="epitopefinder.run_pipeline")
 def run_pipeline(self, job_id: str, request_dict: dict):
     """
-    Execute a VaxElan pipeline strategy asynchronously.
+    Execute a EpitopeFinder pipeline strategy asynchronously.
 
     Parameters
     ----------

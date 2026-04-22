@@ -7,7 +7,7 @@ import pandas as pd
 from Bio import SeqIO
 
 # Define root directory
-ROOT_DIR = Path("/home/yuktika/Downloads/Vaxelan_2_0")  # Hardcoded to ensure correct base directory
+ROOT_DIR = Path("/home/yuktika/Downloads/EpitopeFinder_2_0")  # Hardcoded to ensure correct base directory
 
 # Define default paths
 NETSOLP_SCRIPT = ROOT_DIR / "tools/netsolp-1.0.ALL/predict.py"  # Points to predict.py

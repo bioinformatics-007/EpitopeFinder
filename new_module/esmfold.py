@@ -24,7 +24,7 @@ def run_esmfold(
     and create PyMOL script with special coloring for linkers.
     """
     if logger is None:
-        logger = logging.getLogger('VaxElan')
+        logger = logging.getLogger('EpitopeFinder')
 
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -136,7 +136,7 @@ def create_pymol_script(pdb_file: str, pml_file: str, full_sequence: str) -> Non
     - Distinct colors for specific linkers (AYY, GPGPG, KK)
     """
     script = f"""\
-# VaxElan generated PyMOL script - {os.path.basename(pdb_file)}
+# EpitopeFinder generated PyMOL script - {os.path.basename(pdb_file)}
 # pLDDT confidence coloring + special linker highlighting
 
 load {pdb_file}, vaccine

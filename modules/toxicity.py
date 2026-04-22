@@ -14,7 +14,7 @@ import numpy as np
 # Paths
 # Dynamically Resolve root directory
 current_path = Path(__file__).resolve()
-while current_path.name != "Vaxelan_2_0" and current_path != current_path.parent:
+while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
     current_path = current_path.parent
 ROOT_DIR = current_path
 
@@ -49,7 +49,7 @@ def find_model_file(path):
     alternatives = [
         ROOT_DIR / "tools/toxinpred2/RF_model",
         ROOT_DIR / "tools/RF_model",
-        Path("/home/yuktika/Downloads/Vaxelan_2_0/tools/toxinpred2/RF_model")
+        Path("/home/yuktika/Downloads/EpitopeFinder_2_0/tools/toxinpred2/RF_model")
     ]
     for alt in alternatives:
         if alt.is_file():

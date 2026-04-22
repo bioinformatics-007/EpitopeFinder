@@ -140,7 +140,7 @@ def run_algpred_down(input_fasta, output_dir, batch_idx=1, output_file=None, mod
                 return 1
 
             command = [
-                "conda", "run", "-n", "vaxelan_new", "algpred2",
+                "conda", "run", "-n", "epitopefinder_new", "algpred2",
                 "-i", str(clean_fasta),
                 "-o", str(temp_output),
                 "-m", model,

@@ -6,7 +6,7 @@ export default function ContactPage() {
       <h2 className="text-xl font-bold border-b border-[#ccc] pb-1 mb-4 text-[#3A332D]">Contact</h2>
 
       <p className="mb-4">
-        For technical queries, collaboration requests, or bug reports related to VaxElan 2.0, please contact the development team using the information below.
+        For technical queries, collaboration requests, or bug reports related to EpitopeFinder, please contact the development team using the information below.
       </p>
 
       <table className="w-full border-collapse border border-[#999] mb-6 text-sm">
@@ -16,7 +16,7 @@ export default function ContactPage() {
           </tr>
           <tr>
             <td className="border border-[#999] px-3 py-2 font-bold w-40">Team</td>
-            <td className="border border-[#999] px-3 py-2">VaxElan Development Team — Bioinformatics &amp; Software Engineering</td>
+            <td className="border border-[#999] px-3 py-2">EpitopeFinder Development Team — Bioinformatics &amp; Software Engineering</td>
           </tr>
           <tr className="bg-[#F4F4EE]">
             <td className="border border-[#999] px-3 py-2 font-bold">Description</td>
@@ -24,7 +24,7 @@ export default function ContactPage() {
           </tr>
           <tr>
             <td className="border border-[#999] px-3 py-2 font-bold">Email</td>
-            <td className="border border-[#999] px-3 py-2"><a href="mailto:support@vaxelan.net" className="text-[#3A332D] underline">support@vaxelan.net</a></td>
+            <td className="border border-[#999] px-3 py-2"><a href="mailto:support@epitopefinder.net" className="text-[#3A332D] underline">support@epitopefinder.net</a></td>
           </tr>
           <tr className="bg-[#F4F4EE]">
             <td className="border border-[#999] px-3 py-2 font-bold">Source Code</td>
@@ -35,7 +35,7 @@ export default function ContactPage() {
 
       <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Related Resources</h3>
       <p className="mb-4">
-        VaxElan is built upon the following global biological databases and prediction servers:
+        EpitopeFinder is built upon the following global biological databases and prediction servers:
       </p>
       <ul className="list-disc pl-6 mb-6 space-y-1">
         <li><a href="https://www.iedb.org/" target="_blank" rel="noreferrer" className="text-[#3A332D] underline">IEDB — Immune Epitope Database</a></li>
@@ -46,8 +46,8 @@ export default function ContactPage() {
 
       <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Reference</h3>
       <p className="mb-6 bg-[#F4F4EE] p-3 border border-[#ccc]">
-        If you are using VaxElan 2.0, please cite:<br/><br/>
-        <em>Yukti, et al. &quot;VaxElan 2.0: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot; (In Preparation, 2026)</em>
+        If you are using EpitopeFinder, please cite:<br/><br/>
+        <em>Yukti, et al. &quot;EpitopeFinder: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot; (In Preparation, 2026)</em>
       </p>
     </div>
   );

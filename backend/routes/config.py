@@ -1,5 +1,5 @@
 """
-VaxElan 2.0 — Configuration endpoints.
+EpitopeFinder — Configuration endpoints.
 
 Provides the frontend with available MHC methods, strategies,
 and tool lists so the UI can render dynamic forms.
@@ -96,5 +96,5 @@ STRATEGIES = [
 
 @router.get("/strategies", response_model=list[StrategyInfo])
 async def get_strategies():
-    """Return all 6 VaxElan strategies with descriptions and tool lists."""
+    """Return all 6 EpitopeFinder strategies with descriptions and tool lists."""
     return STRATEGIES

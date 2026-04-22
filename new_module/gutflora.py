@@ -8,7 +8,7 @@ import tempfile
 import pandas as pd
 
 # Define root directory
-ROOT_DIR = Path("/home/yuktika/Downloads/Vaxelan_2_0")
+ROOT_DIR = Path("/home/yuktika/Downloads/EpitopeFinder_2_0")
 
 # Define default database path
 GUT_DB = ROOT_DIR / "tools/databases/gut_microbiome_db"

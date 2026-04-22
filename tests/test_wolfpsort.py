@@ -14,7 +14,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'm
 try:
     from wolfpsort import print_status, validate_file, validate_directory, run_wolf_psort, ROOT_DIR
 except ModuleNotFoundError as e:
-    raise ModuleNotFoundError(f"Could not find 'wolfpsort' module. Ensure 'wolfpsort.py' is in ~/Downloads/Vaxelan_2_0/modules. Error: {e}")
+    raise ModuleNotFoundError(f"Could not find 'wolfpsort' module. Ensure 'wolfpsort.py' is in ~/Downloads/EpitopeFinder_2_0/modules. Error: {e}")
 
 @pytest.fixture
 def temp_fasta_file():

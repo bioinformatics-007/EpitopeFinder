@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 
 # Define root directory
-ROOT_DIR = Path("/home/yuktika/Downloads/Vaxelan_2_0")  # Hardcoded correct root path
+ROOT_DIR = Path("/home/yuktika/Downloads/EpitopeFinder_2_0")  # Hardcoded correct root path
 
 # Path to NetCTL executable (relative to project root)
 NETCTL_SCRIPT_PATH = os.path.join(ROOT_DIR, "tools/netCTL-1.2b/netCTL")

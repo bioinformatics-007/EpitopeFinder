@@ -9,7 +9,7 @@ from Bio import SeqIO
 
 # --- CONFIGURATION ---
 current_path = Path(__file__).resolve()
-while current_path.name != "Vaxelan_2_0" and current_path != current_path.parent:
+while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
     current_path = current_path.parent
 ROOT_DIR = current_path
 

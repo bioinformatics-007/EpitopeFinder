@@ -1,5 +1,5 @@
 """
-VaxElan 2.0 — Pydantic schemas for API requests and responses.
+EpitopeFinder — Pydantic schemas for API requests and responses.
 These mirror (and extend) the dataclasses in core_pipeline.py but
 are proper Pydantic v2 models for FastAPI auto-validation + docs.
 """

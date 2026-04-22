@@ -1,5 +1,5 @@
 # ==============================================================
-# VaxElan 2.0 — .gitignore
+# EpitopeFinder — .gitignore
 # ==============================================================
 
 # --- Large bioinformatics tools (download separately) ---------
@@ -69,5 +69,11 @@ jobs/
 .vscode/
 
 # --- Conda / Python environments inside project ---------------
-vaxelan_env/
+epitopefinder_env/
 
+
+# Internal docs (AI context, not for public repo)
+docs/
+
+# Original module directory (work-in-progress updates, not for public release)
+new_module/

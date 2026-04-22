@@ -12,7 +12,7 @@ import numpy as np
 
 
 # Paths
-ROOT_DIR = Path("/home/yuktika/Downloads/Vaxelan_2_0")
+ROOT_DIR = Path("/home/yuktika/Downloads/EpitopeFinder_2_0")
 TOXINPRED2_SCRIPT = ROOT_DIR / "tools/toxinpred2/toxinpred2.py"
 MODEL_FILE = ROOT_DIR / "tools/toxinpred2/RF_model"
 BLASTDB = ROOT_DIR / "tools/Database/data"
@@ -44,7 +44,7 @@ def find_model_file(path):
     alternatives = [
         ROOT_DIR / "tools/toxinpred2/RF_model",
         ROOT_DIR / "tools/RF_model",
-        Path("/home/yuktika/Downloads/Vaxelan_2_0/tools/toxinpred2/RF_model")
+        Path("/home/yuktika/Downloads/EpitopeFinder_2_0/tools/toxinpred2/RF_model")
     ]
     for alt in alternatives:
         if alt.is_file():

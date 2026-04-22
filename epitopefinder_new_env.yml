@@ -1,4 +1,4 @@
-name: vaxelan_new
+name: epitopefinder_new
 channels:
   - anaconda
   - bioconda
@@ -582,4 +582,4 @@ dependencies:
       - yarl==1.15.2
       - zict==3.0.0
       - zipp==3.20.2
-prefix: /home/yuktika/anaconda3/envs/vaxelan_new
+prefix: /home/yuktika/anaconda3/envs/epitopefinder_new

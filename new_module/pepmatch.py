@@ -8,7 +8,7 @@ from pathlib import Path
 from Bio import SeqIO
 
 # --- CONFIGURATION ---
-ROOT_DIR = Path(os.environ.get("VAXELAN_ROOT", "/home/yuktika/Downloads/Vaxelan_2_0"))
+ROOT_DIR = Path(os.environ.get("EPITOPEFINDER_ROOT", "/home/yuktika/Downloads/EpitopeFinder_2_0"))
 PEPMATCH_EXECUTABLE = ROOT_DIR / "tools" / "IEDB_NG_PEPMATCH-0.1.2-beta" / "ng_pepmatch-0.1.2-beta" / "src" / "match.py"
 PEPMATCH_PROTEOMES_PATH = ROOT_DIR / "tools" / "iedb_proteomes" / "proteomes"
 proteome_keywords = {'human': '9606', 'mouse': '10090'}

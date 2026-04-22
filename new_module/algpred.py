@@ -81,7 +81,7 @@ def validate_fasta_file(fasta_file):
             return False, None, None, "No valid sequences found in FASTA file"
 
         # Create temporary directory
-        temp_dir = tempfile.mkdtemp(prefix="vaxelan_")
+        temp_dir = tempfile.mkdtemp(prefix="epitopefinder_")
         if not os.path.exists(temp_dir):
             return False, None, None, f"Failed to create temporary directory: {temp_dir}"
 
@@ -169,7 +169,7 @@ def run_algpred(input_fasta, output_dir, batch_idx=1, output_file=None, model="1
                 return 1
 
             command = [
-                "conda", "run", "-n", "vaxelan_new",
+                "conda", "run", "-n", "epitopefinder_new",
                 "algpred2",
                 "-i", clean_fasta,
                 "-o", temp_output,

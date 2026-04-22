@@ -12,16 +12,16 @@ import re
 import shutil
 
 # Set up logging
-logger = logging.getLogger('VaxElan')
+logger = logging.getLogger('EpitopeFinder')
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Dynamically resolve root directory up to Vaxelan_2_0
+# Dynamically resolve root directory up to EpitopeFinder_2_0
 current_path = Path(__file__).resolve()
-while current_path.name != "Vaxelan_2_0":
+while current_path.name != "EpitopeFinder_2_0":
     current_path = current_path.parent
     if current_path == current_path.parent:
-        logger.error("Could not locate 'Vaxelan_2_0' in path hierarchy.")
-        raise RuntimeError("Could not locate 'Vaxelan_2_0' in path hierarchy.")
+        logger.error("Could not locate 'EpitopeFinder_2_0' in path hierarchy.")
+        raise RuntimeError("Could not locate 'EpitopeFinder_2_0' in path hierarchy.")
 root_dir = current_path
 
 # MHC-I tool path

@@ -1,5 +1,5 @@
 """
-VaxElan 2.0 — Job management endpoints.
+EpitopeFinder — Job management endpoints.
 
 POST /api/jobs/submit      → Submit a new pipeline job
 GET  /api/jobs/{id}/status  → Poll job progress
@@ -33,7 +33,7 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 
 @router.post("/submit", response_model=JobSubmitResponse)
 async def submit_job(request: JobSubmitRequest):
-    """Submit a new VaxElan pipeline job for asynchronous execution."""
+    """Submit a new EpitopeFinder pipeline job for asynchronous execution."""
     job_id = f"job_{uuid.uuid4().hex[:12]}"
 
     _write_meta(job_id, {"job_id": job_id, "status": "pending", "progress_pct": 0.0, "current_tool": "Queued", "failed_tools": [], "error": ""})

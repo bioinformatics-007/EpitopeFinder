@@ -1,5 +1,5 @@
 """
-VaxElan 2.0 — FastAPI Application Entry Point.
+EpitopeFinder — FastAPI Application Entry Point.
 
 Run with:
     uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
@@ -10,8 +10,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.routes import jobs, config
 
 app = FastAPI(
-    title="VaxElan 2.0 API",
-    description="Programmatic access to the VaxElan vaccine design pipeline.",
+    title="EpitopeFinder API",
+    description="Programmatic access to the EpitopeFinder vaccine design pipeline.",
     version="2.0.0",
     docs_url="/docs",
     redoc_url="/redoc",

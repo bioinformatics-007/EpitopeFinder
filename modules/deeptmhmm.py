@@ -10,10 +10,10 @@ from Bio import SeqIO
 
 
 # Define root directory
-ROOT_DIR = Path(__file__).resolve().parent.parent  # Points to Vaxelan_2_0/vax_elan/
+ROOT_DIR = Path(__file__).resolve().parent.parent  # Points to EpitopeFinder_2_0/vax_elan/
 
 # Define default biolib path
-BIOLIB_PATH = os.environ.get("BIOLIB_PATH", "/home/yuktika/anaconda3/envs/vaxelan_new/bin/biolib")
+BIOLIB_PATH = os.environ.get("BIOLIB_PATH", "/home/yuktika/anaconda3/envs/epitopefinder_new/bin/biolib")
 
 def print_status(msg, status="info"):
     """Print colored status messages."""

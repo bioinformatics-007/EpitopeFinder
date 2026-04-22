@@ -5,7 +5,7 @@ import { HorizontalMenu } from '@/components/layout/HorizontalMenu';
 import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'VaxElan — Computational Vaccine Design Platform',
+  title: 'EpitopeFinder — Computational Vaccine Design Platform',
   description:
     'Design multi-epitope vaccines with automated B-cell, MHC-I, and MHC-II epitope prediction, protein prioritization, and 3D structural validation.',
   keywords: [

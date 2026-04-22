@@ -4,12 +4,12 @@ from unittest.mock import patch, mock_open, MagicMock
 from modules.toxin_epitope import run_toxinpred3
 
 # Paths used in the tests
-VALID_MODEL_PATH = "/home/hp-lapi/Downloads/Vaxelan_2_0/tools/toxinpred3/toxinpred3.0_model.pkl"  # Target model path
-TOXINPRED_SCRIPT_PATH = "/home/hp-lapi/Downloads/Vaxelan_2_0/tools/toxinpred3/toxinpred3.py"  # Script path
-OUTPUT_FILE_PATH = "/home/hp-lapi/Downloads/Vaxelan_2_0/Results/output.csv"
-INPUT_FILE_PATH = "/home/hp-lapi/Downloads/Vaxelan_2_0/modules/test_fasta.fasta"
-ZIPPED_MODEL_PATH = "/home/hp-lapi/Downloads/Vaxelan_2_0/tools/toxinpred3/model/toxinpred3.0_model.pkl.zip"
-UNZIPPED_MODEL_PATH = "/home/hp-lapi/Downloads/Vaxelan_2_0/tools/toxinpred3/model/toxinpred3.0_model.pkl"  # Source path after unzip
+VALID_MODEL_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/tools/toxinpred3/toxinpred3.0_model.pkl"  # Target model path
+TOXINPRED_SCRIPT_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/tools/toxinpred3/toxinpred3.py"  # Script path
+OUTPUT_FILE_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/Results/output.csv"
+INPUT_FILE_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/modules/test_fasta.fasta"
+ZIPPED_MODEL_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/tools/toxinpred3/model/toxinpred3.0_model.pkl.zip"
+UNZIPPED_MODEL_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/tools/toxinpred3/model/toxinpred3.0_model.pkl"  # Source path after unzip
 
 # Example valid FASTA content for mocking file reading
 VALID_FASTA_CONTENT = (
