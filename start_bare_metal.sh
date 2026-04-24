@@ -10,13 +10,15 @@ nohup python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 > backend.l
 echo $! > backend.pid
 
 echo "Starting Celery Worker..."
-nohup celery -A backend.celery_app worker --loglevel=info > worker.log 2>&1 &
+nohup python3 -m celery -A backend.celery_app worker --loglevel=info > worker.log 2>&1 &
 echo $! > worker.pid
 
 echo "Starting Frontend..."
 cd frontend
-export NEXT_PUBLIC_API_URL=http://localhost:8000
-nohup npm run dev -- -p 3001 > ../frontend.log 2>&1 &
+# export NEXT_PUBLIC_API_URL=http://localhost:8000
+export NEXT_PUBLIC_API_URL=http://10.0.30.235:8000 
+
+nohup npm run dev -- -H 0.0.0.0 -p 3001 > ../frontend.log 2>&1 &
 echo $! > ../frontend.pid
 
 echo "All services started!"

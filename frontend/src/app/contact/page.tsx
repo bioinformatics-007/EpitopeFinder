@@ -24,11 +24,11 @@ export default function ContactPage() {
           </tr>
           <tr>
             <td className="border border-[#999] px-3 py-2 font-bold">Email</td>
-            <td className="border border-[#999] px-3 py-2"><a href="mailto:support@epitopefinder.net" className="text-[#3A332D] underline">support@epitopefinder.net</a></td>
+            <td className="border border-[#999] px-3 py-2"><a href="mailto:bioinformatics601@gmail.com" className="text-[#3A332D] underline">bioinformatics601@gmail.com</a></td>
           </tr>
           <tr className="bg-[#F4F4EE]">
             <td className="border border-[#999] px-3 py-2 font-bold">Source Code</td>
-            <td className="border border-[#999] px-3 py-2"><a href="https://github.com/yuktika12/vaccine-design-pipeline" target="_blank" rel="noreferrer" className="text-[#3A332D] underline">github.com/yuktika12/vaccine-design-pipeline</a></td>
+            <td className="border border-[#999] px-3 py-2"><a href="https://github.com/bioinformatics-007/EpitopeFinder" target="_blank" rel="noreferrer" className="text-[#3A332D] underline">github.com/bioinformatics-007/EpitopeFinder</a></td>
           </tr>
         </tbody>
       </table>
@@ -44,11 +44,6 @@ export default function ContactPage() {
         <li><a href="https://webs.iiitd.edu.in/raghava/algpred/" target="_blank" rel="noreferrer" className="text-[#3A332D] underline">AlgPred — Allergenicity Prediction</a></li>
       </ul>
 
-      <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Reference</h3>
-      <p className="mb-6 bg-[#F4F4EE] p-3 border border-[#ccc]">
-        If you are using EpitopeFinder, please cite:<br/><br/>
-        <em>Yukti, et al. &quot;EpitopeFinder: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot; (In Preparation, 2026)</em>
-      </p>
     </div>
   );
 }

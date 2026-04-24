@@ -22,11 +22,6 @@ export default function LandingPage() {
         <li><strong>Comprehensive Results:</strong> Download all node CSVs or view analytical insights natively.</li>
       </ul>
 
-      <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Reference</h3>
-      <p className="mb-6 bg-[#F4F4EE] p-3 border border-[#ccc]">
-        If you are using EpitopeFinder, please cite:<br/><br/>
-        <em>Yukti, et al. "EpitopeFinder: A next-generation tool for prediction and designing of multi-epitope vaccines." (In Preparation, 2026)</em>
-      </p>
 
       <div className="flex gap-4">
         <Link href="/submit" className="border border-[#999] bg-[#E0E0E0] px-4 py-1 text-black hover:bg-[#ccc] no-underline">
