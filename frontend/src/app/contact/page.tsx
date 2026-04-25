@@ -44,6 +44,11 @@ export default function ContactPage() {
         <li><a href="https://webs.iiitd.edu.in/raghava/algpred/" target="_blank" rel="noreferrer" className="text-[#3A332D] underline">AlgPred — Allergenicity Prediction</a></li>
       </ul>
 
+      <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Reference</h3>
+      <p className="mb-6 bg-[#F4F4EE] p-3 border border-[#ccc]">
+        If you are using EpitopeFinder, please cite:<br/><br/>
+        <em>&quot;EpitopeFinder: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot;</em>
+      </p>
     </div>
   );
 }
