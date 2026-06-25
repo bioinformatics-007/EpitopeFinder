@@ -11,7 +11,6 @@ import re
 ROOT_DIR = Path(__file__).resolve().parent.parent
 PSORTB_SEARCH_PATHS = [
     os.path.join(ROOT_DIR, "tools/psortb/psortb"),
-    os.path.join(ROOT_DIR, "vax_elan/tools/psortb/psortb"),
     shutil.which("psortb")
 ]
 BIOPERL_DIRS = [

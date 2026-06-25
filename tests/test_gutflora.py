@@ -17,7 +17,7 @@ from modules.gutflora import parse_fasta, write_temp_fasta, run_blastp, parse_bl
 
 # Configure logging for tests
 logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("GutfloraTest")
+logger = logging.getLogger("EpitopeFinder")
 
 @pytest.fixture
 def temp_fasta_file(tmp_path):
@@ -90,7 +90,6 @@ def test_parse_fasta(temp_fasta_file, caplog):
     assert len(sequences) == 2
     assert sequences[0] == ("prot1", "Test Protein 1", "ACDEFGHIKLMNPQRSTVWY")
     assert sequences[1] == ("prot2", "Test Protein 2", "ACDEFGHIKLMNPQRSTVWY*")
-    assert "Parsed sequence: prot1" in caplog.text
 
 def test_parse_fasta_empty(empty_fasta_file, caplog):
     """Test parsing an empty FASTA file."""

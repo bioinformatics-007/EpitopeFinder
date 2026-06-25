@@ -51,8 +51,8 @@ It integrates 30+ bioinformatics tools into a unified pipeline with a modern web
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/EpitopeFinder_2_0.git
-cd EpitopeFinder_2_0
+git clone https://github.com/EpitopeFinder/EpitopeFinder.git
+cd EpitopeFinder
 ```
 
 ### 2. Set Up the Python Environment

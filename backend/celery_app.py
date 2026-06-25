@@ -8,6 +8,10 @@ The Redis URL is read from the CELERY_BROKER_URL environment variable
 import os
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from celery import Celery
 
 # ── Ensure project root is in sys.path ───────────────────────────
@@ -31,9 +35,18 @@ celery_app.conf.update(
     result_serializer="json",
     timezone="UTC",
     enable_utc=True,
-    # Long-running bioinformatics tasks — generous timeouts
     task_soft_time_limit=7200,   # 2 hours soft
     task_time_limit=10800,       # 3 hours hard
     worker_prefetch_multiplier=1,
     task_acks_late=True,
 )
+
+# ── Celery Beat Schedule ──────────────────────────────────────────
+from celery.schedules import crontab
+
+celery_app.conf.beat_schedule = {
+    "prune-stale-data-every-day": {
+        "task": "backend.tasks.prune_stale_data_task",
+        "schedule": crontab(hour=0, minute=0),  # Runs daily at midnight UTC
+    },
+}

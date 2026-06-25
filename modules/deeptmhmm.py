@@ -10,10 +10,10 @@ from Bio import SeqIO
 
 
 # Define root directory
-ROOT_DIR = Path(__file__).resolve().parent.parent  # Points to EpitopeFinder_2_0/vax_elan/
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 # Define default biolib path
-BIOLIB_PATH = os.environ.get("BIOLIB_PATH", "/home/yuktika/anaconda3/envs/epitopefinder_new/bin/biolib")
+BIOLIB_PATH = os.environ.get("BIOLIB_PATH", shutil.which("biolib") or "biolib")
 
 def print_status(msg, status="info"):
     """Print colored status messages."""
@@ -234,7 +234,7 @@ def run_deeptmhmm(input_fasta, output_dir, biolib_path=BIOLIB_PATH):
         # Move biolib_results to output directory
         biolib_results_dir = Path.cwd() / "biolib_results"
         if biolib_results_dir.exists():
-            target_dir = output_dir / "biolib_results"
+            target_dir = output_dir / "deeptmhmm_results"
             shutil.move(str(biolib_results_dir), str(target_dir))
             print_status(f"Results moved to: {target_dir}", "success")
         else:
@@ -265,7 +265,7 @@ def main():
     parser.add_argument("--biolib", default=BIOLIB_PATH, help="Path to biolib executable")
 
     args = parser.parse_args()
-    return run_deeptmhmm(args.fasta, args.output, args.gff_file, args.output_file, args.biolib)
+    return run_deeptmhmm(args.fasta, args.output, args.biolib)
 
 if __name__ == "__main__":
     exit_code = main()

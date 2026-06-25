@@ -43,6 +43,7 @@ def setup_module():
     except OSError:
         pass  # Directory not empty or other error, ignore
 
+
 def test_find_model_file():
     model_path = find_model_file(str(MODEL_FILE))
     assert model_path is not None
@@ -131,7 +132,7 @@ def test_BLAST_processor():
 
 def test_hybrid():
     ml_output = TEST_OUTPUT_DIR / "ml_output.csv"
-    pd.DataFrame({'ML Score': [0.7, 0.4]}).to_csv(ml_output, index=False)
+    pd.DataFrame({'ML Score': [0.7, 0.4]}).to_csv(ml_output, index=False, header=False)
 
     seq_names = ['>seq1', '>seq2']
     merci_output = TEST_OUTPUT_DIR / "final_merci.csv"

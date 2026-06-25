@@ -1,0 +1,66 @@
+# ==============================================================================
+# EpitopeFinder — Production Docker Compose Overlay
+# ==============================================================================
+# Use with the base file:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+#
+# This overlay:
+#   - Loads config from .env file
+#   - Sets production NEXT_PUBLIC_API_URL via environment variable
+#   - Adds Celery Beat scheduler service for automated disk cleanup
+#   - Removes exposed Redis port (only reachable internally)
+#   - Adds restart: always policies for self-healing
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # NEXT_PUBLIC_* vars must be baked in at build time — pass via build arg
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+    env_file: .env
+    restart: always
+    environment:
+      - NODE_ENV=production
+
+  backend:
+    env_file: .env
+    restart: always
+    environment:
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS}
+      - CLBTOPE_DB=/app/tools/clbtope/clbtope/Database
+
+  worker:
+    env_file: .env
+    restart: always
+    environment:
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CLBTOPE_DB=/app/tools/clbtope/clbtope/Database
+
+  # Celery Beat — scheduler for automated stale data pruning
+  beat:
+    build: .
+    command: celery -A backend.celery_app beat --loglevel=info
+    env_file: .env
+    restart: always
+    environment:
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CLBTOPE_DB=/app/tools/clbtope/clbtope/Database
+    volumes:
+      - ./Results:/app/Results
+      - ./jobs:/app/jobs
+      - ./uploads:/app/uploads
+      - ./tools:/app/tools
+      - ./model_sav:/app/model_sav
+    depends_on:
+      - redis
+      - worker
+
+  redis:
+    restart: always
+    ports: []  # Override base file: do NOT expose Redis to host in production

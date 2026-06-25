@@ -60,9 +60,9 @@ def validate_paths(input_fasta, output_file, db_path, output_dir):
     
     # Check if required BLAST DB files exist
     required_exts = [".phr", ".pin", ".psq"]
-    missing_files = [str(db_path.with_suffix(ext)) for ext in required_exts if not db_path.with_suffix(ext).is_file()]
-    if missing_files:
-        raise FileNotFoundError(f"Missing BLAST DB files: {missing_files}")
+    missing_exts = [ext for ext in required_exts if not db_path.with_suffix(ext).is_file()]
+    if missing_exts:
+        raise FileNotFoundError(f"Database files missing: {', '.join(missing_exts)}")
         
     if not os.access(db_path.parent, os.R_OK):
         raise PermissionError(f"No read permission for database directory: {db_path.parent}")

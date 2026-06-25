@@ -21,31 +21,29 @@ export default function ResultsPage({ params }: { params: { jobId: string } }) {
     }
   };
 
-  // On mount, see if we already have results (maybe job is already done?)
-  // We can just rely on JobProgress to poll first, but it's simpler to let JobProgress do its thing.
-  // Actually, we'll wait for JobProgress to say 'complete' and then fetch the actual outputs.
-
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-      {error && (
-        <div className="mb-8 flex items-center gap-2 border border-red-500/20 bg-red-500/10 p-4 text-red-400">
-          
-          <p>{error}</p>
+
+      {/* Top-level page error banner (network/fetch failures) */}
+      {error && !results && (
+        <div className="mb-8 rounded-sm border-2 border-red-200 bg-red-50 p-5">
+          <p className="text-xs font-bold uppercase tracking-widest text-red-400 mb-1">Pipeline Error</p>
+          <p className="text-sm text-red-700 font-mono break-all">{error}</p>
         </div>
       )}
 
-      {/* Progress tracking - hidden once results are fetched */}
-      {!results && (
-        <JobProgress 
-          jobId={jobId} 
+      {/* Progress tracking — shown while running or failed; hidden once results arrive */}
+      {!results && !error && (
+        <JobProgress
+          jobId={jobId}
           onComplete={fetchResults}
           onError={setError}
         />
       )}
 
-      {/* Results dashboard - shown once job is completed */}
+      {/* Results dashboard — shown once job is completed and outputs fetched */}
       {results && results.outputs && (
-        <div className="fade-in slide-in-">
+        <div>
           <ResultsViewer outputs={results.outputs} jobId={jobId} />
         </div>
       )}

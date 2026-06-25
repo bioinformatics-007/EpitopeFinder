@@ -7,9 +7,8 @@ import sys
 import psutil
 import csv
 
-# Define root directory dynamically (EpitopeFinder_2_0 directory)
-SCRIPT_DIR = Path(__file__).resolve().parent  # modules/
-ROOT_DIR = SCRIPT_DIR.parent  # EpitopeFinder_2_0/
+# Define root directory dynamically
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 # Define path to SignalP model directory
 MODEL_DIR = ROOT_DIR / "tools/signalp-6.0h.fast/signalp6_fast/signalp-6-package/signalp/model_weights"
@@ -43,8 +42,7 @@ def find_model_dir(model_path):
     # Alternative predefined paths
     alternative_paths = [
         ROOT_DIR / "tools/signalp-6.0h.fast/signalp6_fast/signalp-6-package/models",
-        ROOT_DIR / "tools/signalp-6.0h.fast/models",
-        Path("/home/hp-lapi/Downloads/tools/signalp-6.0h.fast/signalp6_fast/signalp-6-package/signalp/model_weights")
+        ROOT_DIR / "tools/signalp-6.0h.fast/models"
     ]
 
     for alt_path in alternative_paths:

@@ -7,10 +7,7 @@ import pandas as pd
 from Bio import SeqIO
 
 # Dynamically Resolve root directory
-current_path = Path(__file__).resolve()
-while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
-    current_path = current_path.parent
-ROOT_DIR = current_path
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 # Define default paths
 NETSOLP_SCRIPT = ROOT_DIR / "tools/netsolp-1.0.ALL/predict.py"  # Points to predict.py

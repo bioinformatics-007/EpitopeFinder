@@ -3,13 +3,16 @@ import subprocess
 from unittest.mock import patch, mock_open, MagicMock
 from modules.toxin_epitope import run_toxinpred3
 
+from pathlib import Path
+ROOT_DIR = Path(__file__).resolve().parent.parent
+
 # Paths used in the tests
-VALID_MODEL_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/tools/toxinpred3/toxinpred3.0_model.pkl"  # Target model path
-TOXINPRED_SCRIPT_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/tools/toxinpred3/toxinpred3.py"  # Script path
-OUTPUT_FILE_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/Results/output.csv"
-INPUT_FILE_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/modules/test_fasta.fasta"
-ZIPPED_MODEL_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/tools/toxinpred3/model/toxinpred3.0_model.pkl.zip"
-UNZIPPED_MODEL_PATH = "/home/hp-lapi/Downloads/EpitopeFinder_2_0/tools/toxinpred3/model/toxinpred3.0_model.pkl"  # Source path after unzip
+VALID_MODEL_PATH = str(ROOT_DIR / "tools/toxinpred3/toxinpred3.0_model.pkl")  # Target model path
+TOXINPRED_SCRIPT_PATH = str(ROOT_DIR / "tools/toxinpred3/toxinpred3.py")  # Script path
+OUTPUT_FILE_PATH = str(ROOT_DIR / "Results/output.csv")
+INPUT_FILE_PATH = str(ROOT_DIR / "modules/test_fasta.fasta")
+ZIPPED_MODEL_PATH = str(ROOT_DIR / "tools/toxinpred3/model/toxinpred3.0_model.pkl.zip")
+UNZIPPED_MODEL_PATH = str(ROOT_DIR / "tools/toxinpred3/model/toxinpred3.0_model.pkl")  # Source path after unzip
 
 # Example valid FASTA content for mocking file reading
 VALID_FASTA_CONTENT = (
@@ -36,11 +39,16 @@ def test_run_toxinpred3_success(mock_file_open, mock_subprocess_run):
          patch("os.symlink") as mock_symlink, \
          patch("zipfile.ZipFile") as mock_zipfile, \
          patch("shutil.copy") as mock_copy, \
-         patch("os.path.getsize") as mock_getsize:
+         patch("os.path.getsize") as mock_getsize, \
+         patch("os.remove") as mock_remove, \
+         patch("os.rename") as mock_rename, \
+         patch("os.path.islink") as mock_islink, \
+         patch("os.readlink") as mock_readlink:
 
         # Mock file existence checks
         def isfile_side_effect(path):
-            return path in (
+            path_str = str(path)
+            return path_str in (
                 VALID_MODEL_PATH,  # Target path after copy
                 TOXINPRED_SCRIPT_PATH,
                 OUTPUT_FILE_PATH,  # Ensure output file is mocked as existing
@@ -51,6 +59,7 @@ def test_run_toxinpred3_success(mock_file_open, mock_subprocess_run):
 
         mock_isfile.side_effect = isfile_side_effect
         mock_exists.return_value = True
+        mock_islink.return_value = False
         mock_zipfile.return_value.__enter__.return_value.extractall.return_value = None
         mock_copy.return_value = None
         mock_getsize.return_value = 1024  # Mock non-empty file size for output file
@@ -95,10 +104,15 @@ def test_run_toxinpred3_subprocess_failure(mock_file_open, mock_subprocess_run):
     with patch("os.path.isfile") as mock_isfile, \
          patch("os.path.exists") as mock_exists, \
          patch("zipfile.ZipFile") as mock_zipfile, \
-         patch("shutil.copy") as mock_copy:
+         patch("shutil.copy") as mock_copy, \
+         patch("os.remove") as mock_remove, \
+         patch("os.path.islink") as mock_islink, \
+         patch("os.symlink") as mock_symlink, \
+         patch("os.makedirs") as mock_makedirs:
 
         def isfile_side_effect(path):
-            return path in (
+            path_str = str(path)
+            return path_str in (
                 VALID_MODEL_PATH,
                 TOXINPRED_SCRIPT_PATH,
                 OUTPUT_FILE_PATH,
@@ -108,6 +122,7 @@ def test_run_toxinpred3_subprocess_failure(mock_file_open, mock_subprocess_run):
             )
         mock_isfile.side_effect = isfile_side_effect
         mock_exists.return_value = True
+        mock_islink.return_value = False
         mock_zipfile.return_value.__enter__.return_value.extractall.return_value = None
         mock_copy.return_value = None
 

@@ -39,7 +39,7 @@ const initialState: WizardState = {
   pathogenType: 'bacteria',
   strategy: null,
   mhciMethod: 'f',
-  mhciiMethod: 'nmel',
+  mhciiMethod: '1',
   selectedTools: [],
   prePredictedFastas: {},
   assemblyConfig: { ...DEFAULT_ASSEMBLY },

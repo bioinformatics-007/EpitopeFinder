@@ -57,10 +57,10 @@ export function ResultsViewer({ outputs, jobId }: ResultsViewerProps) {
                   <button
                     key={file.relative_path}
                     onClick={() => setActiveTab(file.relative_path)}
-                    className={`flex w-full items-center gap-4 rounded-sm px-4 py-4 text-sm group ${
+                    className={`flex w-full items-center gap-4 rounded-sm px-4 py-4 text-sm group transition-transform ${
                       isActive
-                        ? 'bg-white text-amber-900 font-bold border border-stone-100 transtone-x-1'
-                        : 'text-stone-500 hover:bg-white hover:text-stone-800 hover:'
+                        ? 'bg-white text-amber-900 font-bold border border-stone-100 translate-x-1'
+                        : 'text-stone-500 hover:bg-white hover:text-stone-800'
                     }`}
                   >
                     <div className={`p-2 ${

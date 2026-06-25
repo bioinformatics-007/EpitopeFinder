@@ -1,11 +1,13 @@
-FROM python:3.9-slim-bookworm
+FROM python:3.10-slim-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # --------------------------------------------------
 # Working directory
 # --------------------------------------------------
-WORKDIR /EpitopeFinder_2_0
+WORKDIR /app
 
 # --------------------------------------------------
 # System dependencies
@@ -25,15 +27,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 # --------------------------------------------------
 # Install NCBI BLAST+ (stable HTTPS version)
 # --------------------------------------------------
-RUN mkdir -p /EpitopeFinder_2_0/tools/ncbi-blast \
+RUN mkdir -p /opt/ncbi-blast \
     && wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.17.0/ncbi-blast-2.17.0+-x64-linux.tar.gz \
        -O /tmp/blast.tar.gz \
     && tar -xzf /tmp/blast.tar.gz \
-       -C /EpitopeFinder_2_0/tools/ncbi-blast --strip-components=1 \
+       -C /opt/ncbi-blast --strip-components=1 \
     && rm /tmp/blast.tar.gz
 
 # Add BLAST to PATH
-ENV PATH="/EpitopeFinder_2_0/tools/ncbi-blast/bin:$PATH"
+ENV PATH="/opt/ncbi-blast/bin:$PATH"
 
 # --------------------------------------------------
 # Copy full project (includes tools/clbtope)
@@ -43,7 +45,7 @@ COPY . .
 # --------------------------------------------------
 # Tell EpitopeFinder where ClbTope DB lives
 # --------------------------------------------------
-ENV CLBTOPE_DB=/EpitopeFinder_2_0/tools/clbtope/clbtope/Database
+ENV CLBTOPE_DB=/app/tools/clbtope/clbtope/Database
 
 # --------------------------------------------------
 # Run FastAPI Backend

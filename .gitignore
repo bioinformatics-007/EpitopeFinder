@@ -68,8 +68,17 @@ jobs/
 .idea/
 .vscode/
 
-# --- Conda / Python environments inside project ---------------
+# --- Conda / Python Environment & Dependencies ---
+.venv
+venv
+env
+vaxelan_env/
 epitopefinder_env/
+_archive/
+
+# Installers
+*.sh
+*.exe
 
 
 # Internal docs (AI context, not for public repo)

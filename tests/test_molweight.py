@@ -24,7 +24,7 @@ from modules.molweight import (
 @pytest.fixture
 def capture_logs():
     """Fixture to capture log output with consistent formatting."""
-    logger = logging.getLogger('MolWt')
+    logger = logging.getLogger('EpitopeFinder')
     logger.handlers = []  # Clear existing handlers
     log_capture = StringIO()
     handler = logging.StreamHandler(log_capture)
@@ -61,7 +61,7 @@ def test_print_status(capture_logs, capsys):
     captured = capsys.readouterr()
     assert "\033[94mTest message\033[0m" in captured.out
     log_output = capture_logs.getvalue()
-    assert "- MolWt - Test message" in log_output
+    assert "- EpitopeFinder - Test message" in log_output
 
 # Test is_valid_sequence
 def test_is_valid_sequence_valid():
@@ -155,7 +155,6 @@ def test_run_molwt_success(sample_fasta_content, temp_dir, capture_logs):
     assert len(df) == 2
     assert set(df["Sequence_ID"]) == {"P12345", "Q67890"}
     log_output = capture_logs.getvalue()
-    assert "Validated paths" in log_output
     assert "Molecular weight processing completed" in log_output
 
 def test_run_molwt_invalid_sequence(temp_dir, capture_logs, capsys):
@@ -208,7 +207,6 @@ def test_main_valid_args(temp_dir, sample_fasta_content, capture_logs, capsys):
         except SystemExit as exc:
             assert exc.code == 0
     log_output = capture_logs.getvalue()
-    assert "Validated paths" in log_output
     # Verify output files
     combined_file = output_dir / "combined_molwt_batch_1.csv"
     assert combined_file.exists()

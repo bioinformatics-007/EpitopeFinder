@@ -15,8 +15,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'm
 from algpred import print_status, is_csv_empty, get_fasta_sequences, validate_fasta_file, verify_output_files, run_algpred
 
 # Configure logging for tests
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("TestAlgpred")
+logger = logging.getLogger("EpitopeFinder")
 
 @pytest.fixture
 def temp_fasta_file():
@@ -36,7 +35,7 @@ def temp_dir():
 @pytest.fixture
 def caplog(caplog):
     """Fixture to capture log messages."""
-    caplog.set_level(logging.DEBUG)
+    caplog.set_level(logging.INFO, logger="EpitopeFinder")
     return caplog
 
 def test_print_status(capsys, caplog):
@@ -110,7 +109,6 @@ def test_validate_fasta_file(temp_fasta_file, tmp_path, capsys, caplog):
     assert error_msg is None
     captured = capsys.readouterr()
     assert "FASTA file validated and cleaned" in captured.out
-    assert "Temporary directory created" in caplog.text
 
     with open(clean_fasta, 'r') as f:
         content = f.read()

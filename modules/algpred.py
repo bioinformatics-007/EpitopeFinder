@@ -8,6 +8,10 @@ import argparse
 import tempfile
 import shutil
 import uuid
+import logging
+
+logger = logging.getLogger('EpitopeFinder')
+logging.basicConfig(level=logging.INFO)
 
 # Define root directory
 ROOT_DIR = Path.cwd().parent
@@ -22,6 +26,12 @@ def print_status(msg, status="info"):
     }
     endc = "\033[0m"
     print(f"{colors.get(status, '')}{msg}{endc}")
+    if status in ["info", "success"]:
+        logger.info(msg)
+    elif status == "warning":
+        logger.warning(msg)
+    elif status == "error":
+        logger.error(msg)
 
 def is_csv_empty(csv_path):
     """Check if a CSV file is empty or contains only headers."""

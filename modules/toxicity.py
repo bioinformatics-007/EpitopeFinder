@@ -13,10 +13,7 @@ import numpy as np
 
 # Paths
 # Dynamically Resolve root directory
-current_path = Path(__file__).resolve()
-while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
-    current_path = current_path.parent
-ROOT_DIR = current_path
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 TOXINPRED2_SCRIPT = ROOT_DIR / "tools/toxinpred2/toxinpred2.py"
 MODEL_FILE = ROOT_DIR / "tools/toxinpred2/RF_model"
@@ -26,7 +23,7 @@ MOTIFS = ROOT_DIR / "tools/Database/pos_motif.txt"
 
 # Define BLAST binary paths for different operating systems
 BLAST_BINARIES = {
-    "Linux": "/../tools/ncbi-blast-2.16.0+-aarch64-linux/ncbi-blast-2.16.0+/bin/blastp",
+    "Linux": "/opt/ncbi-blast/bin/blastp",
     "Darwin": "/../blast_binaries/mac/blastp",
     "Windows": "/../blast_binaries/windows/blastp.exe",
 }
@@ -48,8 +45,7 @@ def find_model_file(path):
         return path
     alternatives = [
         ROOT_DIR / "tools/toxinpred2/RF_model",
-        ROOT_DIR / "tools/RF_model",
-        Path("/home/yuktika/Downloads/EpitopeFinder_2_0/tools/toxinpred2/RF_model")
+        ROOT_DIR / "tools/RF_model"
     ]
     for alt in alternatives:
         if alt.is_file():

@@ -63,6 +63,7 @@ class PipelineRequest:
     pre_predicted_fastas: Optional[dict] = None  # {bcell: path, mhci: path, mhcii: path}
     # Strategy 6 specific
     assembly_config: Optional[AssemblyConfig] = None
+    job_id: Optional[str] = None
 
 
 @dataclass
@@ -155,12 +156,13 @@ def execute(request: PipelineRequest) -> PipelineResult:
     )
 
     # ----- Prepare result & directories -----
+    import uuid
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    results_base = _PROJECT_ROOT / f"Results_{timestamp}"
+    job_id = request.job_id or f"job_{timestamp}_{uuid.uuid4().hex[:8]}"
+    results_base = _PROJECT_ROOT / f"Results_{job_id}"
     results_dir = results_base / f"strategy_{request.strategy}"
     results_dir.mkdir(parents=True, exist_ok=True)
 
-    job_id = f"job_{timestamp}"
     result = PipelineResult(
         job_id=job_id,
         status="running",
@@ -225,13 +227,10 @@ def execute(request: PipelineRequest) -> PipelineResult:
             )
 
         elif request.strategy == 3:
-            selected_tool = None
-            if request.selected_tools and len(request.selected_tools) == 1:
-                selected_tool = request.selected_tools[0]
             failed = strategy_3(
                 input_file, confirmed_type, results_dir, logger,
                 batch_files, batch_dirs, uniprot_mapping,
-                selected_tool=selected_tool,
+                selected_tools=request.selected_tools,
                 failed_tools=[],
             )
 

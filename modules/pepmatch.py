@@ -8,10 +8,7 @@ from pathlib import Path
 from Bio import SeqIO
 
 # --- CONFIGURATION ---
-current_path = Path(__file__).resolve()
-while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
-    current_path = current_path.parent
-ROOT_DIR = current_path
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 PEPMATCH_EXECUTABLE = ROOT_DIR / "tools" / "IEDB_NG_PEPMATCH-0.1.2-beta" / "ng_pepmatch-0.1.2-beta" / "src" / "match.py"
 PEPMATCH_PROTEOMES_PATH = ROOT_DIR / "tools" / "iedb_proteomes" / "proteomes"

@@ -11,7 +11,7 @@ export function Footer() {
         {' | '}
         <Link href="/contact" className="hover:text-[#ECEF01]">Contact Us</Link>
         {' | '}
-        <a href="https://github.com/bioinformatics-007/EpitopeFinder" target="_blank" rel="noreferrer" className="hover:text-[#ECEF01]">GitHub</a>
+        <a href="https://github.com/EpitopeFinder/EpitopeFinder" target="_blank" rel="noreferrer" className="hover:text-[#ECEF01]">GitHub</a>
       </p>
     </footer>
   );

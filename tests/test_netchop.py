@@ -7,7 +7,7 @@ from unittest.mock import patch, mock_open, MagicMock
 # Add the modules directory to sys.path using a relative path
 import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent / 'modules'))
-from netchop import preprocess_fasta, run_netchop, run_all_methods, print_status, ROOT_DIR, NETCHOP_SCRIPT_PATH
+from netchop import run_netchop, run_all_methods, print_status, ROOT_DIR, NETCHOP_SCRIPT_PATH
 
 # Sample amino acid FASTA content for testing
 SAMPLE_FASTA = """>protein_1
@@ -16,11 +16,6 @@ ACDEFGHIKLMNPQRSTVWY
 GAVLIPFYWSTCMNQDEHKR
 """
 
-PREPROCESSED_FASTA = """>seq_1
-ACDEFGHIKLMNPQRSTVWY
->seq_2
-GAVLIPFYWSTCMNQDEHKR
-"""
 
 @pytest.fixture
 def temp_dir(tmp_path):
@@ -48,38 +43,26 @@ def test_print_status(capsys):
     assert "Test message" in captured.out
     assert "\033[94m" in captured.out  # Check for blue color code
 
-def test_preprocess_fasta(sample_fasta_file, temp_dir):
-    """Test preprocess_fasta with amino acid sequences."""
-    output_fasta = str(temp_dir / "preprocessed.fasta")
-    preprocess_fasta(sample_fasta_file, output_fasta)
-    
-    with open(output_fasta, "r") as f:
-        content = f.read()
-    assert content == PREPROCESSED_FASTA
-    assert ">seq_1" in content
-    assert ">seq_2" in content
-    assert "ACDEFGHIKLMNPQRSTVWY" in content  # Check amino acid sequence
-
-def test_preprocess_fasta_input_not_found(temp_dir):
-    """Test preprocess_fasta with non-existent input file."""
-    with pytest.raises(FileNotFoundError):
-        preprocess_fasta(str(temp_dir / "nonexistent.fasta"), str(temp_dir / "output.fasta"))
 
 def test_run_netchop_success(sample_fasta_file, temp_dir, mock_subprocess):
     """Test run_netchop with successful execution on amino acid FASTA."""
-    mock_subprocess.return_value = MagicMock(returncode=0, stdout="Peptide,Score\nACDEFGHIK,0.95", stderr="")
+    mock_stdout = """#amino_acid\tprediction_score
+A\t0.95
+C\t0.90
+"""
+    mock_subprocess.return_value = MagicMock(returncode=0, stdout=mock_stdout, stderr="")
     
     output_dir = str(temp_dir)
-    result = run_netchop(sample_fasta_file, output_dir=output_dir, method="netchop")
+    with patch("netchop.plot_results"):  # Mock plot_results to avoid matplotlib rendering in tests
+        result = run_netchop(sample_fasta_file, output_dir=output_dir, method="netchop")
     
     assert result == 0
-    assert os.path.exists(os.path.join(output_dir, "preprocessed_netchop.fasta"))
     assert os.path.exists(os.path.join(output_dir, "netchop_out.csv"))
     
     with open(os.path.join(output_dir, "netchop_out.csv"), "r") as f:
         content = f.read()
-        assert "Peptide,Score" in content
-        assert "ACDEFGHIK,0.95" in content
+        assert "amino_acid\tprediction_score" in content
+        assert "A\t0.95" in content
 
 def test_run_netchop_input_not_found(temp_dir):
     """Test run_netchop with non-existent input file."""
@@ -99,7 +82,8 @@ def test_run_netchop_subprocess_error(sample_fasta_file, temp_dir, mock_subproce
     with pytest.raises(RuntimeError, match="netchop execution failed: Subprocess error"):
         run_netchop(sample_fasta_file, output_dir=str(temp_dir), method="netchop")
 
-def test_run_netchop_with_threshold(sample_fasta_file, temp_dir, mock_subprocess):
+@patch("netchop.plot_results")
+def test_run_netchop_with_threshold(mock_plot_results, sample_fasta_file, temp_dir, mock_subprocess):
     """Test run_netchop with a threshold value."""
     mock_subprocess.return_value = MagicMock(returncode=0, stdout="Peptide,Score\nACDEFGHIK,0.95", stderr="")
     
@@ -112,15 +96,21 @@ def test_run_netchop_with_threshold(sample_fasta_file, temp_dir, mock_subprocess
 
 def test_run_netchop_custom_output_file(sample_fasta_file, temp_dir, mock_subprocess):
     """Test run_netchop with a custom output file name."""
-    mock_subprocess.return_value = MagicMock(returncode=0, stdout="Peptide,Score\nACDEFGHIK,0.95", stderr="")
+    mock_stdout = """#amino_acid\tprediction_score
+A\t0.95
+C\t0.90
+"""
+    mock_subprocess.return_value = MagicMock(returncode=0, stdout=mock_stdout, stderr="")
     
     output_dir = str(temp_dir)
-    custom_output = "custom_netchop.csv"
-    run_netchop(sample_fasta_file, output_dir=output_dir, method="netchop", output_file=custom_output)
+    custom_output = "custom_netchop"
+    with patch("netchop.plot_results"):
+        run_netchop(sample_fasta_file, output_dir=output_dir, method="netchop", output_file=custom_output)
     
-    assert os.path.exists(os.path.join(output_dir, "custom_netchop.csv"))
+    assert os.path.exists(os.path.join(output_dir, "custom_netchop_netchop.csv"))
 
-def test_run_all_methods_success(sample_fasta_file, temp_dir, mock_subprocess):
+@patch("netchop.plot_results")
+def test_run_all_methods_success(mock_plot_results, sample_fasta_file, temp_dir, mock_subprocess):
     """Test run_all_methods with successful execution for all methods."""
     mock_subprocess.return_value = MagicMock(returncode=0, stdout="Peptide,Score\nACDEFGHIK,0.95", stderr="")
     
@@ -130,7 +120,8 @@ def test_run_all_methods_success(sample_fasta_file, temp_dir, mock_subprocess):
     assert os.path.exists(os.path.join(temp_dir, "netchop_out.csv"))
     assert os.path.exists(os.path.join(temp_dir, "netctlpan_out.csv"))
 
-def test_run_all_methods_partial_failure(sample_fasta_file, temp_dir, mock_subprocess):
+@patch("netchop.plot_results")
+def test_run_all_methods_partial_failure(mock_plot_results, sample_fasta_file, temp_dir, mock_subprocess):
     """Test run_all_methods when one method fails."""
     mock_subprocess.side_effect = [
         MagicMock(returncode=0, stdout="Peptide,Score\nACDEFGHIK,0.95", stderr=""),  # netchop succeeds

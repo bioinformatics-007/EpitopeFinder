@@ -5,10 +5,7 @@ import argparse
 from pathlib import Path
 
 # Dynamically Resolve root directory
-current_path = Path(__file__).resolve()
-while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
-    current_path = current_path.parent
-ROOT_DIR = current_path
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 # Path to NetCTL executable (relative to project root)
 NETCTL_SCRIPT_PATH = os.path.join(ROOT_DIR, "tools/netCTL-1.2b/netCTL")

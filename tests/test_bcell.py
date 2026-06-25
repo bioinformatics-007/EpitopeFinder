@@ -79,7 +79,7 @@ Predicted peptides
 Position  Residue  Start  End  Peptide  Score
 1 M 1 5 MVLSP 0.9
 """
-    peptides, epitopes = bcell.parse_output(sample_output)
+    peptides, epitopes = bcell.parse_output(sample_output, min_peptide_length=1)
     assert len(peptides) == 1
     assert peptides[0][2] == "MVLSP"
     assert len(epitopes) == 1
@@ -100,7 +100,7 @@ def test_run_bcell_success(mock_read_fasta, mock_query_iedb, tmp_path):
         input_fasta="dummy.fasta",
         output_dir=str(output_dir),
         output_file="result.csv",
-        method="Emini"
+        min_peptide_length=1
     )
     assert ret == 0
     output_file = output_dir / "result.csv"
@@ -116,19 +116,19 @@ def test_main_cli_invokes_run_bcell(monkeypatch, tmp_path):
     # Patch run_bcell to just check call args
     called = {}
 
-    def fake_run_bcell(input_fasta, output_dir, output_file, method):
+    def fake_run_bcell(input_fasta, output_dir, output_file, min_peptide_length):
         called["input_fasta"] = input_fasta
         called["output_dir"] = output_dir
         called["output_file"] = output_file
-        called["method"] = method
+        called["min_peptide_length"] = min_peptide_length
         return 0
 
     monkeypatch.setattr(bcell, "run_bcell", fake_run_bcell)
 
-    sys.argv = ["prog", "-i", str(test_fasta), "-d", "outdir", "-o", "myout.csv", "-m", "Emini"]
+    sys.argv = ["prog", "-i", str(test_fasta), "-d", "outdir", "-o", "myout.csv", "-l", "10"]
     bcell.main()
 
     assert called["input_fasta"] == str(test_fasta)
     assert called["output_dir"] == "outdir"
     assert called["output_file"] == "myout.csv"
-    assert called["method"] == "Emini"
+    assert called["min_peptide_length"] == 10

@@ -17,14 +17,8 @@ import shutil
 logger = logging.getLogger('EpitopeFinder')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Dynamically resolve root directory up to EpitopeFinder_2_0
-current_path = Path(__file__).resolve()
-while current_path.name != "EpitopeFinder_2_0":
-    current_path = current_path.parent
-    if current_path == current_path.parent:
-        logger.error("Could not locate 'EpitopeFinder_2_0' in path hierarchy.")
-        raise RuntimeError("Could not locate 'EpitopeFinder_2_0' in path hierarchy.")
-root_dir = current_path
+# Dynamically resolve root directory
+root_dir = Path(__file__).resolve().parent.parent
 
 # MHC-II tool path
 mhcii_tool = os.path.join(root_dir, "tools", "IEDB_MHC_II-3.1.12", "mhc_ii", "mhc_II_binding.py")

@@ -18,9 +18,18 @@ services:
       - "8000:8000"
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
-      - CLBTOPE_DB=/EpitopeFinder_2_0/tools/clbtope/clbtope/Database
+      - CLBTOPE_DB=/app/tools/clbtope/clbtope/Database
     volumes:
-      - ./Results:/EpitopeFinder_2_0/Results
+      - ./Results:/app/Results
+      - ./jobs:/app/jobs
+      - ./uploads:/app/uploads
+      - ./tools:/app/tools
+      - ./model_sav:/app/model_sav
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
     depends_on:
       - redis
 
@@ -29,13 +38,20 @@ services:
     command: celery -A backend.celery_app worker --loglevel=info
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
-      - CLBTOPE_DB=/EpitopeFinder_2_0/tools/clbtope/clbtope/Database
+      - CLBTOPE_DB=/app/tools/clbtope/clbtope/Database
     volumes:
-      - ./Results:/EpitopeFinder_2_0/Results
+      - ./Results:/app/Results
+      - ./jobs:/app/jobs
+      - ./uploads:/app/uploads
+      - ./tools:/app/tools
+      - ./model_sav:/app/model_sav
     depends_on:
       - redis
 
   redis:
     image: redis:7-alpine
-    ports:
-      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3

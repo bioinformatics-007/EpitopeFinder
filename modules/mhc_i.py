@@ -15,10 +15,7 @@ logger = logging.getLogger('EpitopeFinder')
 logging.basicConfig(level=logging.INFO)
 
 # Dynamically resolve root directory
-current_path = Path(__file__).resolve()
-while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
-    current_path = current_path.parent
-root_dir = current_path
+root_dir = Path(__file__).resolve().parent.parent
 
 MHC_I_TOOL = os.path.join(root_dir, "tools/IEDB_NG_TC1-0.1.2-beta/src/tcell_mhci.py")
 

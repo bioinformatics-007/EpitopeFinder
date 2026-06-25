@@ -13,7 +13,7 @@ import sys
 def load_netsol_module():
     spec = importlib.util.spec_from_file_location(
         "modules.netsol",
-        "/home/hp-lapi/Downloads/EpitopeFinder_2_0/modules/netsol.py"
+        str(Path(__file__).resolve().parent.parent / "modules/netsol.py")
     )
     netsol = importlib.util.module_from_spec(spec)
     # Mock the problematic import in netsol.py

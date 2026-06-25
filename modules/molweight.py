@@ -4,6 +4,10 @@ from pathlib import Path
 from Bio import SeqIO
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 import pandas as pd
+import logging
+
+logger = logging.getLogger('EpitopeFinder')
+logging.basicConfig(level=logging.INFO)
 
 
 
@@ -17,6 +21,12 @@ def print_status(msg, status="info"):
     }
     endc = "\033[0m"
     print(f"{colors.get(status, '')}{msg}{endc}")
+    if status in ["info", "success"]:
+        logger.info(msg)
+    elif status == "warning":
+        logger.warning(msg)
+    elif status == "error":
+        logger.error(msg)
 
 def is_valid_sequence(seq: str) -> bool:
     """Validate that a sequence contains only standard amino acids."""

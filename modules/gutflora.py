@@ -6,12 +6,13 @@ from pathlib import Path
 import re
 import tempfile
 import pandas as pd
+import logging
+
+logger = logging.getLogger('EpitopeFinder')
+logging.basicConfig(level=logging.INFO)
 
 # Dynamically Resolve root directory
-current_path = Path(__file__).resolve()
-while current_path.name != "EpitopeFinder_2_0" and current_path != current_path.parent:
-    current_path = current_path.parent
-ROOT_DIR = current_path
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 # Define default database path
 GUT_DB = ROOT_DIR / "tools/databases/gut_microbiome_db"
@@ -24,6 +25,12 @@ def print_status(message, status="info"):
         "error": "\033[91m"
     }
     print(f"{color_map.get(status, '')}{message}\033[0m")
+    if status in ["info", "success"]:
+        logger.info(message)
+    elif status == "warning":
+        logger.warning(message)
+    elif status == "error":
+        logger.error(message)
 
 def parse_fasta(file_path):
     """

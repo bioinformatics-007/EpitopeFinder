@@ -128,7 +128,7 @@ def test_run_iapred_success(mock_to_csv, mock_rmtree, mock_remove, mock_copytree
                 ]
                 to_csv_calls = [call[0][0] for call in mock_to_csv.call_args_list]
                 for expected in expected_calls:
-                    assert any(expected in call for call in to_csv_calls), f"Expected to_csv call for {expected}"
+                    assert any(expected in str(call) for call in to_csv_calls), f"Expected to_csv call for {expected}"
 
 def test_run_iapred_missing_iapred_script(temp_fasta_file, temp_output_dir):
     # Mock IAPRED_TOOL_PATH to point to a non-existent IApred.py
@@ -186,7 +186,7 @@ def test_run_iapred_specific_output_file(mock_to_csv, mock_rmtree, mock_remove, 
     mock_subprocess.return_value = MagicMock(returncode=0, stdout="IAPred completed", stderr="")
     # Create a mock IAPred output CSV
     mock_csv_content = "Header,Start,End,Prediction\nSequence1|UniProt1,1,9,Positive\n"
-    output_file = temp_output_dir / "custom_output.csv"
+    output_file = temp_output_dir / "UniProt1_custom_output.csv"
     with patch("builtins.open", mock_open(read_data=mock_csv_content)):
         with patch("pandas.read_csv", return_value=pd.DataFrame({
             "Header": ["Sequence1|UniProt1"],
@@ -201,5 +201,5 @@ def test_run_iapred_specific_output_file(mock_to_csv, mock_rmtree, mock_remove, 
                 logger.debug(f"to_csv called with: {mock_to_csv.call_args_list}")
                 # Check to_csv call for output_file
                 to_csv_calls = [call[0][0] for call in mock_to_csv.call_args_list]
-                assert any(str(output_file) in call for call in to_csv_calls), f"Expected to_csv call for {output_file}"
+                assert any(str(output_file) in str(call) for call in to_csv_calls), f"Expected to_csv call for {output_file}"
 

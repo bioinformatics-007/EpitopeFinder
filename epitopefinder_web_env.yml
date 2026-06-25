@@ -4,10 +4,13 @@ channels:
   - bioconda
   - defaults
 dependencies:
+  - tabulate=0.10.0
+  - tcsh
   - python=3.10
   - pip
   - blast>=2.14.0
   - pip:
+      - "setuptools<70"
       - biopython==1.85
       - pandas>=1.26.0
       - requests>=2.31.0

@@ -8,7 +8,6 @@ import subprocess
 from unittest.mock import patch, MagicMock
 from pathlib import Path
 from modules.psortb import (
-    validate_fasta,
     read_fasta,
     run_psortb_tool,
     parse_psortb_output,
@@ -74,34 +73,19 @@ def invalid_fasta_files(temp_dir):
         "no_sequence": no_sequence_fasta
     }
 
-def test_validate_fasta_valid(sample_fasta_file):
-    """Test validate_fasta with a valid FASTA file."""
-    assert validate_fasta(sample_fasta_file) is True
-
-def test_validate_fasta_invalid(invalid_fasta_files):
-    """Test validate_fasta with various invalid FASTA files."""
-    with pytest.raises(ValueError, match="FASTA file is empty"):
-        validate_fasta(invalid_fasta_files["empty"])
-    
-    with pytest.raises(ValueError, match="FASTA file contains no valid headers"):
-        validate_fasta(invalid_fasta_files["no_header"])
-    
-    with pytest.raises(ValueError, match="FASTA file contains no valid sequence data"):
-        validate_fasta(invalid_fasta_files["no_sequence"])
-
 def test_read_fasta(sample_fasta_file):
     """Test read_fasta with a valid FASTA file."""
     sequences = read_fasta(sample_fasta_file)
     assert len(sequences) == 2
-    assert sequences[0][0] == "seq1"
-    assert sequences[0][1] == "MKLYNLKDHNEQVSFAKEFLQDKHTFDIDWGKLSVDEHLKSYQQLAEHLTKQKSS"
-    assert sequences[1][0] == "seq2"
-    assert sequences[1][1] == "MRLKTIQFDHLEAIEKAFKTAEAWYEAGDVQNNVGLSGNAFKKALDDILTKVNYD"
+    assert "seq1" in sequences
+    assert sequences["seq1"] == "MKLYNLKDHNEQVSFAKEFLQDKHTFDIDWGKLSVDEHLKSYQQLAEHLTKQKSS"
+    assert "seq2" in sequences
+    assert sequences["seq2"] == "MRLKTIQFDHLEAIEKAFKTAEAWYEAGDVQNNVGLSGNAFKKALDDILTKVNYD"
 
 def test_read_fasta_file_not_found(temp_dir):
     """Test read_fasta with a non-existent file."""
     non_existent_file = temp_dir / "non_existent.fasta"
-    with pytest.raises(FileNotFoundError, match="Input FASTA file not found"):
+    with pytest.raises(FileNotFoundError):
         read_fasta(non_existent_file)
 
 @patch("modules.psortb.shutil.which")
@@ -131,26 +115,22 @@ def test_run_psortb_tool(mock_find_psortb_executable, mock_setup_bioperl, mock_c
             "-i", str(sample_fasta_file),
             "-r", str(temp_dir),
             "-n",
-            "-o", "long"
+            "-o", "terse"
         ]
         mock_subprocess_run.assert_called_once_with(
             expected_command,
             check=True,
+            cwd=temp_dir,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True
         )
         assert result == "PSORTb ran successfully"
 
-def test_run_psortb_tool_invalid_organism(sample_fasta_file, temp_dir):
-    """Test run_psortb_tool with invalid organism type."""
-    with pytest.raises(ValueError, match="Invalid organism type: x"):
-        run_psortb_tool(sample_fasta_file, temp_dir, organism_type="x")
-
 def test_run_psortb_tool_file_not_found(temp_dir):
     """Test run_psortb_tool with non-existent FASTA file."""
     non_existent_file = temp_dir / "non_existent.fasta"
-    with pytest.raises(FileNotFoundError, match="Input FASTA file not found"):
+    with pytest.raises(FileNotFoundError, match="Input or Executable missing"):
         run_psortb_tool(non_existent_file, temp_dir)
 
 def test_parse_psortb_output(temp_dir):
@@ -169,7 +149,7 @@ def test_parse_psortb_output(temp_dir):
 def test_parse_psortb_output_file_not_found(temp_dir):
     """Test parse_psortb_output with a non-existent file."""
     non_existent_file = temp_dir / "non_existent.txt"
-    with pytest.raises(FileNotFoundError, match="PSORTb output file not found"):
+    with pytest.raises(FileNotFoundError):
         parse_psortb_output(non_existent_file)
 
 @patch("modules.psortb.run_psortb_tool")

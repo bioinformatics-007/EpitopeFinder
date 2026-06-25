@@ -94,6 +94,7 @@ def run_pipeline(self, job_id: str, request_dict: dict):
             selected_tools=request_dict.get("selected_tools"),
             pre_predicted_fastas=request_dict.get("pre_predicted_fastas"),
             assembly_config=assembly_cfg,
+            job_id=job_id,
         )
 
         # ── Fix: Daemonic processes are not allowed to have children ──
@@ -127,3 +128,12 @@ def run_pipeline(self, job_id: str, request_dict: dict):
         meta["completed_at"] = datetime.utcnow().isoformat()
         _write_meta(job_id, meta)
         return {"job_id": job_id, "status": "failed", "error": err_msg}
+
+
+@celery_app.task(name="backend.tasks.prune_stale_data_task")
+def prune_stale_data_task():
+    """Celery Beat task to automatically cleanup stale uploads, jobs, and results."""
+    from scripts.prune_stale_data import run_prune
+    logger.info("Triggering automatic cleanup task via Celery Beat.")
+    run_prune(dry_run=False)
+    logger.info("Automatic cleanup task complete.")

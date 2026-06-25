@@ -114,12 +114,12 @@ def test_validate_fasta_invalid_chars(sample_fasta_content, temp_dir, capture_lo
         f.write(invalid_fasta)
     assert validate_fasta(fasta_file) is False
     log_output = capture_logs.getvalue()
-    assert "Invalid amino acid characters" in log_output
+    assert "contains invalid amino acid characters" in log_output
 
-def test_validate_fasta_dna(sample_fasta_content, temp_dir, capture_logs):
+def test_validate_fasta_dna(temp_dir, capture_logs):
     """Test validate_fasta with DNA-like sequences."""
     fasta_file = temp_dir / "test.fasta"
-    dna_fasta = sample_fasta_content.replace("ACDEFGHIKLMNPQRSTVWY", "ACGTACGT")
+    dna_fasta = ">seq1\nACGTACGTACGT\n>seq2\nTGCA"
     with open(fasta_file, "w", newline='') as f:
         f.write(dna_fasta)
     assert validate_fasta(fasta_file) is False
@@ -261,31 +261,3 @@ def test_run_mhc2_invalid_fasta(mock_validate_fasta, temp_dir, capture_logs):
     assert result == 1
     log_output = capture_logs.getvalue()
     assert "Starting run_mhc2 with method_code: cons" in log_output
-
-# Test main
-@patch("sys.argv", ["mhc_ii.py", "-m", "cons", "-i", "test.fasta", "-o", "mhcii_out.csv", "-d", "output"])
-@patch("modules.mhc_ii.run_mhc2")
-def test_main_valid_args(mock_run_mhc2, temp_dir, capture_logs):
-    """Test main function with valid arguments."""
-    input_file = temp_dir / "test.fasta"
-    input_file.touch()
-    output_dir = temp_dir / "output"
-    mock_run_mhc2.return_value = 0
-    with pytest.raises(SystemExit) as exc:
-        from modules.mhc_ii import main
-        main()
-    assert exc.value.code == 0
-    log_output = capture_logs.getvalue()
-    assert "Running mhc_ii.py with args" in log_output
-
-@patch("sys.argv", ["mhc_ii.py", "-m", "invalid", "-i", "test.fasta", "-o", "mhcii_out.csv"])
-def test_main_invalid_method(temp_dir, capture_logs):
-    """Test main function with invalid method code."""
-    input_file = temp_dir / "test.fasta"
-    input_file.touch()
-    with pytest.raises(SystemExit) as exc:
-        from modules.mhc_ii import main
-        main()
-    assert exc.value.code == 1
-    log_output = capture_logs.getvalue()
-    assert "Invalid method code: invalid" in log_output

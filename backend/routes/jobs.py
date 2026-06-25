@@ -42,10 +42,26 @@ async def submit_job(request: JobSubmitRequest):
     request_dict = request.model_dump()
 
     # Dispatch to Celery worker
-    run_pipeline.delay(job_id, request_dict)
+    try:
+        run_pipeline.delay(job_id, request_dict)
+    except Exception as e:
+        _write_meta(job_id, {
+            "job_id": job_id,
+            "status": "failed",
+            "progress_pct": 0.0,
+            "current_tool": "",
+            "failed_tools": [],
+            "error": f"Broker connection failed: {e}"
+        })
+        raise HTTPException(
+            status_code=503,
+            detail="The background task broker is currently unreachable. Please try again later."
+        )
 
     return JobSubmitResponse(job_id=job_id, status="pending")
 
+
+import json
 
 @router.post("/submit-with-file", response_model=JobSubmitResponse)
 async def submit_job_with_file(
@@ -54,7 +70,9 @@ async def submit_job_with_file(
     pathogen_type: str = Form("bacteria"),
     mhci_method: str = Form("f"),
     mhcii_method: str = Form("nmel"),
-    selected_tools: str = Form(""),   # comma-separated
+    selected_tools: str = Form(""),
+    pre_predicted_fastas: str = Form(""),
+    assembly_config: str = Form(""),
 ):
     """Submit a job with an uploaded FASTA file."""
     job_id = f"job_{uuid.uuid4().hex[:12]}"
@@ -67,7 +85,25 @@ async def submit_job_with_file(
         content = await file.read()
         f.write(content)
 
-    tools = [t.strip() for t in selected_tools.split(",") if t.strip()] or None
+    # Parse JSON form fields
+    tools = None
+    if selected_tools:
+        try:
+            tools = json.loads(selected_tools)
+            if not isinstance(tools, list): tools = None
+        except: pass
+
+    fastas_dict = None
+    if pre_predicted_fastas:
+        try:
+            fastas_dict = json.loads(pre_predicted_fastas)
+        except: pass
+
+    assembly_dict = None
+    if assembly_config:
+        try:
+            assembly_dict = json.loads(assembly_config)
+        except: pass
 
     request_dict = {
         "input_value": str(upload_path),
@@ -76,11 +112,26 @@ async def submit_job_with_file(
         "mhci_method": mhci_method,
         "mhcii_method": mhcii_method,
         "selected_tools": tools,
-        "pre_predicted_fastas": None,
-        "assembly_config": None,
+        "pre_predicted_fastas": fastas_dict,
+        "assembly_config": assembly_dict,
     }
 
-    run_pipeline.delay(job_id, request_dict)
+    try:
+        run_pipeline.delay(job_id, request_dict)
+    except Exception as e:
+        _write_meta(job_id, {
+            "job_id": job_id,
+            "status": "failed",
+            "progress_pct": 0.0,
+            "current_tool": "",
+            "failed_tools": [],
+            "error": f"Broker connection failed: {e}"
+        })
+        raise HTTPException(
+            status_code=503,
+            detail="The background task broker is currently unreachable. Please try again later."
+        )
+
     return JobSubmitResponse(job_id=job_id, status="pending")
 
 

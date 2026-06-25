@@ -1,12 +1,23 @@
 .git
 __pycache__
 *.pyc
-Results_*
-results_*
-tools/ncbi-blast
-model_sav
-epitopefinder_env
-frontend/node_modules
-frontend/.next
+# Exclude local archives and test runs
+_archive/
+Results_*/
+results_*/
+
+# Exclude installers
+*.sh
+*.exe
+
+# Exclude stale environments
+vaxelan_env/
+epitopefinder_env/
+tools/
+model_sav/
+frontend/
+Results/
+jobs/
+uploads/
 *.log
 miniconda*.sh

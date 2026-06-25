@@ -67,6 +67,11 @@ export default function AlgorithmPage() {
         Heuristic modeling, structural validation, and clinical safety checks are applied at each stage.
       </p>
 
+      <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Reference</h3>
+      <p className="mb-6 bg-[#F4F4EE] p-3 border border-[#ccc]">
+        If you are using EpitopeFinder, please cite:<br/><br/>
+        <em>Yukti, et al. &quot;EpitopeFinder: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot; (In Preparation, 2026)</em>
+      </p>
     </div>
   );
 }

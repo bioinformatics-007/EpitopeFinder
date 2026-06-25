@@ -161,6 +161,7 @@ def run_iapred(input_fasta, output_dir, batch_idx=1, output_file=None, uniprot_i
         if df.empty:
             logging.warning("IAPred output CSV is empty")
             print_status("IAPred output CSV is empty", "warning")
+            return 1
     except Exception as e:
         logging.error(f"Failed to read IAPred output CSV: {str(e)}")
         print_status(f"Failed to read IAPred output CSV: {str(e)}", "error")
