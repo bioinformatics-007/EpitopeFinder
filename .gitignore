@@ -82,8 +82,9 @@ _archive/
 *.exe
 
 
-# Internal docs (AI context, not for public repo)
-docs/
+# Internal docs (AI context, not for public repo) — but keep docs/images/
+docs/*
+!docs/images/
 
 # Original module directory (work-in-progress updates, not for public release)
 new_module/
