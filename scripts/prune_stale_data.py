@@ -103,7 +103,7 @@ def run_prune(dry_run: bool = False):
 
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description="Prune stale EpitopeFinder files and directories.")
+    parser = argparse.ArgumentParser(description="Prune stale EpitopePred files and directories.")
     parser.argument_default = False
     parser.add_argument("--dry-run", action="store_true", help="Perform a dry run without deleting files.")
     args = parser.parse_args()

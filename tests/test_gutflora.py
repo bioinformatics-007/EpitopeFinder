@@ -17,7 +17,7 @@ from modules.gutflora import parse_fasta, write_temp_fasta, run_blastp, parse_bl
 
 # Configure logging for tests
 logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("EpitopeFinder")
+logger = logging.getLogger("EpitopePred")
 
 @pytest.fixture
 def temp_fasta_file(tmp_path):

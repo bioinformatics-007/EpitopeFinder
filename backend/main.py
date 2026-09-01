@@ -1,5 +1,5 @@
 """
-EpitopeFinder — FastAPI Application Entry Point.
+EpitopePred — FastAPI Application Entry Point.
 
 Run with:
     uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
@@ -13,8 +13,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.routes import jobs, config
 
 app = FastAPI(
-    title="EpitopeFinder API",
-    description="Programmatic access to the EpitopeFinder vaccine design pipeline.",
+    title="EpitopePred API",
+    description="Programmatic access to the EpitopePred vaccine design pipeline.",
     version="2.0.0",
     docs_url="/docs",
     redoc_url="/redoc",

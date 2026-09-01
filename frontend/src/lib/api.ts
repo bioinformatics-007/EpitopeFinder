@@ -7,7 +7,7 @@ import type {
   JobResultsResponse,
 } from './types';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE = '';
 
 /* ── Helpers ─────────────────────────────────────────────────── */
 
@@ -68,6 +68,9 @@ export const api = {
 
   getDownloadUrl: (jobId: string, filePath: string) =>
     `${API_BASE}/api/jobs/${jobId}/results/${filePath}`,
+
+  getZipDownloadUrl: (jobId: string) =>
+    `${API_BASE}/api/jobs/${jobId}/results/zip`,
 
   /* Health */
   health: () => get<{ status: string; version: string }>('/api/health'),

@@ -124,7 +124,7 @@ def run_clbtope(
             ]
             
 
-            result = subprocess.run(command, text=True, capture_output=True)
+            result = subprocess.run(command, text=True, capture_output=True, cwd=str(clbtope_script.parent))
             
             if result.returncode != 0:
                

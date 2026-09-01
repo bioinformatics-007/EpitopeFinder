@@ -1,0 +1,3114 @@
+[
+  {
+    "id": "PNC_01_RawFASTA_AllTools_DefaultMethods_Bacteria",
+    "description": "Raw FASTA + All 6 tools + Default methods (f/nmel) + Bacteria",
+    "job_id": "job_6ab40fd77dc9",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 24.1,
+    "diagnostics": [
+      {
+        "file": "batch1/test_prot_seq1_output/mhci_out.csv",
+        "filename": "mhci_out.csv",
+        "size_bytes": 24717,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 340,
+        "columns": [
+          "Method",
+          "allele",
+          "peptide",
+          "ic50",
+          "percentile",
+          "score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/netctl_out.csv",
+        "filename": "netctl_out.csv",
+        "size_bytes": 4238,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 66,
+        "columns": [
+          "SeqID",
+          "Peptide",
+          "MHC_Affinity",
+          "Rescaled_Affinity",
+          "Cleavage_Score",
+          "TAP_Score",
+          "Combined_Score",
+          "Is_Epitope"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/psortb_out.csv",
+        "filename": "psortb_out.csv",
+        "size_bytes": 26,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "SeqID",
+          "Localization",
+          "Score"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/bcell_out.csv",
+        "filename": "bcell_out.csv",
+        "size_bytes": 2626,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 65,
+        "columns": [
+          "Type",
+          "Position",
+          "Residue",
+          "Start",
+          "End",
+          "Peptide",
+          "Length",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_out.csv",
+        "filename": "mhcii_out.csv",
+        "size_bytes": 191175,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1860,
+        "columns": [
+          "Method",
+          "Allele",
+          "allele",
+          "seq_num",
+          "start",
+          "end",
+          "length",
+          "core_peptide",
+          "peptide",
+          "score",
+          "percentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/test_prot_seq1.fasta",
+        "filename": "test_prot_seq1.fasta",
+        "size_bytes": 92,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          ">test_prot_seq1"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/netchop_out.txt_netchop.csv",
+        "filename": "netchop_out.txt_netchop.csv",
+        "size_bytes": 1880,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 74,
+        "columns": [
+          "amino_acid",
+          "prediction_score",
+          "sequence_id"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "filename": "mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "size_bytes": 4681,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB3_01_01.txt",
+        "filename": "mhc2_HLA-DRB3_01_01.txt",
+        "size_bytes": 4023,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_13_02.txt",
+        "filename": "mhc2_HLA-DRB1_13_02.txt",
+        "size_bytes": 4017,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_13_01.txt",
+        "filename": "mhc2_HLA-DRB1_13_01.txt",
+        "size_bytes": 4011,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_11_01.txt",
+        "filename": "mhc2_HLA-DRB1_11_01.txt",
+        "size_bytes": 4021,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "filename": "mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "size_bytes": 4683,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_12_01.txt",
+        "filename": "mhc2_HLA-DRB1_12_01.txt",
+        "size_bytes": 4012,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_08_01.txt",
+        "filename": "mhc2_HLA-DRB1_08_01.txt",
+        "size_bytes": 4018,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_01_01.txt",
+        "filename": "mhc2_HLA-DRB1_01_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB4_01_01.txt",
+        "filename": "mhc2_HLA-DRB4_01_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_01.txt",
+        "filename": "mhc2_HLA-DRB1_04_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "filename": "mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB5_01_01.txt",
+        "filename": "mhc2_HLA-DRB5_01_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_04.txt",
+        "filename": "mhc2_HLA-DRB1_04_04.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_11_04.txt",
+        "filename": "mhc2_HLA-DRB1_11_04.txt",
+        "size_bytes": 4013,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "filename": "mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "size_bytes": 4676,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_01_02.txt",
+        "filename": "mhc2_HLA-DRB1_01_02.txt",
+        "size_bytes": 4018,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_03_01.txt",
+        "filename": "mhc2_HLA-DRB1_03_01.txt",
+        "size_bytes": 4025,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "filename": "mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "size_bytes": 4679,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "size_bytes": 4686,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB3_02_01.txt",
+        "filename": "mhc2_HLA-DRB3_02_01.txt",
+        "size_bytes": 4023,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "filename": "mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "size_bytes": 4682,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "size_bytes": 4683,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_15_02.txt",
+        "filename": "mhc2_HLA-DRB1_15_02.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_15_01.txt",
+        "filename": "mhc2_HLA-DRB1_15_01.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_07_01.txt",
+        "filename": "mhc2_HLA-DRB1_07_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_05.txt",
+        "filename": "mhc2_HLA-DRB1_04_05.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_09_01.txt",
+        "filename": "mhc2_HLA-DRB1_09_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_08_02.txt",
+        "filename": "mhc2_HLA-DRB1_08_02.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_02_RawFASTA_AllTools_SMM_NetMHCII_Virus",
+    "description": "Raw FASTA + All 6 tools + smmpmbec & netmhciipan_el + Virus",
+    "job_id": "job_a1e2ea7a76ce",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 21.1,
+    "diagnostics": [
+      {
+        "file": "batch1/test_prot_seq1_output/mhci_out.csv",
+        "filename": "mhci_out.csv",
+        "size_bytes": 24717,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 340,
+        "columns": [
+          "Method",
+          "allele",
+          "peptide",
+          "ic50",
+          "percentile",
+          "score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/netctl_out.csv",
+        "filename": "netctl_out.csv",
+        "size_bytes": 4238,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 66,
+        "columns": [
+          "SeqID",
+          "Peptide",
+          "MHC_Affinity",
+          "Rescaled_Affinity",
+          "Cleavage_Score",
+          "TAP_Score",
+          "Combined_Score",
+          "Is_Epitope"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/psortb_out.csv",
+        "filename": "psortb_out.csv",
+        "size_bytes": 26,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "SeqID",
+          "Localization",
+          "Score"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/bcell_out.csv",
+        "filename": "bcell_out.csv",
+        "size_bytes": 2626,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 65,
+        "columns": [
+          "Type",
+          "Position",
+          "Residue",
+          "Start",
+          "End",
+          "Peptide",
+          "Length",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_out.csv",
+        "filename": "mhcii_out.csv",
+        "size_bytes": 191175,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1860,
+        "columns": [
+          "Method",
+          "Allele",
+          "allele",
+          "seq_num",
+          "start",
+          "end",
+          "length",
+          "core_peptide",
+          "peptide",
+          "score",
+          "percentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/test_prot_seq1.fasta",
+        "filename": "test_prot_seq1.fasta",
+        "size_bytes": 92,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          ">test_prot_seq1"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/netchop_out.txt_netchop.csv",
+        "filename": "netchop_out.txt_netchop.csv",
+        "size_bytes": 1880,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 74,
+        "columns": [
+          "amino_acid",
+          "prediction_score",
+          "sequence_id"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "filename": "mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "size_bytes": 4681,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB3_01_01.txt",
+        "filename": "mhc2_HLA-DRB3_01_01.txt",
+        "size_bytes": 4023,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_13_02.txt",
+        "filename": "mhc2_HLA-DRB1_13_02.txt",
+        "size_bytes": 4017,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_13_01.txt",
+        "filename": "mhc2_HLA-DRB1_13_01.txt",
+        "size_bytes": 4011,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_11_01.txt",
+        "filename": "mhc2_HLA-DRB1_11_01.txt",
+        "size_bytes": 4021,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "filename": "mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "size_bytes": 4683,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_12_01.txt",
+        "filename": "mhc2_HLA-DRB1_12_01.txt",
+        "size_bytes": 4012,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_08_01.txt",
+        "filename": "mhc2_HLA-DRB1_08_01.txt",
+        "size_bytes": 4018,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_01_01.txt",
+        "filename": "mhc2_HLA-DRB1_01_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB4_01_01.txt",
+        "filename": "mhc2_HLA-DRB4_01_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_01.txt",
+        "filename": "mhc2_HLA-DRB1_04_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "filename": "mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB5_01_01.txt",
+        "filename": "mhc2_HLA-DRB5_01_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_04.txt",
+        "filename": "mhc2_HLA-DRB1_04_04.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_11_04.txt",
+        "filename": "mhc2_HLA-DRB1_11_04.txt",
+        "size_bytes": 4013,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "filename": "mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "size_bytes": 4676,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_01_02.txt",
+        "filename": "mhc2_HLA-DRB1_01_02.txt",
+        "size_bytes": 4018,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_03_01.txt",
+        "filename": "mhc2_HLA-DRB1_03_01.txt",
+        "size_bytes": 4025,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "filename": "mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "size_bytes": 4679,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "size_bytes": 4686,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB3_02_01.txt",
+        "filename": "mhc2_HLA-DRB3_02_01.txt",
+        "size_bytes": 4023,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "filename": "mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "size_bytes": 4682,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "size_bytes": 4683,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_15_02.txt",
+        "filename": "mhc2_HLA-DRB1_15_02.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_15_01.txt",
+        "filename": "mhc2_HLA-DRB1_15_01.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_07_01.txt",
+        "filename": "mhc2_HLA-DRB1_07_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_05.txt",
+        "filename": "mhc2_HLA-DRB1_04_05.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_09_01.txt",
+        "filename": "mhc2_HLA-DRB1_09_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_08_02.txt",
+        "filename": "mhc2_HLA-DRB1_08_02.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_03_RawFASTA_AllTools_ANN_NNalign_Fungi",
+    "description": "Raw FASTA + All 6 tools + ANN & NN_align + Fungi",
+    "job_id": "job_51fb6dc6338a",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 12.0,
+    "diagnostics": [
+      {
+        "file": "batch1/test_prot_seq1_output/mhci_out.csv",
+        "filename": "mhci_out.csv",
+        "size_bytes": 24717,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 340,
+        "columns": [
+          "Method",
+          "allele",
+          "peptide",
+          "ic50",
+          "percentile",
+          "score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/netctl_out.csv",
+        "filename": "netctl_out.csv",
+        "size_bytes": 4238,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 66,
+        "columns": [
+          "SeqID",
+          "Peptide",
+          "MHC_Affinity",
+          "Rescaled_Affinity",
+          "Cleavage_Score",
+          "TAP_Score",
+          "Combined_Score",
+          "Is_Epitope"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/psortb_out.csv",
+        "filename": "psortb_out.csv",
+        "size_bytes": 26,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "SeqID",
+          "Localization",
+          "Score"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/bcell_out.csv",
+        "filename": "bcell_out.csv",
+        "size_bytes": 2626,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 65,
+        "columns": [
+          "Type",
+          "Position",
+          "Residue",
+          "Start",
+          "End",
+          "Peptide",
+          "Length",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/test_prot_seq1.fasta",
+        "filename": "test_prot_seq1.fasta",
+        "size_bytes": 92,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          ">test_prot_seq1"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/netchop_out.txt_netchop.csv",
+        "filename": "netchop_out.txt_netchop.csv",
+        "size_bytes": 1880,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 74,
+        "columns": [
+          "amino_acid",
+          "prediction_score",
+          "sequence_id"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "filename": "mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB3_01_01.txt",
+        "filename": "mhc2_HLA-DRB3_01_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_13_02.txt",
+        "filename": "mhc2_HLA-DRB1_13_02.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_13_01.txt",
+        "filename": "mhc2_HLA-DRB1_13_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_11_01.txt",
+        "filename": "mhc2_HLA-DRB1_11_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "filename": "mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_12_01.txt",
+        "filename": "mhc2_HLA-DRB1_12_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_08_01.txt",
+        "filename": "mhc2_HLA-DRB1_08_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_01_01.txt",
+        "filename": "mhc2_HLA-DRB1_01_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB4_01_01.txt",
+        "filename": "mhc2_HLA-DRB4_01_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_01.txt",
+        "filename": "mhc2_HLA-DRB1_04_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "filename": "mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB5_01_01.txt",
+        "filename": "mhc2_HLA-DRB5_01_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_04.txt",
+        "filename": "mhc2_HLA-DRB1_04_04.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "filename": "mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_03_01.txt",
+        "filename": "mhc2_HLA-DRB1_03_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_01_02.txt.error",
+        "filename": "mhc2_HLA-DRB1_01_02.txt.error",
+        "size_bytes": 151,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Invalid allele name \"DRB1*01:02\" for method \"nn_align\" was found. To see all available alleles",
+          " please type command:"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "filename": "mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB3_02_01.txt.error",
+        "filename": "mhc2_HLA-DRB3_02_01.txt.error",
+        "size_bytes": 151,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Invalid allele name \"DRB3*02:01\" for method \"nn_align\" was found. To see all available alleles",
+          " please type command:"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "filename": "mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_15_01.txt",
+        "filename": "mhc2_HLA-DRB1_15_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_07_01.txt",
+        "filename": "mhc2_HLA-DRB1_07_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_04_05.txt",
+        "filename": "mhc2_HLA-DRB1_04_05.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_15_02.txt.error",
+        "filename": "mhc2_HLA-DRB1_15_02.txt.error",
+        "size_bytes": 151,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Invalid allele name \"DRB1*15:02\" for method \"nn_align\" was found. To see all available alleles",
+          " please type command:"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_09_01.txt",
+        "filename": "mhc2_HLA-DRB1_09_01.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_08_02.txt",
+        "filename": "mhc2_HLA-DRB1_08_02.txt",
+        "size_bytes": 88,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tic50\tpercentile_rank\tadjusted_rank"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/mhcii_debug/mhc2_HLA-DRB1_11_04.txt.error",
+        "filename": "mhc2_HLA-DRB1_11_04.txt.error",
+        "size_bytes": 151,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Invalid allele name \"DRB1*11:04\" for method \"nn_align\" was found. To see all available alleles",
+          " please type command:"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_04_FileUpload_SubsetTools_SMM_Bacteria",
+    "description": "File Upload + Subset tools (mhc1, bcell, psortb) + Bacteria",
+    "job_id": "job_1e373bfd4c19",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 3.0,
+    "diagnostics": [
+      {
+        "file": "batch1/test_prot_seq1_output/mhci_out.csv",
+        "filename": "mhci_out.csv",
+        "size_bytes": 24717,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 340,
+        "columns": [
+          "Method",
+          "allele",
+          "peptide",
+          "ic50",
+          "percentile",
+          "score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/psortb_out.csv",
+        "filename": "psortb_out.csv",
+        "size_bytes": 26,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "SeqID",
+          "Localization",
+          "Score"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/bcell_out.csv",
+        "filename": "bcell_out.csv",
+        "size_bytes": 2626,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 65,
+        "columns": [
+          "Type",
+          "Position",
+          "Residue",
+          "Start",
+          "End",
+          "Peptide",
+          "Length",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/test_prot_seq1_output/test_prot_seq1.fasta",
+        "filename": "test_prot_seq1.fasta",
+        "size_bytes": 92,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          ">test_prot_seq1"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_05_UniProt_P0A8T7_AllTools_Bacteria",
+    "description": "UniProt ID P0A8T7 + All 6 tools + Bacteria",
+    "job_id": "job_50d2ca95439d",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 168.4,
+    "diagnostics": [
+      {
+        "file": "batch1/P0A8T7_output/mhci_out.csv",
+        "filename": "mhci_out.csv",
+        "size_bytes": 402267,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 5537,
+        "columns": [
+          "Method",
+          "allele",
+          "peptide",
+          "ic50",
+          "percentile",
+          "score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/netctl_out.csv",
+        "filename": "netctl_out.csv",
+        "size_bytes": 88048,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1399,
+        "columns": [
+          "SeqID",
+          "Peptide",
+          "MHC_Affinity",
+          "Rescaled_Affinity",
+          "Cleavage_Score",
+          "TAP_Score",
+          "Combined_Score",
+          "Is_Epitope"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/psortb_out.csv",
+        "filename": "psortb_out.csv",
+        "size_bytes": 26,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "SeqID",
+          "Localization",
+          "Score"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/P0A8T7_output/bcell_out.csv",
+        "filename": "bcell_out.csv",
+        "size_bytes": 60918,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1398,
+        "columns": [
+          "Type",
+          "Position",
+          "Residue",
+          "Start",
+          "End",
+          "Peptide",
+          "Length",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_out.csv",
+        "filename": "mhcii_out.csv",
+        "size_bytes": 4548323,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 43183,
+        "columns": [
+          "Method",
+          "Allele",
+          "allele",
+          "seq_num",
+          "start",
+          "end",
+          "length",
+          "core_peptide",
+          "peptide",
+          "score",
+          "percentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/P0A8T7.fasta",
+        "filename": "P0A8T7.fasta",
+        "size_bytes": 1555,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 24,
+        "columns": [
+          ">sp|P0A8T7|RPOC_ECOLI DNA-directed RNA polymerase subunit beta' OS=Escherichia coli (strain K12) OX=83333 GN=rpoC PE=1 SV=1"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/netchop_out.txt_netchop.csv",
+        "filename": "netchop_out.txt_netchop.csv",
+        "size_bytes": 36921,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1407,
+        "columns": [
+          "amino_acid",
+          "prediction_score",
+          "sequence_id"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "filename": "mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "size_bytes": 110596,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB3_01_01.txt",
+        "filename": "mhc2_HLA-DRB3_01_01.txt",
+        "size_bytes": 95342,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "size_bytes": 110578,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_13_02.txt",
+        "filename": "mhc2_HLA-DRB1_13_02.txt",
+        "size_bytes": 95273,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_13_01.txt",
+        "filename": "mhc2_HLA-DRB1_13_01.txt",
+        "size_bytes": 95255,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_11_01.txt",
+        "filename": "mhc2_HLA-DRB1_11_01.txt",
+        "size_bytes": 95256,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "filename": "mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "size_bytes": 110604,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_12_01.txt",
+        "filename": "mhc2_HLA-DRB1_12_01.txt",
+        "size_bytes": 95274,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "size_bytes": 110603,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_08_01.txt",
+        "filename": "mhc2_HLA-DRB1_08_01.txt",
+        "size_bytes": 95274,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_01_01.txt",
+        "filename": "mhc2_HLA-DRB1_01_01.txt",
+        "size_bytes": 95270,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB4_01_01.txt",
+        "filename": "mhc2_HLA-DRB4_01_01.txt",
+        "size_bytes": 95242,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_04_01.txt",
+        "filename": "mhc2_HLA-DRB1_04_01.txt",
+        "size_bytes": 95277,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "filename": "mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "size_bytes": 110591,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB5_01_01.txt",
+        "filename": "mhc2_HLA-DRB5_01_01.txt",
+        "size_bytes": 95254,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_04_04.txt",
+        "filename": "mhc2_HLA-DRB1_04_04.txt",
+        "size_bytes": 95276,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_11_04.txt",
+        "filename": "mhc2_HLA-DRB1_11_04.txt",
+        "size_bytes": 95247,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "filename": "mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "size_bytes": 110584,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_01_02.txt",
+        "filename": "mhc2_HLA-DRB1_01_02.txt",
+        "size_bytes": 95244,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_03_01.txt",
+        "filename": "mhc2_HLA-DRB1_03_01.txt",
+        "size_bytes": 95280,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "filename": "mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "size_bytes": 110577,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "size_bytes": 110615,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB3_02_01.txt",
+        "filename": "mhc2_HLA-DRB3_02_01.txt",
+        "size_bytes": 95263,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "filename": "mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "size_bytes": 110614,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "size_bytes": 110605,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_15_02.txt",
+        "filename": "mhc2_HLA-DRB1_15_02.txt",
+        "size_bytes": 95305,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_15_01.txt",
+        "filename": "mhc2_HLA-DRB1_15_01.txt",
+        "size_bytes": 95298,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_07_01.txt",
+        "filename": "mhc2_HLA-DRB1_07_01.txt",
+        "size_bytes": 95261,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_04_05.txt",
+        "filename": "mhc2_HLA-DRB1_04_05.txt",
+        "size_bytes": 95296,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_09_01.txt",
+        "filename": "mhc2_HLA-DRB1_09_01.txt",
+        "size_bytes": 95257,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/P0A8T7_output/mhcii_debug/mhc2_HLA-DRB1_08_02.txt",
+        "filename": "mhc2_HLA-DRB1_08_02.txt",
+        "size_bytes": 95244,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1393,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_06_MultiSeqFASTA_AllTools_Virus",
+    "description": "Multi-Sequence FASTA + All 6 tools + Virus",
+    "job_id": "job_c0ecbdd30edb",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 33.1,
+    "diagnostics": [
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhci_out.csv",
+        "filename": "mhci_out.csv",
+        "size_bytes": 12019,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 165,
+        "columns": [
+          "Method",
+          "allele",
+          "peptide",
+          "ic50",
+          "percentile",
+          "score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/netctl_out.csv",
+        "filename": "netctl_out.csv",
+        "size_bytes": 2672,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 41,
+        "columns": [
+          "SeqID",
+          "Peptide",
+          "MHC_Affinity",
+          "Rescaled_Affinity",
+          "Cleavage_Score",
+          "TAP_Score",
+          "Combined_Score",
+          "Is_Epitope"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/seq2_cytoplasmic.fasta",
+        "filename": "seq2_cytoplasmic.fasta",
+        "size_bytes": 68,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          ">seq2_cytoplasmic"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/psortb_out.csv",
+        "filename": "psortb_out.csv",
+        "size_bytes": 26,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "SeqID",
+          "Localization",
+          "Score"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/bcell_out.csv",
+        "filename": "bcell_out.csv",
+        "size_bytes": 1639,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 40,
+        "columns": [
+          "Type",
+          "Position",
+          "Residue",
+          "Start",
+          "End",
+          "Peptide",
+          "Length",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_out.csv",
+        "filename": "mhcii_out.csv",
+        "size_bytes": 111416,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1085,
+        "columns": [
+          "Method",
+          "Allele",
+          "allele",
+          "seq_num",
+          "start",
+          "end",
+          "length",
+          "core_peptide",
+          "peptide",
+          "score",
+          "percentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/netchop_out.txt_netchop.csv",
+        "filename": "netchop_out.txt_netchop.csv",
+        "size_bytes": 1255,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 49,
+        "columns": [
+          "amino_acid",
+          "prediction_score",
+          "sequence_id"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "filename": "mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "size_bytes": 2756,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB3_01_01.txt",
+        "filename": "mhc2_HLA-DRB3_01_01.txt",
+        "size_bytes": 2373,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "size_bytes": 2754,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_13_02.txt",
+        "filename": "mhc2_HLA-DRB1_13_02.txt",
+        "size_bytes": 2372,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_13_01.txt",
+        "filename": "mhc2_HLA-DRB1_13_01.txt",
+        "size_bytes": 2368,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_11_01.txt",
+        "filename": "mhc2_HLA-DRB1_11_01.txt",
+        "size_bytes": 2372,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "filename": "mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "size_bytes": 2760,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_12_01.txt",
+        "filename": "mhc2_HLA-DRB1_12_01.txt",
+        "size_bytes": 2367,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "size_bytes": 2753,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_08_01.txt",
+        "filename": "mhc2_HLA-DRB1_08_01.txt",
+        "size_bytes": 2371,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_01_01.txt",
+        "filename": "mhc2_HLA-DRB1_01_01.txt",
+        "size_bytes": 2373,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB4_01_01.txt",
+        "filename": "mhc2_HLA-DRB4_01_01.txt",
+        "size_bytes": 2374,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_04_01.txt",
+        "filename": "mhc2_HLA-DRB1_04_01.txt",
+        "size_bytes": 2370,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "filename": "mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "size_bytes": 2753,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB5_01_01.txt",
+        "filename": "mhc2_HLA-DRB5_01_01.txt",
+        "size_bytes": 2372,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_04_04.txt",
+        "filename": "mhc2_HLA-DRB1_04_04.txt",
+        "size_bytes": 2373,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_11_04.txt",
+        "filename": "mhc2_HLA-DRB1_11_04.txt",
+        "size_bytes": 2369,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "filename": "mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "size_bytes": 2757,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_01_02.txt",
+        "filename": "mhc2_HLA-DRB1_01_02.txt",
+        "size_bytes": 2372,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_03_01.txt",
+        "filename": "mhc2_HLA-DRB1_03_01.txt",
+        "size_bytes": 2375,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "filename": "mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "size_bytes": 2757,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "size_bytes": 2761,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB3_02_01.txt",
+        "filename": "mhc2_HLA-DRB3_02_01.txt",
+        "size_bytes": 2374,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "filename": "mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "size_bytes": 2757,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "size_bytes": 2760,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_15_02.txt",
+        "filename": "mhc2_HLA-DRB1_15_02.txt",
+        "size_bytes": 2368,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_15_01.txt",
+        "filename": "mhc2_HLA-DRB1_15_01.txt",
+        "size_bytes": 2369,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_07_01.txt",
+        "filename": "mhc2_HLA-DRB1_07_01.txt",
+        "size_bytes": 2372,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_04_05.txt",
+        "filename": "mhc2_HLA-DRB1_04_05.txt",
+        "size_bytes": 2372,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_09_01.txt",
+        "filename": "mhc2_HLA-DRB1_09_01.txt",
+        "size_bytes": 2372,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq2_cytoplasmic_output/mhcii_debug/mhc2_HLA-DRB1_08_02.txt",
+        "filename": "mhc2_HLA-DRB1_08_02.txt",
+        "size_bytes": 2371,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 35,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhci_out.csv",
+        "filename": "mhci_out.csv",
+        "size_bytes": 24717,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 340,
+        "columns": [
+          "Method",
+          "allele",
+          "peptide",
+          "ic50",
+          "percentile",
+          "score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/netctl_out.csv",
+        "filename": "netctl_out.csv",
+        "size_bytes": 4238,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 66,
+        "columns": [
+          "SeqID",
+          "Peptide",
+          "MHC_Affinity",
+          "Rescaled_Affinity",
+          "Cleavage_Score",
+          "TAP_Score",
+          "Combined_Score",
+          "Is_Epitope"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/psortb_out.csv",
+        "filename": "psortb_out.csv",
+        "size_bytes": 26,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "SeqID",
+          "Localization",
+          "Score"
+        ],
+        "issues": [
+          "CSV has header but 0 data rows"
+        ]
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/seq1_outer_mem.fasta",
+        "filename": "seq1_outer_mem.fasta",
+        "size_bytes": 92,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          ">seq1_outer_mem"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/bcell_out.csv",
+        "filename": "bcell_out.csv",
+        "size_bytes": 2626,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 65,
+        "columns": [
+          "Type",
+          "Position",
+          "Residue",
+          "Start",
+          "End",
+          "Peptide",
+          "Length",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_out.csv",
+        "filename": "mhcii_out.csv",
+        "size_bytes": 191175,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1860,
+        "columns": [
+          "Method",
+          "Allele",
+          "allele",
+          "seq_num",
+          "start",
+          "end",
+          "length",
+          "core_peptide",
+          "peptide",
+          "score",
+          "percentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/netchop_out.txt_netchop.csv",
+        "filename": "netchop_out.txt_netchop.csv",
+        "size_bytes": 1880,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 74,
+        "columns": [
+          "amino_acid",
+          "prediction_score",
+          "sequence_id"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "filename": "mhc2_HLA-DPA1_03_01_DPB1_04_02.txt",
+        "size_bytes": 4681,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB3_01_01.txt",
+        "filename": "mhc2_HLA-DRB3_01_01.txt",
+        "size_bytes": 4023,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_05_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_13_02.txt",
+        "filename": "mhc2_HLA-DRB1_13_02.txt",
+        "size_bytes": 4017,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_13_01.txt",
+        "filename": "mhc2_HLA-DRB1_13_01.txt",
+        "size_bytes": 4011,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_11_01.txt",
+        "filename": "mhc2_HLA-DRB1_11_01.txt",
+        "size_bytes": 4021,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "filename": "mhc2_HLA-DQA1_03_01_DQB1_03_02.txt",
+        "size_bytes": 4683,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_12_01.txt",
+        "filename": "mhc2_HLA-DRB1_12_01.txt",
+        "size_bytes": 4012,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "filename": "mhc2_HLA-DPA1_02_01_DPB1_01_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_08_01.txt",
+        "filename": "mhc2_HLA-DRB1_08_01.txt",
+        "size_bytes": 4018,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_01_01.txt",
+        "filename": "mhc2_HLA-DRB1_01_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB4_01_01.txt",
+        "filename": "mhc2_HLA-DRB4_01_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_04_01.txt",
+        "filename": "mhc2_HLA-DRB1_04_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "filename": "mhc2_HLA-DPA1_01_03_DPB1_02_01.txt",
+        "size_bytes": 4678,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB5_01_01.txt",
+        "filename": "mhc2_HLA-DRB5_01_01.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_04_04.txt",
+        "filename": "mhc2_HLA-DRB1_04_04.txt",
+        "size_bytes": 4020,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_11_04.txt",
+        "filename": "mhc2_HLA-DRB1_11_04.txt",
+        "size_bytes": 4013,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "filename": "mhc2_HLA-DQA1_04_01_DQB1_04_02.txt",
+        "size_bytes": 4676,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_01_02.txt",
+        "filename": "mhc2_HLA-DRB1_01_02.txt",
+        "size_bytes": 4018,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_03_01.txt",
+        "filename": "mhc2_HLA-DRB1_03_01.txt",
+        "size_bytes": 4025,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "filename": "mhc2_HLA-DQA1_01_02_DQB1_06_02.txt",
+        "size_bytes": 4679,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_02_01.txt",
+        "size_bytes": 4686,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB3_02_01.txt",
+        "filename": "mhc2_HLA-DRB3_02_01.txt",
+        "size_bytes": 4023,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "filename": "mhc2_HLA-DQA1_01_01_DQB1_05_01.txt",
+        "size_bytes": 4682,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "filename": "mhc2_HLA-DQA1_05_01_DQB1_03_01.txt",
+        "size_bytes": 4683,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_15_02.txt",
+        "filename": "mhc2_HLA-DRB1_15_02.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_15_01.txt",
+        "filename": "mhc2_HLA-DRB1_15_01.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_07_01.txt",
+        "filename": "mhc2_HLA-DRB1_07_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_04_05.txt",
+        "filename": "mhc2_HLA-DRB1_04_05.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_09_01.txt",
+        "filename": "mhc2_HLA-DRB1_09_01.txt",
+        "size_bytes": 4022,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      },
+      {
+        "file": "batch1/seq1_outer_mem_output/mhcii_debug/mhc2_HLA-DRB1_08_02.txt",
+        "filename": "mhc2_HLA-DRB1_08_02.txt",
+        "size_bytes": 4015,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 60,
+        "columns": [
+          "allele\tseq_num\tstart\tend\tlength\tcore_peptide\tpeptide\tscore\tpercentile_rank"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  }
+]

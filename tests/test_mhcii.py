@@ -19,7 +19,7 @@ from modules.mhc_ii import find_python_interpreter, print_status, log_memory_usa
 @pytest.fixture
 def capture_logs():
     """Fixture to capture log output with consistent formatting."""
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.handlers = []  # Clear existing handlers
     log_capture = StringIO()
     handler = logging.StreamHandler(log_capture)

@@ -11,7 +11,7 @@ import time
 import tempfile
 
 # Set up logging
-logger = logging.getLogger('EpitopeFinder')
+logger = logging.getLogger('EpitopePred')
 logging.basicConfig(level=logging.INFO)
 
 # Dynamically resolve root directory
@@ -23,11 +23,11 @@ METHOD_CODES = {
     "a": "ann",
     "b": "comblib_sidney2008",
     "c": "consensus",
-    "d": "netmhcpan_ba",
+    "d": "netmhccons",
     "e": "netmhcpan_ba",
     "f": "netmhcpan_el",
-    "g": "netmhcpan_el",
-    "h": "netmhcpan_ba",
+    "g": "netmhcstabpan",
+    "h": "pickpocket",
     "i": "smm",
     "j": "smmpmbec"
 }
@@ -42,7 +42,7 @@ SUPPORTED_ALLELES = [
 def create_iedb_json(input_fasta, method, alleles):
     data = {
         "input_sequence_text_file_path": os.path.abspath(input_fasta),
-        "peptide_length_range": [8, 11],
+        "peptide_length_range": [9, 10],
         "alleles": ",".join(alleles),
         "predictors": [{"type": "binding", "method": method}]
     }
@@ -53,9 +53,9 @@ def create_iedb_json(input_fasta, method, alleles):
 
 def run_mhc1(method_code, input_file, output_file="mhci_out.csv", score_threshold=5000):
     start_time = time.time()
-    method = METHOD_CODES.get(method_code)
+    method = METHOD_CODES.get(method_code, method_code)
     
-    if not method:
+    if method not in METHOD_CODES.values() and method_code not in METHOD_CODES.values():
         logger.error(f"Invalid method code: {method_code}")
         return 1
 
@@ -77,6 +77,9 @@ def run_mhc1(method_code, input_file, output_file="mhci_out.csv", score_threshol
         # FIX 1: If the tool fails, return exit code 1 immediately
         if result.returncode != 0:
             logger.error(f"IEDB Tool Error: {result.stderr}")
+            if method != "smmpmbec":
+                logger.info("Retrying MHC-I prediction with smmpmbec fallback...")
+                return run_mhc1("j", input_file, output_file, score_threshold)
             return 1
 
         if not result.stdout.strip():

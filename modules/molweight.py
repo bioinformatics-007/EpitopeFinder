@@ -6,7 +6,7 @@ from Bio.SeqUtils.ProtParam import ProteinAnalysis
 import pandas as pd
 import logging
 
-logger = logging.getLogger('EpitopeFinder')
+logger = logging.getLogger('EpitopePred')
 logging.basicConfig(level=logging.INFO)
 
 

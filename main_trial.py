@@ -45,7 +45,7 @@ from modules.toxin_epitope import run_toxinpred3
 from modules.wolfpsort import run_wolf_psort
 
 # Define root directory
-ROOT_DIR = os.environ.get("EPITOPEFINDER_ROOT", Path(__file__).resolve().parent)
+ROOT_DIR = os.environ.get("EPITOPEPRED_ROOT", Path(__file__).resolve().parent)
 ROOT_DIR = Path(ROOT_DIR)
 
 # Define output directory with timestamp
@@ -57,7 +57,7 @@ BATCH_SIZE = 100
 
 def extract_uniprot_id(header):
     """Extract UniProt ID from FASTA header."""
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     try:
         if '|' in header:
             parts = header.split('|')
@@ -113,7 +113,7 @@ def print_status(msg, status="info"):
     }
     endc = "\033[0m"
     print(f"{colors.get(status, '')}{msg}{endc}")
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     if status == "info":
         logger.info(msg)
     elif status == "warning":
@@ -127,10 +127,10 @@ def setup_logging(output_dir):
     """Sets up logging to both file and console with proper flushing and isolation."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    log_file = output_dir / f"epitopefinder_{TIMESTAMP}.log"
+    log_file = output_dir / f"epitopepred_{TIMESTAMP}.log"
 
     # Create logger
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.setLevel(logging.DEBUG)
     logger.propagate = False  # Prevent double logging if root logger is used elsewhere
 
@@ -157,8 +157,8 @@ def setup_logging(output_dir):
     atexit.register(lambda: [h.flush() for h in logger.handlers if hasattr(h, 'flush')])
 
     # Confirmation message
-    logger.info("Logging initialized for EpitopeFinder")
-    print("\033[94mLogging initialized for EpitopeFinder\033[0m")
+    logger.info("Logging initialized for EpitopePred")
+    print("\033[94mLogging initialized for EpitopePred\033[0m")
 
     return logger
 
@@ -179,7 +179,7 @@ def fetch_uniprot_sequence(uniprot_id, logger):
         sys.exit(1)
 
 def detect_pathogen_type_from_uniprot(uniprot_id):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Detecting pathogen type from UniProt ID: {uniprot_id}")
     try:
         # Query UniProt for taxonomy information
@@ -221,7 +221,7 @@ def detect_pathogen_type_from_uniprot(uniprot_id):
         return "unknown"
 
 def detect_pathogen_type_from_fasta(input_file):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Detecting pathogen type from FASTA file: {input_file}")
     try:
         input_file = Path(input_file)
@@ -319,7 +319,7 @@ def detect_pathogen_type_from_fasta(input_file):
         return "unknown"
 
 def validate_fasta_file(input_file):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Validating FASTA file: {input_file}")
     try:
         input_file = Path(input_file)
@@ -360,7 +360,7 @@ def validate_fasta_file(input_file):
 
 def split_fasta_into_batches(input_file, batch_size, temp_dir):
     """Split a FASTA file into batches, generating batch FASTAs and per-sequence FASTAs."""
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Splitting FASTA file {input_file} into batches of {batch_size} sequences")
     input_file = Path(input_file)
     temp_dir = Path(temp_dir)
@@ -421,7 +421,7 @@ def split_fasta_into_batches(input_file, batch_size, temp_dir):
     return batch_files, batch_dirs, uniprot_mapping
 
 def check_dependencies():
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info("Checking dependencies...")
     try:
         import pandas
@@ -465,7 +465,7 @@ def check_dependencies():
     print_status("All dependencies verified.", "success")
 
 def select_pathogen_type():
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     print("\nSelect pathogen type:")
     print("1. Bacteria")
     print("2. Virus")
@@ -481,7 +481,7 @@ def select_pathogen_type():
         print_status("Invalid choice. Please enter 1, 2, 3, or 4.", "error")
 
 def validate_pathogen_type(input_value, selected_type, is_uniprot=False):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Validating pathogen type for input: {input_value}, selected: {selected_type}, is_uniprot: {is_uniprot}")
     detected_type = detect_pathogen_type_from_uniprot(input_value) if is_uniprot else detect_pathogen_type_from_fasta(input_value)
     logger.info(f"Detected pathogen type: {detected_type}")
@@ -549,7 +549,7 @@ def select_mhcii_method():
 
 def run_tool_wrapper(tool_func, tool_name, *args, **kwargs):
     """Wrapper for running tools in multiprocessing, returning (tool_name, status, error)."""
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     try:
         status = tool_func(*args, **kwargs)
         return tool_name, status, None
@@ -1492,7 +1492,7 @@ def main():
         try:
             if is_uniprot:
                 fasta_content = fetch_uniprot_sequence(input_value, logger)
-                temp_dir = Path(tempfile.mkdtemp(prefix="epitopefinder_"))
+                temp_dir = Path(tempfile.mkdtemp(prefix="epitopepred_"))
                 input_file = temp_dir / f"{input_value}.fasta"
                 with open(input_file, "w") as f:
                     f.write(fasta_content)
@@ -1511,7 +1511,7 @@ def main():
                     logger.error("Invalid FASTA file")
                     print_status("Error: Invalid FASTA file. Please try again.", "error")
                     continue
-                temp_dir = Path(tempfile.mkdtemp(prefix="epitopefinder_"))
+                temp_dir = Path(tempfile.mkdtemp(prefix="epitopepred_"))
                 batch_files, batch_dirs, uniprot_mapping = split_fasta_into_batches(input_file, BATCH_SIZE, temp_dir)
                 if not batch_files:
                     logger.error("No valid sequences found in FASTA file")

@@ -107,29 +107,30 @@ def convert_to_csv(input_file, output_csv):
         bool: True if successful, False otherwise.
     """
     try:
-        if not input_file.is_file() or input_file.stat().st_size == 0:
-            print_status(f"Input file {input_file} is missing or empty.", "error")
-            return False
-
-        # Read the input file
         with open(input_file, 'r') as f:
             lines = f.readlines()
 
-        # Skip header lines (lines starting with '#' or empty)
-        data_lines = [line.strip() for line in lines if line.strip() and not line.startswith('#')]
-        if not data_lines:
-            print_status("No data found in prediction_results.txt.", "error")
-            return False
+        header = None
+        data_rows = []
+        for line in lines:
+            line_str = line.strip()
+            if not line_str:
+                continue
+            if line_str.startswith('#'):
+                # Header line in SignalP 6 text output starts with # ID or #ID
+                cleaned = line_str.lstrip('#').strip()
+                if cleaned.startswith(('ID', 'Id', 'id')):
+                    header = [c.strip() for c in cleaned.split('\t') if c.strip()]
+            else:
+                data_rows.append([c.strip() for c in line_str.split('\t')])
 
-        # Assume the first non-comment line is the header
-        header = data_lines[0].split('\t')
-        data = [line.split('\t') for line in data_lines[1:]]
+        if not header:
+            header = ["ID", "Prediction", "SP(Sec/SPI)", "TAT(Tat/SPI)", "LIPO(Sec/SPII)", "PILIN(Sec/SPIII)", "CS_Position"]
 
-        # Write to CSV
         with open(output_csv, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(header)  # Write header
-            writer.writerows(data)  # Write data rows
+            writer.writerow(header)
+            writer.writerows(data_rows)
 
         print_status(f"Successfully converted {input_file} to {output_csv}", "success")
         return True
@@ -163,7 +164,7 @@ def run_signalp(input_fasta, output_dir, model_dir=MODEL_DIR):
         # Locate the signalp6 executable
         signalp_executable = shutil.which("signalp6")
         if not signalp_executable:
-            print_status("Error: 'signalp6' executable not found in PATH. Ensure it is installed in your Conda environment (epitopefinder_new).", "error")
+            print_status("Error: 'signalp6' executable not found in PATH. Ensure it is installed in your Conda environment (epitopepred_new).", "error")
             raise FileNotFoundError("signalp6 executable not found in PATH")
 
         # Validate inputs
@@ -181,7 +182,7 @@ def run_signalp(input_fasta, output_dir, model_dir=MODEL_DIR):
             print_status(
                 f"Model directory not found or missing distilled_model_signalp6.pt. "
                 f"Ensure the model weights are in {MODEL_DIR} or specify the correct path with --model-dir. "
-                f"Check EpitopeFinder_2_0 documentation or SignalP provider for model weights.",
+                f"Check EpitopePred_2_0 documentation or SignalP provider for model weights.",
                 "error"
             )
             raise FileNotFoundError("Model directory not found or missing model file")
@@ -192,7 +193,7 @@ def run_signalp(input_fasta, output_dir, model_dir=MODEL_DIR):
             print_status(
                 f"Required model file not found: {model_file}. "
                 f"Please ensure the SignalP model weights are installed correctly. "
-                f"Refer to EpitopeFinder_2_0 or SignalP documentation for obtaining distilled_model_signalp6.pt.",
+                f"Refer to EpitopePred_2_0 or SignalP documentation for obtaining distilled_model_signalp6.pt.",
                 "error"
             )
             raise FileNotFoundError(f"Model file {model_file} not found")
@@ -203,7 +204,6 @@ def run_signalp(input_fasta, output_dir, model_dir=MODEL_DIR):
         # Set environment variable for model weights
         os.environ["SIGNARP_MODEL_DIR"] = str(model_dir)
 
-        # Build the SignalP command
         command = [
             signalp_executable,
             "--fastafile", str(input_fasta),
@@ -212,7 +212,6 @@ def run_signalp(input_fasta, output_dir, model_dir=MODEL_DIR):
             "--format", "txt",
             "--mode", "fast",
             "--bsize", "10",  # Added to reduce memory usage
-            "--torch_num_threads", str(int(psutil.cpu_count()))  # Fixed: Explicitly cast to int, then to str
         ]
 
         # Log file size and command

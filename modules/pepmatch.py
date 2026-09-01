@@ -121,6 +121,9 @@ def run_pepmatch(input_fasta, output_dir=".", output_file=None, seq_id=None, mis
             print(final_df.to_string(index=False))
     else:
         print_status("No matches found.", "warning")
+        if output_file:
+            empty_df = pd.DataFrame(columns=['input sequence', 'matched sequence', 'protein id', 'protein name', 'organism', 'taxid', 'gene', 'start', 'end', 'mismatches'])
+            empty_df.to_csv(output_file, index=False)
     return 0
 
 def main():

@@ -128,10 +128,14 @@ def run_wolf_psort(input_fasta, output_file, wolf_psort_path=ROOT_DIR / "tools" 
             combined_file.write("\n".join(data_lines))
 
         for line in data_lines:
+            if line.startswith("#"):
+                continue
             columns = line.split()
             if not columns:
                 continue
             uniprot_id = columns[0]
+            if uniprot_id == "#":
+                continue
             individual_file = output_dir / f"{uniprot_id}.txt"
             with open(individual_file, "w") as indfile:
                 if header:

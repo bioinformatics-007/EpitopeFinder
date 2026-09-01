@@ -10,11 +10,12 @@ import shutil
 import uuid
 import logging
 
-logger = logging.getLogger('EpitopeFinder')
+logger = logging.getLogger('EpitopePred')
 logging.basicConfig(level=logging.INFO)
 
-# Define root directory
-ROOT_DIR = Path.cwd().parent
+# Define root directory and the bundled algpred2 script path
+ROOT_DIR = Path(__file__).resolve().parent.parent
+ALGPRED2_SCRIPT = ROOT_DIR / "tools" / "algpred2_new" / "algpred2_new" / "algpred2.py"
 
 def print_status(msg, status="info"):
     """Print colored status messages."""
@@ -91,7 +92,7 @@ def validate_fasta_file(fasta_file):
             return False, None, None, "No valid sequences found in FASTA file"
 
         # Create temporary directory
-        temp_dir = tempfile.mkdtemp(prefix="epitopefinder_")
+        temp_dir = tempfile.mkdtemp(prefix="epitopepred_")
         if not os.path.exists(temp_dir):
             return False, None, None, f"Failed to create temporary directory: {temp_dir}"
 
@@ -178,9 +179,14 @@ def run_algpred(input_fasta, output_dir, batch_idx=1, output_file=None, model="1
                 print_status(f"Temporary directory not found: {temp_dir}", "error")
                 return 1
 
+            if not ALGPRED2_SCRIPT.is_file():
+                print_status(f"AlgPred2 script not found at {ALGPRED2_SCRIPT}", "error")
+                return 1
+
+            # Use the bundled algpred2.py directly — no conda needed inside Docker
             command = [
-                "conda", "run", "-n", "epitopefinder_new",
-                "algpred2",
+                sys.executable,
+                str(ALGPRED2_SCRIPT),
                 "-i", clean_fasta,
                 "-o", temp_output,
                 "-m", model,
@@ -191,8 +197,7 @@ def run_algpred(input_fasta, output_dir, batch_idx=1, output_file=None, model="1
 
             try:
                 result = subprocess.run(
-                    command_str,
-                    shell=True,
+                    command,
                     check=True,
                     capture_output=True,
                     text=True,

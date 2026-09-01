@@ -139,8 +139,11 @@ def run_algpred_down(input_fasta, output_dir, batch_idx=1, output_file=None, mod
                 print_status(f"Temp directory not found: {temp_dir}", "error")
                 return 1
 
+            ROOT_DIR = Path(__file__).resolve().parent.parent
+            algpred_script = ROOT_DIR / "tools" / "algpred2_new" / "algpred2_new" / "algpred2.py"
             command = [
-                "conda", "run", "-n", "epitopefinder_new", "algpred2",
+                sys.executable,
+                str(algpred_script),
                 "-i", str(clean_fasta),
                 "-o", str(temp_output),
                 "-m", model,
@@ -150,8 +153,7 @@ def run_algpred_down(input_fasta, output_dir, batch_idx=1, output_file=None, mod
             print_status(f"Executing: {command_str}", "info")
             try:
                 result = subprocess.run(
-                    command_str,
-                    shell=True,
+                    command,
                     check=True,
                     capture_output=True,
                     text=True,

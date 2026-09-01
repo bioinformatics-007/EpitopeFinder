@@ -1,5 +1,5 @@
 """
-EpitopeFinder — Celery application configuration.
+EpitopePred — Celery application configuration.
 
 Uses Redis as both broker and result backend.
 The Redis URL is read from the CELERY_BROKER_URL environment variable
@@ -23,7 +23,7 @@ BROKER_URL = os.getenv("CELERY_BROKER_URL", "redis://localhost:6379/0")
 RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND", BROKER_URL)
 
 celery_app = Celery(
-    "epitopefinder_worker",
+    "epitopepred_worker",
     broker=BROKER_URL,
     backend=RESULT_BACKEND,
     include=["backend.tasks"],

@@ -1,5 +1,5 @@
 """
-EpitopeFinder — Job management endpoints.
+EpitopePred — Job management endpoints.
 
 POST /api/jobs/submit      → Submit a new pipeline job
 GET  /api/jobs/{id}/status  → Poll job progress
@@ -33,7 +33,7 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 
 @router.post("/submit", response_model=JobSubmitResponse)
 async def submit_job(request: JobSubmitRequest):
-    """Submit a new EpitopeFinder pipeline job for asynchronous execution."""
+    """Submit a new EpitopePred pipeline job for asynchronous execution."""
     job_id = f"job_{uuid.uuid4().hex[:12]}"
 
     _write_meta(job_id, {"job_id": job_id, "status": "pending", "progress_pct": 0.0, "current_tool": "Queued", "failed_tools": [], "error": ""})
@@ -186,6 +186,37 @@ async def get_job_results(job_id: str):
         results_dir=results_dir,
         outputs=outputs,
         failed_tools=meta.get("failed_tools", []),
+    )
+
+
+# ── GET /results/zip ─────────────────────────────────────────────
+
+@router.get("/{job_id}/results/zip")
+async def download_results_zip(job_id: str):
+    """Download all results for a job as a single ZIP archive."""
+    meta = _read_meta(job_id)
+    if not meta:
+        raise HTTPException(status_code=404, detail=f"Job {job_id} not found")
+
+    if meta.get("status") != "completed":
+        raise HTTPException(status_code=400, detail=f"Job {job_id} is not completed")
+
+    results_dir = meta.get("results_dir")
+    if not results_dir or not os.path.exists(results_dir):
+        raise HTTPException(status_code=404, detail="Results directory not found")
+
+    import shutil
+    import tempfile
+    
+    # Create the zip in the system temp dir
+    # shutil.make_archive adds the .zip extension automatically
+    tmp_zip_base = os.path.join(tempfile.gettempdir(), f"{job_id}_results")
+    zip_path = shutil.make_archive(tmp_zip_base, 'zip', results_dir)
+    
+    return FileResponse(
+        path=zip_path,
+        filename=f"{job_id}_results.zip",
+        media_type="application/zip",
     )
 
 

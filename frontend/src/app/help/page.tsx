@@ -6,14 +6,14 @@ export default function HelpPage() {
       <h2 className="text-xl font-bold border-b border-[#ccc] pb-1 mb-4 text-[#3A332D]">Help</h2>
 
       <p className="mb-6">
-        This page provides detailed documentation on how to use the EpitopeFinder web server for multi-epitope vaccine design.
+        This page provides detailed documentation on how to use the EpitopePred web server for multi-epitope vaccine design.
       </p>
 
       {/* Section 1 */}
       <h3 className="text-lg font-bold text-[#3A332D] mb-2">1. Input Data</h3>
       <hr className="mb-3 border-[#ccc]" />
       <p className="mb-3">
-        EpitopeFinder accepts pathogenic protein sequences in <strong>FASTA format</strong>. You may provide input in three ways:
+        EpitopePred accepts pathogenic protein sequences in <strong>FASTA format</strong>. You may provide input in three ways:
       </p>
       <ul className="list-disc pl-6 mb-3 space-y-1">
         <li><strong>Upload FASTA File:</strong> Upload a .fasta, .fa, or .txt file containing one or more protein sequences.</li>
@@ -84,8 +84,8 @@ SRSRSRSRSRSRSRSRSRSRSRSRSRSRSRSRSRSRSRS
       {/* Reference */}
       <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Reference</h3>
       <p className="mb-6 bg-[#F4F4EE] p-3 border border-[#ccc]">
-        If you are using EpitopeFinder, please cite:<br/><br/>
-        <em>Yukti, et al. &quot;EpitopeFinder: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot; (In Preparation, 2026)</em>
+        If you are using EpitopePred, please cite:<br/><br/>
+        <em>&quot;EpitopePred: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot; (In Preparation, 2026)</em>
       </p>
     </div>
   );

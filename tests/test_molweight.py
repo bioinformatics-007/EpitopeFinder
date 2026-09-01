@@ -24,7 +24,7 @@ from modules.molweight import (
 @pytest.fixture
 def capture_logs():
     """Fixture to capture log output with consistent formatting."""
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.handlers = []  # Clear existing handlers
     log_capture = StringIO()
     handler = logging.StreamHandler(log_capture)
@@ -61,7 +61,7 @@ def test_print_status(capture_logs, capsys):
     captured = capsys.readouterr()
     assert "\033[94mTest message\033[0m" in captured.out
     log_output = capture_logs.getvalue()
-    assert "- EpitopeFinder - Test message" in log_output
+    assert "- EpitopePred - Test message" in log_output
 
 # Test is_valid_sequence
 def test_is_valid_sequence_valid():

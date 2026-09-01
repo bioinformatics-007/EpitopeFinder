@@ -51,7 +51,7 @@ from modules.algpred_down import run_algpred_down
 from modules.iapred_down import run_iapred_down
 
 # Define root directory
-ROOT_DIR = os.environ.get("EPITOPEFINDER_ROOT", Path(__file__).resolve().parent)
+ROOT_DIR = os.environ.get("EPITOPEPRED_ROOT", Path(__file__).resolve().parent)
 ROOT_DIR = Path(ROOT_DIR)
 
 # Define output directory with timestamp
@@ -63,7 +63,7 @@ BATCH_SIZE = 100
 
 def extract_uniprot_id(header):
     """Extract UniProt ID from FASTA header."""
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     try:
         if '|' in header:
             parts = header.split('|')
@@ -130,7 +130,7 @@ def print_status(msg, status="info"):
     }
     endc = "\033[0m"
     print(f"{colors.get(status, '')}{msg}{endc}")
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     if status == "info":
         logger.info(msg)
     elif status == "warning":
@@ -144,10 +144,10 @@ def setup_logging(output_dir):
     """Sets up logging to both file and console with proper flushing and isolation."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    log_file = output_dir / f"epitopefinder_{TIMESTAMP}.log"
+    log_file = output_dir / f"epitopepred_{TIMESTAMP}.log"
 
     # Create logger
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.setLevel(logging.DEBUG)
     logger.propagate = False  # Prevent double logging if root logger is used elsewhere
 
@@ -174,8 +174,8 @@ def setup_logging(output_dir):
     atexit.register(lambda: [h.flush() for h in logger.handlers if hasattr(h, 'flush')])
 
     # Confirmation message
-    logger.info("Logging initialized for EpitopeFinder")
-    print("\033[94mLogging initialized for EpitopeFinder\033[0m")
+    logger.info("Logging initialized for EpitopePred")
+    print("\033[94mLogging initialized for EpitopePred\033[0m")
 
     return logger
 
@@ -196,7 +196,7 @@ def fetch_uniprot_sequence(uniprot_id, logger):
         raise RuntimeError(f"Failed to fetch UniProt ID: {uniprot_id}: {e}")
 
 def detect_pathogen_type_from_uniprot(uniprot_id):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Detecting pathogen type from UniProt ID: {uniprot_id}")
     try:
         # Query UniProt for taxonomy information
@@ -238,7 +238,7 @@ def detect_pathogen_type_from_uniprot(uniprot_id):
         return "unknown"
 
 def detect_pathogen_type_from_fasta(input_file):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Detecting pathogen type from FASTA file: {input_file}")
     try:
         input_file = Path(input_file)
@@ -336,7 +336,7 @@ def detect_pathogen_type_from_fasta(input_file):
         return "unknown"
 
 def validate_fasta_file(input_file):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Validating FASTA file: {input_file}")
     try:
         input_file = Path(input_file)
@@ -377,7 +377,7 @@ def validate_fasta_file(input_file):
 
 def split_fasta_into_batches(input_file, batch_size, temp_dir):
     """Split a FASTA file into batches, generating batch FASTAs and per-sequence FASTAs."""
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Splitting FASTA file {input_file} into batches of {batch_size} sequences")
     input_file = Path(input_file)
     temp_dir = Path(temp_dir)
@@ -438,7 +438,7 @@ def split_fasta_into_batches(input_file, batch_size, temp_dir):
     return batch_files, batch_dirs, uniprot_mapping
 
 def check_dependencies():
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info("Checking dependencies...")
     try:
         import pandas
@@ -482,7 +482,7 @@ def check_dependencies():
     print_status("All dependencies verified.", "success")
 
 def select_pathogen_type(_choice=None):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     types = {"1": "bacteria", "2": "virus", "3": "protozoa", "4": "fungi"}
     # Programmatic bypass
     if _choice is not None:
@@ -510,7 +510,7 @@ def select_pathogen_type(_choice=None):
         print_status("Invalid choice. Please enter 1, 2, 3, or 4.", "error")
 
 def validate_pathogen_type(input_value, selected_type, is_uniprot=False):
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     logger.info(f"Validating pathogen type for input: {input_value}, selected: {selected_type}, is_uniprot: {is_uniprot}")
     detected_type = detect_pathogen_type_from_uniprot(input_value) if is_uniprot else detect_pathogen_type_from_fasta(input_value)
     logger.info(f"Detected pathogen type: {detected_type}")
@@ -546,7 +546,11 @@ def select_mhci_method(_choice=None):
         choice = str(_choice).strip().lower()
         if choice in MHCI_METHODS:
             return choice, MHCI_METHODS[choice][1]
-        raise ValueError(f"Invalid MHC-I method choice: {_choice}. Valid: {list(MHCI_METHODS.keys())}")
+        # Allow matching by method code name (e.g. smmpmbec, ann, smm, netmhcpan_el)
+        for key, (code, name) in MHCI_METHODS.items():
+            if choice == code or choice.replace("_", "") == code.replace("_", ""):
+                return key, name
+        raise ValueError(f"Invalid MHC-I method choice: {_choice}. Valid options: {list(MHCI_METHODS.keys())} or {[v[0] for v in MHCI_METHODS.values()]}")
     # Interactive CLI
     print("\nSelect MHC-I prediction method:")
     for key, (_, name) in MHCI_METHODS.items():
@@ -574,14 +578,31 @@ def select_mhcii_method(_choice=None):
     }
     # Programmatic bypass — accept key ("1") or method code ("nmel")
     if _choice is not None:
-        choice = str(_choice).strip()
+        choice = str(_choice).strip().lower()
         if choice in MHCII_METHODS:
             return MHCII_METHODS[choice][0], MHCII_METHODS[choice][1]
-        # Try matching by method code
+        # Try matching by method code (e.g. "nmel", "nmba", "cons", "nn")
         for k, (code, name) in MHCII_METHODS.items():
             if code == choice:
                 return code, name
-        raise ValueError(f"Invalid MHC-II method choice: {_choice}. Valid keys: {list(MHCII_METHODS.keys())}")
+        # Try matching by display name variant (e.g. "netmhciipan_el" → "nmel")
+        _ALIASES = {
+            "netmhciipan_el": "nmel", "netmhciipan_ba": "nmba",
+            "consensus3": "cons", "consensus": "cons",
+            "nn_align": "nn", "smm_align": "smm",
+            "combinatorial_library": "comblib", "comblib": "comblib",
+            "sturniolo": "sturniolo",
+            "netmhciipan_el_42": "nmel42", "netmhciipan_el42": "nmel42",
+            "netmhciipan_ba_42": "nmba42", "netmhciipan_ba42": "nmba42",
+            "netmhciipan_el_43": "nmel43", "netmhciipan_el43": "nmel43",
+            "netmhciipan_ba_43": "nmba43", "netmhciipan_ba43": "nmba43",
+        }
+        alias_code = _ALIASES.get(choice.replace("-", "_").replace(" ", "_"))
+        if alias_code:
+            for k, (code, name) in MHCII_METHODS.items():
+                if code == alias_code:
+                    return code, name
+        raise ValueError(f"Invalid MHC-II method choice: {_choice}. Valid keys: {list(MHCII_METHODS.keys())} or codes: {[v[0] for v in MHCII_METHODS.values()]}")
     # Interactive CLI
     print("\nSelect MHC-II prediction method:")
     for key, (_, name) in MHCII_METHODS.items():
@@ -595,7 +616,7 @@ def select_mhcii_method(_choice=None):
 
 def run_tool_wrapper(tool_func, tool_name, *args, **kwargs):
     """Wrapper for running tools in multiprocessing, returning (tool_name, status, error)."""
-    logger = logging.getLogger('EpitopeFinder')
+    logger = logging.getLogger('EpitopePred')
     try:
         status = tool_func(*args, **kwargs)
         return tool_name, status, None
@@ -675,23 +696,24 @@ def strategy_1(input_file, results_dir, pathogen_type, logger, batch_files, batc
             print_status("Invalid choice. Defaulting to all tools.", "warning")
             selected_tools = ['mhc1', 'mhc2', 'netctl', 'netchop', 'bcell', 'psortb']
 
+    S1_TOOLS = {'mhc1', 'mhc2', 'netctl', 'netchop', 'bcell', 'psortb'}
+    # Silently filter out tools from other strategies
+    selected_tools = [t for t in selected_tools if t in S1_TOOLS]
+    if not selected_tools:
+        logger.warning("No valid Strategy 1 tools after filtering. Defaulting to all.")
+        selected_tools = list(S1_TOOLS)
+
     logger.info("Executing Strategy 1: Epitope Prediction")
     print_status("\n## Executing Strategy 1: Epitope Prediction")
     print("Tools to be run per sequence:")
+    tool_names_map = {
+        'mhc1': 'MHC-I (mhc_i.py)', 'mhc2': 'MHC-II (mhc_ii.py)',
+        'netctl': 'NetCTL (netctl.py)', 'netchop': 'Proteasomal Cleavage (netchop.py)',
+        'bcell': 'B-cell (IEDB) (bcell.py)', 'psortb': 'PSORTb (psortb.py)'
+    }
     for tool in selected_tools:
-        tool_names = {
-            'mhc1': 'MHC-I (mhc_i.py)',
-            'mhc2': 'MHC-II (mhc_ii.py)',
-            'netctl': 'NetCTL (netctl.py)',
-            'netchop': 'Proteasomal Cleavage (netchop.py)',
-            'bcell': 'B-cell (IEDB) (bcell.py)',
-            'psortb': 'PSORTb (psortb.py)'
-        }
-        if tool in tool_names:
-            print(f"- {tool_names[tool]}")
-        else:
-            logger.warning(f"Unknown tool selected: {tool}")
-            print_status(f"Unknown tool selected: {tool}", "warning")
+        print(f"- {tool_names_map.get(tool, tool)}")
+
 
     mhci_key, mhcii_name = select_mhci_method(_choice=_mhci_method)
     mhcii_key, mhcii_name = select_mhcii_method(_choice=_mhcii_method)
@@ -900,15 +922,19 @@ def strategy_3(input_file, pathogen_type, results_dir, logger, batch_files, batc
             print_status(f"Error: Invalid choice '{user_choice}'. Please select 1 or 2.", "error")
             return failed_tools
 
-    # Validate selected tools
+    # Filter: silently drop tools that don't belong to strategy 3
+    # (the frontend may send tools from other strategies when "select all" is used)
     if selected_tools:
         invalid_tools = [t for t in selected_tools if t not in all_tools]
         if invalid_tools:
-            logger.error(f"Invalid tools selected: {invalid_tools}. Available tools: {list(all_tools.keys())}")
-            print_status(f"Error: Invalid tools {invalid_tools}. Available tools: {list(all_tools.keys())}", "error")
-            return failed_tools
+            logger.warning(f"Ignoring tools not available in Strategy 3: {invalid_tools}")
+        selected_tools = [t for t in selected_tools if t in all_tools]
+        if not selected_tools:
+            logger.warning("No valid Strategy 3 tools selected after filtering. Running all Strategy 3 tools.")
+            selected_tools = list(all_tools.keys())
 
     print(f"Selected tools: {', '.join(selected_tools)}" if selected_tools else "Running all tools per batch:")
+
 
     # Use provided results_dir directly (do not nest strategy3 folder again)
     strategy_dir = Path(results_dir)
@@ -958,10 +984,26 @@ def strategy_3(input_file, pathogen_type, results_dir, logger, batch_files, batc
                         )
 
         if tasks:
-            num_processes = min(mp.cpu_count(), len(tasks))
-            logger.info(f"Running {len(tasks)} tasks in parallel with {num_processes} processes for batch {batch_idx}")
-            with mp.Pool(processes=num_processes) as pool:
-                results = pool.map(execute_task, tasks)
+            import multiprocessing
+            is_daemon = getattr(multiprocessing.current_process(), 'daemon', False)
+            
+            if is_daemon:
+                logger.info(f"Running {len(tasks)} tasks sequentially (process is daemonized) for batch {batch_idx}")
+                results = []
+                for task in tasks:
+                    try:
+                        results.append(execute_task(task))
+                    except Exception as e:
+                        logger.error(f"Task execution failed: {e}")
+            else:
+                num_processes = min(mp.cpu_count(), len(tasks))
+                logger.info(f"Running {len(tasks)} tasks in parallel with {num_processes} processes for batch {batch_idx}")
+                try:
+                    with mp.Pool(processes=num_processes) as pool:
+                        results = pool.map(execute_task, tasks)
+                except Exception as e:
+                    logger.warning(f"Multiprocessing pool failed ({e}), falling back to sequential execution")
+                    results = [execute_task(task) for task in tasks]
 
             for tool_name, status, error in results:
                 if status == 0:
@@ -978,7 +1020,7 @@ def strategy_3(input_file, pathogen_type, results_dir, logger, batch_files, batc
 import shutil
 from pathlib import Path
 
-def strategy_4(input_file, pathogen_type, results_dir, logger, batch_files, batch_dirs, uniprot_mapping, failed_tools=None):
+def strategy_4(input_file, pathogen_type, results_dir, logger, batch_files, batch_dirs, uniprot_mapping, failed_tools=None, _mhci_method=None, _mhcii_method=None):
     if failed_tools is None:
         failed_tools = []
 
@@ -999,7 +1041,7 @@ def strategy_4(input_file, pathogen_type, results_dir, logger, batch_files, batc
         try:
             # Run strategy
             if strategy_no == 1:
-                strategy_func(input_file, src_dir, pathogen_type, logger, batch_files, batch_dirs, uniprot_mapping, failed_tools=failed_tools, selected_tools=['mhc1', 'mhc2', 'netctl', 'netchop', 'bcell', 'psortb'])
+                strategy_func(input_file, src_dir, pathogen_type, logger, batch_files, batch_dirs, uniprot_mapping, failed_tools=failed_tools, selected_tools=['mhc1', 'mhc2', 'netctl', 'netchop', 'bcell', 'psortb'], _mhci_method=_mhci_method, _mhcii_method=_mhcii_method)
             elif strategy_no == 2:
                 strategy_func(input_file, src_dir, input_file.name, not input_file.is_file(), logger, batch_files, batch_dirs, uniprot_mapping, failed_tools=failed_tools, selected_tools=['iapred', 'algpred', 'instability', 'molwt', 'wolfpsort'])
             elif strategy_no == 3:
@@ -1973,7 +2015,9 @@ def strategy_6(results_dir, logger, _mode=None, _assembly_config=None):
             print_status(f"[✓] Vaccine candidates generated: {output_file}", "success")
       
             graph_file = results_dir / f"Vaccine_Architecture_{TIMESTAMP}.png"
-            order_list = assembly_orders.get(order_num, assembly_orders[1])
+            assembly_orders = {1: [0, 1, 2], 2: [0, 2, 1], 3: [2, 0, 1], 4: [2, 1, 0], 5: [1, 2, 0], 6: [1, 0, 2]}
+            order_num = int(order_opt) if str(order_opt).isdigit() else 1
+            order_list = assembly_orders.get(order_num, [0, 1, 2])
             plot_vaccine_architecture(n_term, [], order_list, ["KK", "AAY", "GPGPG"], c_term, graph_file)
     
         except Exception as e:
@@ -1989,7 +2033,7 @@ def main():
     while True:
         # 1. ASK STRATEGY FIRST
         print("\n" + "="*30)
-        print(" EPITOPEFINDER MAIN MENU")
+        print(" EPITOPEPRED MAIN MENU")
         print("="*30)
         print("1 - Epitope Prediction")
         print("2 - Protein Prioritization")
@@ -2027,7 +2071,7 @@ def main():
                 # Handle Sequence Input
                 if is_uniprot:
                     fasta_content = fetch_uniprot_sequence(input_value, logger)
-                    temp_dir = Path(tempfile.mkdtemp(prefix="epitopefinder_"))
+                    temp_dir = Path(tempfile.mkdtemp(prefix="epitopepred_"))
                     input_file = temp_dir / f"{input_value}.fasta"
                     with open(input_file, "w") as f:
                         f.write(fasta_content)
@@ -2036,7 +2080,7 @@ def main():
                     if not input_file.is_file() or not validate_fasta_file(input_file):
                         print_status("Error: Invalid FASTA file or Path. Please try again.", "error")
                         continue
-                    temp_dir = Path(tempfile.mkdtemp(prefix="epitopefinder_"))
+                    temp_dir = Path(tempfile.mkdtemp(prefix="epitopepred_"))
 
                 # Split Batches
                 batch_files, batch_dirs, uniprot_mapping = split_fasta_into_batches(input_file, BATCH_SIZE, temp_dir)

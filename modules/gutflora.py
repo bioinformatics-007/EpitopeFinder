@@ -8,7 +8,7 @@ import tempfile
 import pandas as pd
 import logging
 
-logger = logging.getLogger('EpitopeFinder')
+logger = logging.getLogger('EpitopePred')
 logging.basicConfig(level=logging.INFO)
 
 # Dynamically Resolve root directory

@@ -62,29 +62,79 @@ def run_netctl(input_fasta, output_dir=".", output_file="netctl_out.txt", netctl
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, output_file)
 
-    # Validate output path
-    if output_file != 'stdout' and os.path.isdir(output_path):
-        print_status(f"Output file path is a directory: {output_path}", "error")
-        raise IsADirectoryError(f"Output file path is a directory: {output_path}")
+    # Sanitize FASTA input to temporary file to avoid header parsing issues in NetCTL binary
+    import tempfile, csv
+    temp_fasta = tempfile.NamedTemporaryFile(mode='w', suffix='.fasta', delete=False)
+    with open(input_fasta, 'r') as infile:
+        for line in infile:
+            if line.startswith('>'):
+                header_id = line[1:].strip().split()[0].replace('|', '_').replace('=', '_')[:30]
+                temp_fasta.write(f">{header_id}\n")
+            else:
+                temp_fasta.write(line)
+    temp_fasta.close()
+    clean_input_fasta = temp_fasta.name
 
-    print_status(f"Running NetCTL on: {input_fasta}", "info")
-    print_status(f"Using NetCTL script: {netctl_script_path}", "info")
-    print_status(f"MHC supertype: {supertype}", "info")
-    if output_file != 'stdout':
-        print_status(f"Output will be saved to: {output_path}", "info")
-
-    # Determine output destination
-    out = sys.stdout if output_file == 'stdout' else open(output_path, "w")
+    # Set CTLHOME env variable so tcsh script can find its binaries relative to itself
+    env = os.environ.copy()
+    env["CTLHOME"] = netctl_base_dir
 
     try:
         result = subprocess.run(
-            ["tcsh", netctl_script_path, "-f", input_fasta, "-s", supertype],
-            stdout=out,
+            ["tcsh", netctl_script_path, "-f", clean_input_fasta, "-s", supertype],
+            stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
             check=True,
-            stdin=subprocess.DEVNULL
+            stdin=subprocess.DEVNULL,
+            env=env
         )
+
+        stdout_text = result.stdout
+        # Parse NetCTL output lines into structured CSV format
+        rows = []
+        for line in stdout_text.splitlines():
+            line_str = line.strip()
+            if "ID " in line_str and " pep " in line_str and " COMB " in line_str:
+                is_epitope = "<-E" in line_str
+                parts = line_str.replace("<-E", "").split()
+                try:
+                    seq_id = parts[2]
+                    peptide = parts[4]
+                    aff = parts[6]
+                    aff_rescale = parts[8]
+                    cle = parts[10]
+                    tap = parts[12]
+                    comb = parts[14]
+                    rows.append({
+                        "SeqID": seq_id,
+                        "Peptide": peptide,
+                        "MHC_Affinity": aff,
+                        "Rescaled_Affinity": aff_rescale,
+                        "Cleavage_Score": cle,
+                        "TAP_Score": tap,
+                        "Combined_Score": comb,
+                        "Is_Epitope": "YES" if is_epitope else "NO"
+                    })
+                except Exception:
+                    continue
+
+        if output_file == 'stdout':
+            if rows:
+                writer = csv.DictWriter(sys.stdout, fieldnames=list(rows[0].keys()))
+                writer.writeheader()
+                writer.writerows(rows)
+            else:
+                sys.stdout.write(stdout_text)
+        else:
+            with open(output_path, "w", newline="") as out:
+                if rows:
+                    writer = csv.DictWriter(out, fieldnames=list(rows[0].keys()))
+                    writer.writeheader()
+                    writer.writerows(rows)
+                else:
+                    out.write(stdout_text)
+
         print_status("NetCTL ran successfully.", "success")
         return result.returncode
     except subprocess.CalledProcessError as e:
@@ -94,8 +144,8 @@ def run_netctl(input_fasta, output_dir=".", output_file="netctl_out.txt", netctl
         print_status(f"Unexpected error: {e}", "error")
         raise
     finally:
-        if output_file != 'stdout':
-            out.close()
+        if os.path.exists(clean_input_fasta):
+            os.remove(clean_input_fasta)
 
 def main():
     """Command-line interface for NetCTL predictions."""

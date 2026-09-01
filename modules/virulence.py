@@ -109,14 +109,9 @@ def run_virulence(
 
                 perl_cmd = f"perl {virulentpred_script} {temp_fasta_path}"
 
-                cmd = [
-                    "conda", "run",
-                    "--no-capture-output",
-                    "-n", VIRULENTPRED_ENV,
-                    "bash", "-c", perl_cmd
-                ]
+                cmd = ["perl", str(virulentpred_script), str(temp_fasta_path)]
 
-                print_status(f"Running in {VIRULENTPRED_ENV}: {perl_cmd}", "info")
+                print_status(f"Running: {' '.join(cmd)}", "info")
 
                 result = subprocess.run(
                     cmd,
@@ -184,8 +179,9 @@ def run_virulence(
                 combined_df.to_csv(combined_file, index=False)
                 print_status(f"Combined output saved: {combined_file} ({len(combined_df)} sequences)", "success")
             else:
-                combined_file.write_text("No valid predictions generated\n")
-                print_status(f"Combined output saved (empty): {combined_file}", "warning")
+                empty_df = pd.DataFrame(columns=["Sequence_ID", "Prediction", "Score"])
+                empty_df.to_csv(combined_file, index=False)
+                print_status(f"Combined output saved (empty CSV): {combined_file}", "warning")
         except Exception as e:
             print_status(f"Failed to save combined output: {e}", "error")
 

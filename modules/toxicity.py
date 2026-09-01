@@ -222,8 +222,8 @@ def hybrid(ml_output, seq_names, merci_output, blast_output, threshold, final_ou
 
 def run_toxinpred(fasta_path, output_dir, output_file=None, model_file=None, threshold=0.6, model=1, display=2, batch_idx=1):
     try:
-        fasta_path = Path(fasta_path)
-        output_dir = Path(output_dir)
+        fasta_path = Path(fasta_path).resolve()
+        output_dir = Path(output_dir).resolve()
         model_file = find_model_file(model_file)
         if not model_file:
             raise FileNotFoundError(f"Model file not found: {model_file}")

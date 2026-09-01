@@ -6,7 +6,7 @@ export default function AlgorithmPage() {
       <h2 className="text-xl font-bold border-b border-[#ccc] pb-1 mb-4 text-[#3A332D]">Algorithm</h2>
 
       <p className="mb-4">
-        EpitopeFinder implements <strong>6 specialized computational strategies</strong> for multi-epitope vaccine design. 
+        EpitopePred implements <strong>6 specialized computational strategies</strong> for multi-epitope vaccine design. 
         Each strategy orchestrates a distinct combination of prediction, filtering, and assembly tools to address 
         different research objectives. The table below summarizes all available strategies.
       </p>
@@ -69,8 +69,8 @@ export default function AlgorithmPage() {
 
       <h3 className="text-lg font-bold text-[#3A332D] mb-2 border-t border-[#ccc] pt-4">Reference</h3>
       <p className="mb-6 bg-[#F4F4EE] p-3 border border-[#ccc]">
-        If you are using EpitopeFinder, please cite:<br/><br/>
-        <em>Yukti, et al. &quot;EpitopeFinder: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot; (In Preparation, 2026)</em>
+        If you are using EpitopePred, please cite:<br/><br/>
+        <em>&quot;EpitopePred: A next-generation tool for prediction and designing of multi-epitope vaccines.&quot; (In Preparation, 2026)</em>
       </p>
     </div>
   );

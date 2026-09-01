@@ -235,7 +235,7 @@ def run_bcell(input_fasta, output_dir=".", output_file="bcell_out.csv", min_pept
                 csvfile.flush()  # Write immediately to reduce memory usage
                 print_status(f"Wrote peptide to CSV: {peptide}", "info")
             for position, residue, start, end, peptide, score in epitopes:
-                writer.writerow(["Epitope", position, residue, start, end, peptide, "", score])
+                writer.writerow(["Epitope", position, residue, start, end, peptide, end - start + 1, score])
                 csvfile.flush()
                 print_status(f"Wrote epitope to CSV: {peptide}", "info")
         if not peptides and not epitopes:

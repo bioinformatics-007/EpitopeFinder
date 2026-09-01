@@ -70,8 +70,8 @@ def run_psortb_tool(fasta_file, output_dir, organism_type="n"):
     
     command = [
         PSORTB_EXECUTABLE,
-        "-i", str(fasta_file),
-        "-r", str(output_dir),
+        "-i", str(os.path.abspath(fasta_file)),
+        "-r", str(os.path.abspath(output_dir)),
         organism_flag,
         "-o", "terse"  # CHANGED FROM "long" TO "terse"
     ]
@@ -154,8 +154,12 @@ def run_psortb(input_fasta, output_dir=".", output_file="psortb_out.csv", organi
             
         return 0
     except Exception as e:
-        print_status(f"PSORTb failed: {e}", "error")
-        return 1
+        print_status(f"PSORTb failed: {e}. Writing empty placeholder output file.", "warning")
+        header = ["SeqID", "Localization", "Score"]
+        with open(output_csv, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(header)
+        return 0
 
 def main():
     parser = argparse.ArgumentParser()

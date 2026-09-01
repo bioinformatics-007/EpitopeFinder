@@ -14,7 +14,7 @@ import psutil
 import shutil
 
 # Set up logging
-logger = logging.getLogger('EpitopeFinder')
+logger = logging.getLogger('EpitopePred')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Dynamically resolve root directory

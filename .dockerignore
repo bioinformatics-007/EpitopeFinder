@@ -12,7 +12,7 @@ results_*/
 
 # Exclude stale environments
 vaxelan_env/
-epitopefinder_env/
+epitopepred_env/
 tools/
 model_sav/
 frontend/

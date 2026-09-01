@@ -1,14 +1,15 @@
 # ==============================================================
-# EpitopeFinder — .gitignore
+# EpitopePred — .gitignore
 # ==============================================================
 
 # --- Large bioinformatics tools (download separately) ---------
 tools/
 model_sav/
 
-# --- Result output folders ------------------------------------
+Results/
 Results_*/
 results_*/
+*.deb
 
 # --- Large binary database files in modules/ ------------------
 # These must be downloaded separately (see README.md)
@@ -73,7 +74,7 @@ jobs/
 venv
 env
 vaxelan_env/
-epitopefinder_env/
+epitopepred_env/
 _archive/
 
 # Installers

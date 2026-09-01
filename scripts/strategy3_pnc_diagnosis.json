@@ -1,0 +1,1820 @@
+[
+  {
+    "id": "PNC_01_RawFASTA_AllTools_Bacteria",
+    "description": "Raw FASTA + All 7 tools + Bacteria",
+    "job_id": "job_80c62769ae7f",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 120.3,
+    "diagnostics": [
+      {
+        "file": "signalp/output.gff3",
+        "filename": "output.gff3",
+        "size_bytes": 17,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output.json",
+        "filename": "output.json",
+        "size_bytes": 1321,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/region_output.gff3",
+        "filename": "region_output.gff3",
+        "size_bytes": 17,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output_test_prot_seq1_plot.txt",
+        "filename": "output_test_prot_seq1_plot.txt",
+        "size_bytes": 12057,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.csv",
+        "filename": "prediction_results.csv",
+        "size_bytes": 184,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "ID",
+          "Prediction",
+          "OTHER",
+          "SP(Sec/SPI)",
+          "LIPO(Sec/SPII)",
+          "TAT(Tat/SPI)",
+          "TATLIPO(Tat/SPII)",
+          "PILIN(Sec/SPIII)",
+          "CS Position"
+        ],
+        "issues": []
+      },
+      {
+        "file": "signalp/processed_entries.fasta",
+        "filename": "processed_entries.fasta",
+        "size_bytes": 0,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.txt",
+        "filename": "prediction_results.txt",
+        "size_bytes": 241,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 81,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/test_prot_seq1_gutflora.csv",
+        "filename": "test_prot_seq1_gutflora.csv",
+        "size_bytes": 81,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/combined_result.csv",
+        "filename": "combined_result.csv",
+        "size_bytes": 661,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_solubility",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4",
+          "predicted_usability"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/test_prot_seq1.csv",
+        "filename": "test_prot_seq1.csv",
+        "size_bytes": 738,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "Sequence",
+          "predicted_solubility",
+          "predicted_usability",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4"
+        ],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.txt",
+        "filename": "combined.txt",
+        "size_bytes": 37,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.xlsx",
+        "filename": "combined.xlsx",
+        "size_bytes": 5007,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/test_prot_seq1_human_blast.txt",
+        "filename": "test_prot_seq1_human_blast.txt",
+        "size_bytes": 48,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/test_prot_seq1.txt",
+        "filename": "test_prot_seq1.txt",
+        "size_bytes": 2758,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/combined_virulence_batch_1.csv",
+        "filename": "combined_virulence_batch_1.csv",
+        "size_bytes": 29,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "Sequence_ID",
+          "Prediction",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/predicted_topologies.3line",
+        "filename": "predicted_topologies.3line",
+        "size_bytes": 171,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/deeptmhmm_results.md",
+        "filename": "deeptmhmm_results.md",
+        "size_bytes": 628,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/test_prot_seq1_probs.csv",
+        "filename": "test_prot_seq1_probs.csv",
+        "size_bytes": 2552,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 75,
+        "columns": [
+          "# test_prot_seq1"
+        ],
+        "issues": [
+          "Header contains raw '#' comment character"
+        ]
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/TMRs.gff3",
+        "filename": "TMRs.gff3",
+        "size_bytes": 153,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/plot.png",
+        "filename": "plot.png",
+        "size_bytes": 36210,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/temp_output_batch_1.csv",
+        "filename": "temp_output_batch_1.csv",
+        "size_bytes": 59,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 143,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/test_prot_seq1_toxinpred.csv",
+        "filename": "test_prot_seq1_toxinpred.csv",
+        "size_bytes": 143,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_02_RawFASTA_AllTools_Virus",
+    "description": "Raw FASTA + All 7 tools + Virus",
+    "job_id": "job_58b88fdd03dc",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 88.9,
+    "diagnostics": [
+      {
+        "file": "signalp/output.gff3",
+        "filename": "output.gff3",
+        "size_bytes": 17,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output.json",
+        "filename": "output.json",
+        "size_bytes": 1321,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/region_output.gff3",
+        "filename": "region_output.gff3",
+        "size_bytes": 17,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output_test_prot_seq1_plot.txt",
+        "filename": "output_test_prot_seq1_plot.txt",
+        "size_bytes": 12057,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.csv",
+        "filename": "prediction_results.csv",
+        "size_bytes": 184,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "ID",
+          "Prediction",
+          "OTHER",
+          "SP(Sec/SPI)",
+          "LIPO(Sec/SPII)",
+          "TAT(Tat/SPI)",
+          "TATLIPO(Tat/SPII)",
+          "PILIN(Sec/SPIII)",
+          "CS Position"
+        ],
+        "issues": []
+      },
+      {
+        "file": "signalp/processed_entries.fasta",
+        "filename": "processed_entries.fasta",
+        "size_bytes": 0,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.txt",
+        "filename": "prediction_results.txt",
+        "size_bytes": 241,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 81,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/test_prot_seq1_gutflora.csv",
+        "filename": "test_prot_seq1_gutflora.csv",
+        "size_bytes": 81,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/combined_result.csv",
+        "filename": "combined_result.csv",
+        "size_bytes": 661,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_solubility",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4",
+          "predicted_usability"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/test_prot_seq1.csv",
+        "filename": "test_prot_seq1.csv",
+        "size_bytes": 738,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "Sequence",
+          "predicted_solubility",
+          "predicted_usability",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4"
+        ],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.txt",
+        "filename": "combined.txt",
+        "size_bytes": 37,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.xlsx",
+        "filename": "combined.xlsx",
+        "size_bytes": 5006,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/test_prot_seq1_human_blast.txt",
+        "filename": "test_prot_seq1_human_blast.txt",
+        "size_bytes": 48,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/test_prot_seq1.txt",
+        "filename": "test_prot_seq1.txt",
+        "size_bytes": 2758,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/combined_virulence_batch_1.csv",
+        "filename": "combined_virulence_batch_1.csv",
+        "size_bytes": 29,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "Sequence_ID",
+          "Prediction",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/predicted_topologies.3line",
+        "filename": "predicted_topologies.3line",
+        "size_bytes": 171,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/deeptmhmm_results.md",
+        "filename": "deeptmhmm_results.md",
+        "size_bytes": 628,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/test_prot_seq1_probs.csv",
+        "filename": "test_prot_seq1_probs.csv",
+        "size_bytes": 2552,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 75,
+        "columns": [
+          "# test_prot_seq1"
+        ],
+        "issues": [
+          "Header contains raw '#' comment character"
+        ]
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/TMRs.gff3",
+        "filename": "TMRs.gff3",
+        "size_bytes": 153,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/plot.png",
+        "filename": "plot.png",
+        "size_bytes": 36210,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/temp_output_batch_1.csv",
+        "filename": "temp_output_batch_1.csv",
+        "size_bytes": 59,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 143,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/test_prot_seq1_toxinpred.csv",
+        "filename": "test_prot_seq1_toxinpred.csv",
+        "size_bytes": 143,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_03_RawFASTA_AllTools_Fungi",
+    "description": "Raw FASTA + All 5 tools + Fungi",
+    "job_id": "job_d5567dc58bc6",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 74.7,
+    "diagnostics": [
+      {
+        "file": "signalp/output.gff3",
+        "filename": "output.gff3",
+        "size_bytes": 17,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output.json",
+        "filename": "output.json",
+        "size_bytes": 1321,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/region_output.gff3",
+        "filename": "region_output.gff3",
+        "size_bytes": 17,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output_test_prot_seq1_plot.txt",
+        "filename": "output_test_prot_seq1_plot.txt",
+        "size_bytes": 12057,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.csv",
+        "filename": "prediction_results.csv",
+        "size_bytes": 184,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "ID",
+          "Prediction",
+          "OTHER",
+          "SP(Sec/SPI)",
+          "LIPO(Sec/SPII)",
+          "TAT(Tat/SPI)",
+          "TATLIPO(Tat/SPII)",
+          "PILIN(Sec/SPIII)",
+          "CS Position"
+        ],
+        "issues": []
+      },
+      {
+        "file": "signalp/processed_entries.fasta",
+        "filename": "processed_entries.fasta",
+        "size_bytes": 0,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.txt",
+        "filename": "prediction_results.txt",
+        "size_bytes": 241,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/combined_result.csv",
+        "filename": "combined_result.csv",
+        "size_bytes": 661,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_solubility",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4",
+          "predicted_usability"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/test_prot_seq1.csv",
+        "filename": "test_prot_seq1.csv",
+        "size_bytes": 738,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "Sequence",
+          "predicted_solubility",
+          "predicted_usability",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4"
+        ],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.txt",
+        "filename": "combined.txt",
+        "size_bytes": 37,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.xlsx",
+        "filename": "combined.xlsx",
+        "size_bytes": 5007,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/test_prot_seq1_human_blast.txt",
+        "filename": "test_prot_seq1_human_blast.txt",
+        "size_bytes": 48,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/predicted_topologies.3line",
+        "filename": "predicted_topologies.3line",
+        "size_bytes": 171,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/deeptmhmm_results.md",
+        "filename": "deeptmhmm_results.md",
+        "size_bytes": 628,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/test_prot_seq1_probs.csv",
+        "filename": "test_prot_seq1_probs.csv",
+        "size_bytes": 2552,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 75,
+        "columns": [
+          "# test_prot_seq1"
+        ],
+        "issues": [
+          "Header contains raw '#' comment character"
+        ]
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/TMRs.gff3",
+        "filename": "TMRs.gff3",
+        "size_bytes": 153,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/plot.png",
+        "filename": "plot.png",
+        "size_bytes": 36210,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/temp_output_batch_1.csv",
+        "filename": "temp_output_batch_1.csv",
+        "size_bytes": 59,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 143,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/test_prot_seq1_toxinpred.csv",
+        "filename": "test_prot_seq1_toxinpred.csv",
+        "size_bytes": 143,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_04_FileUpload_SubsetTools_Bacteria",
+    "description": "File Upload + Subset tools (toxinpred, deeptmhmm, netsol, human) + Bacteria",
+    "job_id": "job_e043baac172a",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 62.6,
+    "diagnostics": [
+      {
+        "file": "netsol/NetSolP/combined_result.csv",
+        "filename": "combined_result.csv",
+        "size_bytes": 661,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_solubility",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4",
+          "predicted_usability"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/test_prot_seq1.csv",
+        "filename": "test_prot_seq1.csv",
+        "size_bytes": 738,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "Sequence",
+          "predicted_solubility",
+          "predicted_usability",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4"
+        ],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.txt",
+        "filename": "combined.txt",
+        "size_bytes": 37,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.xlsx",
+        "filename": "combined.xlsx",
+        "size_bytes": 5006,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/test_prot_seq1_human_blast.txt",
+        "filename": "test_prot_seq1_human_blast.txt",
+        "size_bytes": 48,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/predicted_topologies.3line",
+        "filename": "predicted_topologies.3line",
+        "size_bytes": 171,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/deeptmhmm_results.md",
+        "filename": "deeptmhmm_results.md",
+        "size_bytes": 628,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/test_prot_seq1_probs.csv",
+        "filename": "test_prot_seq1_probs.csv",
+        "size_bytes": 2552,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 75,
+        "columns": [
+          "# test_prot_seq1"
+        ],
+        "issues": [
+          "Header contains raw '#' comment character"
+        ]
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/TMRs.gff3",
+        "filename": "TMRs.gff3",
+        "size_bytes": 153,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/plot.png",
+        "filename": "plot.png",
+        "size_bytes": 36210,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/temp_output_batch_1.csv",
+        "filename": "temp_output_batch_1.csv",
+        "size_bytes": 59,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 143,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/test_prot_seq1_toxinpred.csv",
+        "filename": "test_prot_seq1_toxinpred.csv",
+        "size_bytes": 143,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_05_UniProt_P0A8T7_AllTools_Bacteria",
+    "description": "UniProt P0A8T7 + All 7 tools + Bacteria",
+    "job_id": "job_39c3bc6acfc7",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 227.0,
+    "diagnostics": [
+      {
+        "file": "signalp/output.gff3",
+        "filename": "output.gff3",
+        "size_bytes": 17,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output.json",
+        "filename": "output.json",
+        "size_bytes": 1640,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output_sp_P0A8T7_RPOC_ECOLI_DNA_directed_RNA_polymerase_subunit_beta__OS_Escherichia_coli__strain_K12__OX_83333_GN_rpoC_PE_1_SV_1_plot.txt",
+        "filename": "output_sp_P0A8T7_RPOC_ECOLI_DNA_directed_RNA_polymerase_subunit_beta__OS_Escherichia_coli__strain_K12__OX_83333_GN_rpoC_PE_1_SV_1_plot.txt",
+        "size_bytes": 12165,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/region_output.gff3",
+        "filename": "region_output.gff3",
+        "size_bytes": 17,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.csv",
+        "filename": "prediction_results.csv",
+        "size_bytes": 292,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "ID",
+          "Prediction",
+          "OTHER",
+          "SP(Sec/SPI)",
+          "LIPO(Sec/SPII)",
+          "TAT(Tat/SPI)",
+          "TATLIPO(Tat/SPII)",
+          "PILIN(Sec/SPIII)",
+          "CS Position"
+        ],
+        "issues": []
+      },
+      {
+        "file": "signalp/processed_entries.fasta",
+        "filename": "processed_entries.fasta",
+        "size_bytes": 0,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.txt",
+        "filename": "prediction_results.txt",
+        "size_bytes": 349,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/spP0A8T7RPOC_ECOLI_gutflora.csv",
+        "filename": "spP0A8T7RPOC_ECOLI_gutflora.csv",
+        "size_bytes": 320,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 320,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/combined_result.csv",
+        "filename": "combined_result.csv",
+        "size_bytes": 1715,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_solubility",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4",
+          "predicted_usability"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/spP0A8T7RPOC_ECOLIDNA-directedRNApolymerasesubunitbetaOSEscherichiacolistrainK12OX83333GNrpoCPE1SV1.csv",
+        "filename": "spP0A8T7RPOC_ECOLIDNA-directedRNApolymerasesubunitbetaOSEscherichiacolistrainK12OX83333GNrpoCPE1SV1.csv",
+        "size_bytes": 1720,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "Sequence",
+          "predicted_solubility",
+          "predicted_usability",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4"
+        ],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.txt",
+        "filename": "combined.txt",
+        "size_bytes": 265,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.xlsx",
+        "filename": "combined.xlsx",
+        "size_bytes": 5221,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/spP0A8T7RPOC_ECOLI_human_blast.txt",
+        "filename": "spP0A8T7RPOC_ECOLI_human_blast.txt",
+        "size_bytes": 265,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/combined_virulence_batch_1.csv",
+        "filename": "combined_virulence_batch_1.csv",
+        "size_bytes": 29,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "Sequence_ID",
+          "Prediction",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/P0A8T7.txt",
+        "filename": "P0A8T7.txt",
+        "size_bytes": 2750,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/predicted_topologies.3line",
+        "filename": "predicted_topologies.3line",
+        "size_bytes": 2845,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/deeptmhmm_results.md",
+        "filename": "deeptmhmm_results.md",
+        "size_bytes": 3297,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/sp|P0A8T7|RPOC_ECOLI_probs.csv",
+        "filename": "sp|P0A8T7|RPOC_ECOLI_probs.csv",
+        "size_bytes": 42580,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1408,
+        "columns": [
+          "# sp|P0A8T7|RPOC_ECOLI"
+        ],
+        "issues": [
+          "Header contains raw '#' comment character"
+        ]
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/TMRs.gff3",
+        "filename": "TMRs.gff3",
+        "size_bytes": 142,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/plot.png",
+        "filename": "plot.png",
+        "size_bytes": 31109,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/sp_P0A8T7_RPOC_ECOLI_toxinpred.csv",
+        "filename": "sp_P0A8T7_RPOC_ECOLI_toxinpred.csv",
+        "size_bytes": 1482,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/temp_output_batch_1.csv",
+        "filename": "temp_output_batch_1.csv",
+        "size_bytes": 65,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 1482,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_06_MultiSeqFASTA_AllTools_Bacteria",
+    "description": "Multi-Sequence FASTA + All 7 tools + Bacteria",
+    "job_id": "job_b59d5dc63861",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 90.5,
+    "diagnostics": [
+      {
+        "file": "signalp/output.gff3",
+        "filename": "output.gff3",
+        "size_bytes": 157,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output.json",
+        "filename": "output.json",
+        "size_bytes": 2200,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/region_output.gff3",
+        "filename": "region_output.gff3",
+        "size_bytes": 332,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output_seq1_outer_mem_plot.txt",
+        "filename": "output_seq1_outer_mem_plot.txt",
+        "size_bytes": 6818,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.csv",
+        "filename": "prediction_results.csv",
+        "size_bytes": 310,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          "ID",
+          "Prediction",
+          "OTHER",
+          "SP(Sec/SPI)",
+          "LIPO(Sec/SPII)",
+          "TAT(Tat/SPI)",
+          "TATLIPO(Tat/SPII)",
+          "PILIN(Sec/SPIII)",
+          "CS Position"
+        ],
+        "issues": []
+      },
+      {
+        "file": "signalp/processed_entries.fasta",
+        "filename": "processed_entries.fasta",
+        "size_bytes": 103,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/output_seq2_cytoplasmic_plot.txt",
+        "filename": "output_seq2_cytoplasmic_plot.txt",
+        "size_bytes": 11214,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "signalp/prediction_results.txt",
+        "filename": "prediction_results.txt",
+        "size_bytes": 365,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/seq2_cytoplasmic_gutflora.csv",
+        "filename": "seq2_cytoplasmic_gutflora.csv",
+        "size_bytes": 83,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/seq1_outer_mem_gutflora.csv",
+        "filename": "seq1_outer_mem_gutflora.csv",
+        "size_bytes": 81,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "gutflora/gutflora/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 106,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Cross_Reactivity_Detected",
+          "Matches"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/combined_result.csv",
+        "filename": "combined_result.csv",
+        "size_bytes": 933,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          "sid",
+          "fasta",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_solubility",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4",
+          "predicted_usability"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/seq1_outer_mem.csv",
+        "filename": "seq1_outer_mem.csv",
+        "size_bytes": 665,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "Sequence",
+          "predicted_solubility",
+          "predicted_usability",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4"
+        ],
+        "issues": []
+      },
+      {
+        "file": "netsol/NetSolP/seq2_cytoplasmic.csv",
+        "filename": "seq2_cytoplasmic.csv",
+        "size_bytes": 721,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "sid",
+          "fasta",
+          "Sequence",
+          "predicted_solubility",
+          "predicted_usability",
+          "predicted_solubility_model_0",
+          "predicted_solubility_model_1",
+          "predicted_solubility_model_2",
+          "predicted_solubility_model_3",
+          "predicted_solubility_model_4",
+          "predicted_usability_model_0",
+          "predicted_usability_model_1",
+          "predicted_usability_model_2",
+          "predicted_usability_model_3",
+          "predicted_usability_model_4"
+        ],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.txt",
+        "filename": "combined.txt",
+        "size_bytes": 37,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/combined.xlsx",
+        "filename": "combined.xlsx",
+        "size_bytes": 5006,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/seq2_cytoplasmic_human_blast.txt",
+        "filename": "seq2_cytoplasmic_human_blast.txt",
+        "size_bytes": 50,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "human/human_blast/seq1_outer_mem_human_blast.txt",
+        "filename": "seq1_outer_mem_human_blast.txt",
+        "size_bytes": 48,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/seq1_outer_mem.txt",
+        "filename": "seq1_outer_mem.txt",
+        "size_bytes": 2758,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/combined_virulence_batch_1.csv",
+        "filename": "combined_virulence_batch_1.csv",
+        "size_bytes": 29,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 0,
+        "columns": [
+          "Sequence_ID",
+          "Prediction",
+          "Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "virulence/virulence/seq2_cytoplasmic.txt",
+        "filename": "seq2_cytoplasmic.txt",
+        "size_bytes": 2760,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/predicted_topologies.3line",
+        "filename": "predicted_topologies.3line",
+        "size_bytes": 256,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/deeptmhmm_results.md",
+        "filename": "deeptmhmm_results.md",
+        "size_bytes": 860,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "deeptmhmm/deeptmhmm_results/TMRs.gff3",
+        "filename": "TMRs.gff3",
+        "size_bytes": 301,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/seq1_outer_mem_toxinpred.csv",
+        "filename": "seq1_outer_mem_toxinpred.csv",
+        "size_bytes": 108,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/seq2_cytoplasmic_toxinpred.csv",
+        "filename": "seq2_cytoplasmic_toxinpred.csv",
+        "size_bytes": 136,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/temp_output_batch_1.csv",
+        "filename": "temp_output_batch_1.csv",
+        "size_bytes": 92,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "toxinpred/toxinpred/combined.csv",
+        "filename": "combined.csv",
+        "size_bytes": 207,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          "Subject",
+          "ML Score",
+          "Sequence",
+          "Prediction"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  }
+]

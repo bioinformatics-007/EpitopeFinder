@@ -1,0 +1,920 @@
+[
+  {
+    "id": "PNC_01_RawFASTA_AllTools_Bacteria",
+    "description": "Raw FASTA + All 5 tools + Bacteria",
+    "job_id": "job_787667163efc",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 9.1,
+    "diagnostics": [
+      {
+        "file": "iapred/combined_iapred_batch_1.csv",
+        "filename": "combined_iapred_batch_1.csv",
+        "size_bytes": 180,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "iapred/test_prot_seq1_iapred.csv",
+        "filename": "test_prot_seq1_iapred.csv",
+        "size_bytes": 180,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/combined_molwt_batch_1.csv",
+        "filename": "combined_molwt_batch_1.csv",
+        "size_bytes": 163,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/test_prot_seq1_molwt.csv",
+        "filename": "test_prot_seq1_molwt.csv",
+        "size_bytes": 163,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/combined_algpred_batch_1.csv",
+        "filename": "combined_algpred_batch_1.csv",
+        "size_bytes": 145,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/test_prot_seq1_algpred.csv",
+        "filename": "test_prot_seq1_algpred.csv",
+        "size_bytes": 145,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/test_prot_seq1.txt",
+        "filename": "test_prot_seq1.txt",
+        "size_bytes": 60,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/combined_results.txt",
+        "filename": "combined_results.txt",
+        "size_bytes": 83,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "instability/test_prot_seq1_instability.csv",
+        "filename": "test_prot_seq1_instability.csv",
+        "size_bytes": 197,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "instability/combined_instability_batch_1.csv",
+        "filename": "combined_instability_batch_1.csv",
+        "size_bytes": 197,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_02_RawFASTA_AllTools_Virus",
+    "description": "Raw FASTA + All 5 tools + Virus",
+    "job_id": "job_f3995f35287f",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 9.0,
+    "diagnostics": [
+      {
+        "file": "iapred/combined_iapred_batch_1.csv",
+        "filename": "combined_iapred_batch_1.csv",
+        "size_bytes": 180,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "iapred/test_prot_seq1_iapred.csv",
+        "filename": "test_prot_seq1_iapred.csv",
+        "size_bytes": 180,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/combined_molwt_batch_1.csv",
+        "filename": "combined_molwt_batch_1.csv",
+        "size_bytes": 163,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/test_prot_seq1_molwt.csv",
+        "filename": "test_prot_seq1_molwt.csv",
+        "size_bytes": 163,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/combined_algpred_batch_1.csv",
+        "filename": "combined_algpred_batch_1.csv",
+        "size_bytes": 145,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/test_prot_seq1_algpred.csv",
+        "filename": "test_prot_seq1_algpred.csv",
+        "size_bytes": 145,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/test_prot_seq1.txt",
+        "filename": "test_prot_seq1.txt",
+        "size_bytes": 60,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/combined_results.txt",
+        "filename": "combined_results.txt",
+        "size_bytes": 83,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "instability/test_prot_seq1_instability.csv",
+        "filename": "test_prot_seq1_instability.csv",
+        "size_bytes": 197,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "instability/combined_instability_batch_1.csv",
+        "filename": "combined_instability_batch_1.csv",
+        "size_bytes": 197,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_03_RawFASTA_AllTools_Fungi",
+    "description": "Raw FASTA + All 5 tools + Fungi",
+    "job_id": "job_d5e5c7da3530",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 6.0,
+    "diagnostics": [
+      {
+        "file": "iapred/combined_iapred_batch_1.csv",
+        "filename": "combined_iapred_batch_1.csv",
+        "size_bytes": 180,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "iapred/test_prot_seq1_iapred.csv",
+        "filename": "test_prot_seq1_iapred.csv",
+        "size_bytes": 180,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/combined_molwt_batch_1.csv",
+        "filename": "combined_molwt_batch_1.csv",
+        "size_bytes": 163,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/test_prot_seq1_molwt.csv",
+        "filename": "test_prot_seq1_molwt.csv",
+        "size_bytes": 163,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/combined_algpred_batch_1.csv",
+        "filename": "combined_algpred_batch_1.csv",
+        "size_bytes": 145,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/test_prot_seq1_algpred.csv",
+        "filename": "test_prot_seq1_algpred.csv",
+        "size_bytes": 145,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/test_prot_seq1.txt",
+        "filename": "test_prot_seq1.txt",
+        "size_bytes": 60,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/combined_results.txt",
+        "filename": "combined_results.txt",
+        "size_bytes": 83,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "instability/test_prot_seq1_instability.csv",
+        "filename": "test_prot_seq1_instability.csv",
+        "size_bytes": 197,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "instability/combined_instability_batch_1.csv",
+        "filename": "combined_instability_batch_1.csv",
+        "size_bytes": 197,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_04_FileUpload_SubsetTools_Bacteria",
+    "description": "File Upload + Subset tools (iapred, instability, molwt) + Bacteria",
+    "job_id": "job_7df04b4b4d0a",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 3.0,
+    "diagnostics": [
+      {
+        "file": "iapred/combined_iapred_batch_1.csv",
+        "filename": "combined_iapred_batch_1.csv",
+        "size_bytes": 180,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "iapred/test_prot_seq1_iapred.csv",
+        "filename": "test_prot_seq1_iapred.csv",
+        "size_bytes": 180,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/combined_molwt_batch_1.csv",
+        "filename": "combined_molwt_batch_1.csv",
+        "size_bytes": 163,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/test_prot_seq1_molwt.csv",
+        "filename": "test_prot_seq1_molwt.csv",
+        "size_bytes": 163,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "instability/test_prot_seq1_instability.csv",
+        "filename": "test_prot_seq1_instability.csv",
+        "size_bytes": 197,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "instability/combined_instability_batch_1.csv",
+        "filename": "combined_instability_batch_1.csv",
+        "size_bytes": 197,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_05_UniProt_P0A8T7_AllTools_Bacteria",
+    "description": "UniProt P0A8T7 + All 5 tools + Bacteria",
+    "job_id": "job_66c86774200c",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 9.0,
+    "diagnostics": [
+      {
+        "file": "iapred/combined_iapred_batch_1.csv",
+        "filename": "combined_iapred_batch_1.csv",
+        "size_bytes": 1516,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "iapred/P0A8T7_iapred.csv",
+        "filename": "P0A8T7_iapred.csv",
+        "size_bytes": 1516,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/combined_molwt_batch_1.csv",
+        "filename": "combined_molwt_batch_1.csv",
+        "size_bytes": 1598,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/P0A8T7_molwt.csv",
+        "filename": "P0A8T7_molwt.csv",
+        "size_bytes": 1598,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/P0A8T7_algpred.csv",
+        "filename": "P0A8T7_algpred.csv",
+        "size_bytes": 1470,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/combined_algpred_batch_1.csv",
+        "filename": "combined_algpred_batch_1.csv",
+        "size_bytes": 1470,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/sp|P0A8T7|RPOC_ECOLI.txt",
+        "filename": "sp|P0A8T7|RPOC_ECOLI.txt",
+        "size_bytes": 53,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/combined_results.txt",
+        "filename": "combined_results.txt",
+        "size_bytes": 76,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "instability/combined_instability_batch_1.csv",
+        "filename": "combined_instability_batch_1.csv",
+        "size_bytes": 1629,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "instability/P0A8T7_instability.csv",
+        "filename": "P0A8T7_instability.csv",
+        "size_bytes": 1629,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "PNC_06_MultiSeqFASTA_AllTools_Bacteria",
+    "description": "Multi-Sequence FASTA + All 5 tools + Bacteria",
+    "job_id": "job_8868e76155da",
+    "submit_success": true,
+    "job_success": true,
+    "execution_time_sec": 9.0,
+    "diagnostics": [
+      {
+        "file": "iapred/combined_iapred_batch_1.csv",
+        "filename": "combined_iapred_batch_1.csv",
+        "size_bytes": 256,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 2,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "iapred/seq1_outer_mem_iapred.csv",
+        "filename": "seq1_outer_mem_iapred.csv",
+        "size_bytes": 146,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "iapred/seq2_cytoplasmic_iapred.csv",
+        "filename": "seq2_cytoplasmic_iapred.csv",
+        "size_bytes": 175,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Header",
+          "IAscore",
+          "Antigenicity_Category",
+          "UniProt_ID",
+          "Epitope_Sequence"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/seq2_cytoplasmic_molwt.csv",
+        "filename": "seq2_cytoplasmic_molwt.csv",
+        "size_bytes": 158,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "molwt/combined_molwt_batch_1.csv",
+        "filename": "combined_molwt_batch_1.csv",
+        "size_bytes": 158,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Molecular_Weight"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/seq2_cytoplasmic_algpred.csv",
+        "filename": "seq2_cytoplasmic_algpred.csv",
+        "size_bytes": 138,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "algpred/combined_algpred_batch_1.csv",
+        "filename": "combined_algpred_batch_1.csv",
+        "size_bytes": 138,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Sequence",
+          "Score",
+          "Prediction"
+        ],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/seq1_outer_mem.txt",
+        "filename": "seq1_outer_mem.txt",
+        "size_bytes": 39,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/seq2_cytoplasmic.txt",
+        "filename": "seq2_cytoplasmic.txt",
+        "size_bytes": 86,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "wolfpsort/combined_results.txt",
+        "filename": "combined_results.txt",
+        "size_bytes": 148,
+        "http_status": 200,
+        "valid_csv": false,
+        "num_rows": 0,
+        "columns": [],
+        "issues": []
+      },
+      {
+        "file": "instability/seq2_cytoplasmic_instability.csv",
+        "filename": "seq2_cytoplasmic_instability.csv",
+        "size_bytes": 194,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      },
+      {
+        "file": "instability/combined_instability_batch_1.csv",
+        "filename": "combined_instability_batch_1.csv",
+        "size_bytes": 194,
+        "http_status": 200,
+        "valid_csv": true,
+        "num_rows": 1,
+        "columns": [
+          "Sequence_ID",
+          "Description",
+          "Sequence",
+          "Instability_Index",
+          "Stability",
+          "Stability_Score"
+        ],
+        "issues": []
+      }
+    ],
+    "error": null
+  }
+]

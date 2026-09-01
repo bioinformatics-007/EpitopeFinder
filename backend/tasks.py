@@ -1,5 +1,5 @@
 """
-EpitopeFinder — Celery tasks wrapping core_pipeline.execute().
+EpitopePred — Celery tasks wrapping core_pipeline.execute().
 
 Each submitted job becomes a Celery task. Job metadata (status,
 progress, outputs) is persisted as a JSON file in the results
@@ -7,6 +7,8 @@ directory so that the API can poll without hitting Celery.
 """
 import json
 import logging
+import os
+import shutil
 import sys
 from pathlib import Path
 from datetime import datetime
@@ -18,7 +20,7 @@ _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-logger = logging.getLogger("epitopefinder.tasks")
+logger = logging.getLogger("epitopepred.tasks")
 
 # ── Job metadata helpers ─────────────────────────────────────────
 
@@ -44,10 +46,10 @@ def _write_meta(job_id: str, meta: dict):
 
 # ── Celery Task ──────────────────────────────────────────────────
 
-@celery_app.task(bind=True, name="epitopefinder.run_pipeline")
+@celery_app.task(bind=True, name="epitopepred.run_pipeline")
 def run_pipeline(self, job_id: str, request_dict: dict):
     """
-    Execute a EpitopeFinder pipeline strategy asynchronously.
+    Execute a EpitopePred pipeline strategy asynchronously.
 
     Parameters
     ----------
@@ -98,10 +100,30 @@ def run_pipeline(self, job_id: str, request_dict: dict):
         )
 
         # ── Fix: Daemonic processes are not allowed to have children ──
-        # Celery workers are daemonic by default, which prevents final.py 
+        # Celery workers are daemonic by default, which prevents final.py
         # from using mp.Pool(). We override this flag for the task process.
         import multiprocessing
         multiprocessing.current_process().daemon = False
+
+        # ── Inject runtime environment so tools resolve correctly ─────
+        # Ensure conda env bin is on PATH so shutil.which('blastp') works
+        _conda_env_bin = Path(sys.executable).parent
+        current_path = os.environ.get("PATH", "")
+        if str(_conda_env_bin) not in current_path:
+            os.environ["PATH"] = f"{_conda_env_bin}:{current_path}"
+        # Set BLAST_PATH explicitly if not already set
+        if not os.environ.get("BLAST_PATH"):
+            _blastp = shutil.which("blastp") or str(_conda_env_bin / "blastp")
+            os.environ["BLAST_PATH"] = _blastp
+        # Set CLBTOPE_DB if not already set
+        if not os.environ.get("CLBTOPE_DB"):
+            _clbtope = _PROJECT_ROOT / "tools" / "clbtope" / "clbtope" / "Database"
+            os.environ["CLBTOPE_DB"] = str(_clbtope)
+        # Set CELERY_BROKER_URL to localhost if it's still pointing at docker hostname
+        if os.environ.get("CELERY_BROKER_URL", "").startswith("redis://redis:"):
+            os.environ["CELERY_BROKER_URL"] = "redis://localhost:6379/0"
+            os.environ["CELERY_RESULT_BACKEND"] = "redis://localhost:6379/0"
+        logger.info(f"[task env] BLAST_PATH={os.environ['BLAST_PATH']}, CLBTOPE_DB={os.environ['CLBTOPE_DB']}")
 
         result = execute(request)
 

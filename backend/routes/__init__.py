@@ -1,3 +1,3 @@
 """
-EpitopeFinder — Routes init
+EpitopePred — Routes init
 """

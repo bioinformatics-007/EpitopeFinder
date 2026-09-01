@@ -1,6 +1,6 @@
-# EpitopeFinder
+# EpitopePred
 
-**EpitopeFinder** is a web-based bioinformatics platform for multi-epitope vaccine design against bacterial, viral, protozoal, and fungal pathogens.
+**EpitopePred** is a web-based bioinformatics platform for multi-epitope vaccine design against bacterial, viral, protozoal, and fungal pathogens.
 
 It integrates 30+ bioinformatics tools into a unified pipeline with a modern web interface, enabling end-to-end vaccine design from epitope prediction to final construct assembly.
 
@@ -51,21 +51,21 @@ It integrates 30+ bioinformatics tools into a unified pipeline with a modern web
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/EpitopeFinder/EpitopeFinder.git
-cd EpitopeFinder
+git clone https://github.com/EpitopePred/EpitopePred.git
+cd EpitopePred
 ```
 
 ### 2. Set Up the Python Environment
 
 ```bash
-conda env create -f epitopefinder_web_env.yml
-conda activate epitopefinder_web_env
+conda env create -f epitopepred_web_env.yml
+conda activate epitopepred_web_env
 ```
 
 > **Full CLI environment** (includes all ML/Bioinformatics libraries):
 > ```bash
-> conda env create -f epitopefinder_new_env.yml
-> conda activate epitopefinder_new
+> conda env create -f epitopepred_new_env.yml
+> conda activate epitopepred_new
 > pip install fastapi==0.111.0 uvicorn[standard]==0.29.0 celery[redis]==5.4.0 pydantic==2.7.2 python-multipart==0.0.9
 > ```
 
@@ -109,15 +109,15 @@ See **[Web Execution Guide](docs/web_execution_guide.md)** for full instructions
 
 ```bash
 # Terminal 1: Redis
-docker run -d --name epitopefinder_redis -p 6379:6379 redis:7-alpine
+docker run -d --name epitopepred_redis -p 6379:6379 redis:7-alpine
 
 # Terminal 2: Backend
-conda activate epitopefinder_web_env
+conda activate epitopepred_web_env
 export CLBTOPE_DB=$(pwd)/tools/clbtope/clbtope/Database
 uvicorn backend.main:app --host 0.0.0.0 --port 8000
 
 # Terminal 3: Celery Worker
-conda activate epitopefinder_web_env
+conda activate epitopepred_web_env
 export CLBTOPE_DB=$(pwd)/tools/clbtope/clbtope/Database
 celery -A backend.celery_app worker --loglevel=info
 

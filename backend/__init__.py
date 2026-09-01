@@ -1,3 +1,3 @@
 """
-EpitopeFinder — FastAPI Backend
+EpitopePred — FastAPI Backend
 """

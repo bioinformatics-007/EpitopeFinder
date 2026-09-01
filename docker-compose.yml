@@ -1,14 +1,14 @@
-version: '3.8'
-
 services:
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        BACKEND_URL: http://backend:8000
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - BACKEND_URL=http://backend:8000
     depends_on:
       - backend
 
@@ -25,6 +25,8 @@ services:
       - ./uploads:/app/uploads
       - ./tools:/app/tools
       - ./model_sav:/app/model_sav
+      - ./modules:/app/modules
+      - ./backend:/app/backend
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8000/api/health"]
       interval: 10s
@@ -45,6 +47,8 @@ services:
       - ./uploads:/app/uploads
       - ./tools:/app/tools
       - ./model_sav:/app/model_sav
+      - ./modules:/app/modules
+      - ./backend:/app/backend
     depends_on:
       - redis
 

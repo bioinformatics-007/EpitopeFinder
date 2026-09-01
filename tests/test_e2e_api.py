@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-EpitopeFinder E2E API Test Suite — v3 (Fixed)
+EpitopePred E2E API Test Suite — v3 (Fixed)
 
 Fixes from v2:
 - All tests using the Monkeypox virus sequence now correctly set pathogen_type="virus"
@@ -428,7 +428,7 @@ def run_test(case):
 
 def main():
     print("\n" + "=" * 60)
-    print("  EpitopeFinder E2E API Test Suite v3")
+    print("  EpitopePred E2E API Test Suite v3")
     print("=" * 60)
 
     results = []

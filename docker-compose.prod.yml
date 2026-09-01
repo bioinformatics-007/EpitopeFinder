@@ -1,5 +1,5 @@
 # ==============================================================================
-# EpitopeFinder — Production Docker Compose Overlay
+# EpitopePred — Production Docker Compose Overlay
 # ==============================================================================
 # Use with the base file:
 #   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
@@ -12,20 +12,19 @@
 #   - Adds restart: always policies for self-healing
 # ==============================================================================
 
-version: '3.8'
-
 services:
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        # NEXT_PUBLIC_* vars must be baked in at build time — pass via build arg
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        BACKEND_URL: http://backend:8000
     env_file: .env
     restart: always
     environment:
       - NODE_ENV=production
+      - PORT=3000
+      - BACKEND_URL=http://backend:8000
 
   backend:
     env_file: .env

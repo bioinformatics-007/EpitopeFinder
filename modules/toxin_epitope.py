@@ -6,6 +6,7 @@ import argparse
 from pathlib import Path
 
 def run_toxinpred3(input_file, output_file):
+    input_file = Path(input_file).resolve()
     # Determine the root directory two levels above this script
     ROOT_DIR = Path(__file__).resolve().parents[1]
 

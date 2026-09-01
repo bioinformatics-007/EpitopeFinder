@@ -45,6 +45,8 @@ def epitopes_on_vaccine(epitopes_all, order, nums):
     
     names = ['B-cell', 'CTL', 'HTL']
     df_data = {n: [] for n in names}
+    if not all_epitopes_combined:
+        return {n: ["N/A"] for n in names}
     for row in all_epitopes_combined:
         curr_idx = 0
         for cat_idx in order:

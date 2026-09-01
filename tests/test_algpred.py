@@ -15,7 +15,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'm
 from algpred import print_status, is_csv_empty, get_fasta_sequences, validate_fasta_file, verify_output_files, run_algpred
 
 # Configure logging for tests
-logger = logging.getLogger("EpitopeFinder")
+logger = logging.getLogger("EpitopePred")
 
 @pytest.fixture
 def temp_fasta_file():
@@ -35,7 +35,7 @@ def temp_dir():
 @pytest.fixture
 def caplog(caplog):
     """Fixture to capture log messages."""
-    caplog.set_level(logging.INFO, logger="EpitopeFinder")
+    caplog.set_level(logging.INFO, logger="EpitopePred")
     return caplog
 
 def test_print_status(capsys, caplog):
@@ -289,7 +289,8 @@ def test_run_algpred_failure(mock_uuid, mock_subprocess_run, mock_validate_fasta
 
     # Mock subprocess.run with fallback logic
     def side_effect(*args, **kwargs):
-        if " -m 2 " in args[0]:
+        cmd_str = " ".join(args[0]) if isinstance(args[0], list) else str(args[0])
+        if " -m 2 " in cmd_str:
             pd.DataFrame({
                 "Sequence": ["ACDEFGHIK"],
                 "Score": [0.8],

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-core_pipeline.py — Programmatic API for EpitopeFinder
+core_pipeline.py — Programmatic API for EpitopePred
 
-This module provides a clean, non-interactive interface to the EpitopeFinder
+This module provides a clean, non-interactive interface to the EpitopePred
 vaccine design pipeline.  It is consumed by:
   • The FastAPI backend  (backend/tasks.py)
   • Unit / integration tests
@@ -52,7 +52,7 @@ class AssemblyConfig:
 
 @dataclass
 class PipelineRequest:
-    """All parameters needed to run a EpitopeFinder strategy."""
+    """All parameters needed to run a EpitopePred strategy."""
     input_value: str                        # FASTA file path or UniProt ID
     strategy: int                           # 1-6
     pathogen_type: str = "bacteria"         # bacteria / virus / protozoa / fungi
@@ -78,7 +78,7 @@ class PipelineResult:
 
 
 # ---------------------------------------------------------------------------
-# Imports from the existing EpitopeFinder codebase
+# Imports from the existing EpitopePred codebase
 # ---------------------------------------------------------------------------
 # We add the project root to sys.path so that ``from modules.xxx`` works
 # regardless of the working directory.
@@ -97,7 +97,7 @@ def _resolve_input(input_value: str, logger) -> tuple:
     """Return (input_file: Path, temp_dir: Path | None, is_uniprot: bool)."""
     from final import fetch_uniprot_sequence, validate_fasta_file
 
-    temp_dir = Path(tempfile.mkdtemp(prefix="epitopefinder_"))
+    temp_dir = Path(tempfile.mkdtemp(prefix="epitopepred_"))
 
     # Case 1: raw FASTA content pasted by user (starts with '>')
     if input_value.strip().startswith(">"):
@@ -128,7 +128,7 @@ def _resolve_input(input_value: str, logger) -> tuple:
 
 def execute(request: PipelineRequest) -> PipelineResult:
     """
-    Run a EpitopeFinder strategy **without any interactive prompts**.
+    Run a EpitopePred strategy **without any interactive prompts**.
 
     Parameters
     ----------
@@ -140,6 +140,18 @@ def execute(request: PipelineRequest) -> PipelineResult:
     PipelineResult
         Structured result with paths to every output file.
     """
+    # Self-heal dependencies inside container at runtime if needed
+    try:
+        import sklearn
+        if sklearn.__version__ != "1.2.2":
+            import subprocess
+            import sys
+            print(f"[Self-Heal] Aligning scikit-learn version from {sklearn.__version__} to 1.2.2...")
+            subprocess.run([sys.executable, "-m", "pip", "install", "scikit-learn==1.2.2", "fair-esm", "pybiolib", "onnxruntime"], check=True)
+            print("[Self-Heal] Alignment completed successfully. Please reload/import.")
+    except Exception as e:
+        print(f"[Self-Heal] Dependency alignment failed: {e}")
+
     # Lazy imports — keeps module import lightweight
     from final import (
         setup_logging,
@@ -159,7 +171,7 @@ def execute(request: PipelineRequest) -> PipelineResult:
     import uuid
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     job_id = request.job_id or f"job_{timestamp}_{uuid.uuid4().hex[:8]}"
-    results_base = _PROJECT_ROOT / f"Results_{job_id}"
+    results_base = _PROJECT_ROOT / "Results" / job_id
     results_dir = results_base / f"strategy_{request.strategy}"
     results_dir.mkdir(parents=True, exist_ok=True)
 
@@ -239,6 +251,8 @@ def execute(request: PipelineRequest) -> PipelineResult:
                 input_file, confirmed_type, results_dir, logger,
                 batch_files, batch_dirs, uniprot_mapping,
                 failed_tools=[],
+                _mhci_method=request.mhci_method,
+                _mhcii_method=request.mhcii_method,
             )
 
         elif request.strategy == 5:

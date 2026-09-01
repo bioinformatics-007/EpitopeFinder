@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Tabs } from '@/components/ui/Tabs';
 import { DataTable } from '@/components/results/DataTable';
 
+import { api } from '@/lib/api';
 import { Button } from '@/components/ui/Button';
 
 interface ResultsViewerProps {
@@ -35,7 +36,14 @@ export function ResultsViewer({ outputs, jobId }: ResultsViewerProps) {
             </div>
           </div>
           
-          <Button variant="outline" size="sm" className="rounded-sm font-bold border-stone-200 hover:bg-amber-50 hover:text-amber-700 ">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="rounded-sm font-bold border-stone-200 hover:bg-amber-50 hover:text-amber-700"
+            onClick={() => {
+              window.location.href = api.getZipDownloadUrl(jobId);
+            }}
+          >
              Download All (ZIP)
           </Button>
         </div>

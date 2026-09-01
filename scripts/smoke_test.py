@@ -10,7 +10,7 @@ MAX_POLL_RETRIES = 30
 POLL_INTERVAL = 10
 
 def run_smoke_test():
-    print("--- Starting EpitopeFinder Smoke Test ---")
+    print("--- Starting EpitopePred Smoke Test ---")
     
     # 1. Check health endpoint
     try:

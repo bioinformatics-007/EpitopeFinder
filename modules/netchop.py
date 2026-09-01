@@ -50,31 +50,11 @@ def get_sequence_id(input_fasta):
 def plot_results(csv_file, output_dir, method, seq_id):
     """
     Generate a bar plot for the top 10 peptides/amino acids by score from a NetChop CSV file.
-
-    Args:
-        csv_file (str): Path to the CSV file.
-        output_dir (str): Directory to save the plot.
-        method (str): Method name (e.g., 'netchop', 'netctlpan') for naming the plot.
-        seq_id (str): Sequence ID for plot naming.
     """
     try:
         print_status(f"Using output_dir for plot: {output_dir}", "info")
-        # Read CSV file
-        df = pd.read_csv(csv_file, header=None)
-        
-        # Find the header row (starts with '#')
-        header_row = df[df[0].str.startswith('#')].iloc[0][0]
-        headers = header_row.lstrip('#').split('\t')
-        
-        # Filter data rows (exclude header and metadata)
-        data_rows = df[~df[0].str.startswith(('#', 'tr|'))].copy()
-        
-        # Parse tab-separated data
-        data_rows['split'] = data_rows[0].str.split('\t')
-        data_rows = pd.DataFrame(data_rows['split'].tolist(), columns=headers, index=data_rows.index)
-        
-        print_status(f"Columns in {csv_file}: {headers}", "info")
-        print_status(f"First few rows:\n{data_rows.head().to_string()}", "info")
+        df_raw = pd.read_csv(csv_file)
+        headers = list(df_raw.columns)
         
         if method == 'netchop':
             peptide_col = 'amino_acid'
@@ -88,11 +68,12 @@ def plot_results(csv_file, output_dir, method, seq_id):
             return
 
         # Convert score column to numeric
-        data_rows[score_col] = pd.to_numeric(data_rows[score_col], errors='coerce')
+        df_raw[score_col] = pd.to_numeric(df_raw[score_col], errors='coerce')
         
         # Sort by score and take top 10
-        df = data_rows.sort_values(by=score_col, ascending=False).head(10)
-        peptides = df[peptide_col]
+        df = df_raw.sort_values(by=score_col, ascending=False).head(10)
+        peptides = df[peptide_col].astype(str)
+        scores = df[score_col]
         scores = df[score_col]
 
         # Create bar plot
@@ -162,9 +143,21 @@ def run_netchop(input_fasta, output_dir=".", method="netchop", threshold=None, o
             text=True,
             check=True
         )
-        # Write the captured stdout to the output file
+        # Parse and clean stdout into standard CSV format
+        lines = result.stdout.splitlines()
+        csv_rows = []
+        for line in lines:
+            if "amino_acid" in line or "prediction_score" in line or "combined_prediction_score" in line:
+                headers = [h.strip() for h in line.lstrip("#").split("\t") if h.strip()]
+                csv_rows.append(",".join(headers))
+            elif "\t" in line:
+                parts = [p.strip() for p in line.split("\t") if p.strip()]
+                if len(parts) >= 3 and parts[0].isdigit():
+                    csv_rows.append(",".join(parts))
+
+        clean_csv = "\n".join(csv_rows) if csv_rows else result.stdout
         with open(output_path, "w") as out:
-            out.write(result.stdout)
+            out.write(clean_csv)
         print_status(f"{method} ran successfully. Output saved to: {output_path}", "success")
         # Generate plot for the results
         plot_results(output_path, output_dir, method, seq_id)
